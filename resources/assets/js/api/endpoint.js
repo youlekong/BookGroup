@@ -1,65 +1,65 @@
 
 // index
-export const getSysInfo = '/sysInfo';
+export const getSysInfo = '/admin/sysInfo';
 
 // 用户
-export const getUsers = '/user/index';
-export const updateUser = '/user/update';
-export const createUser = '/user/create';
-export const deleteUser = '/user/delete';
+export const getUsers = '/admin/user/index';
+export const updateUser = '/admin/user/update';
+export const createUser = '/admin/user/create';
+export const deleteUser = '/admin/user/delete';
 
 // 书籍
-export const getBooks = '/book/index';
-export const updateBook = '/book/update';
-export const createBook = '/book/create';
-export const deleteBook = '/book/delete';
+export const getBooks = '/admin/book/index';
+export const updateBook = '/admin/book/update';
+export const createBook = '/admin/book/create';
+export const deleteBook = '/admin/book/delete';
 
 // 书籍类别
-export const getBookCates = '/bookCate/index';
-export const updateBookCate = '/bookCate/update';
-export const createBookCate = '/bookCate/create';
-export const deleteBookCate = '/bookCate/delete';
-export const getAllBookCates = '/bookCate/allCates';
+export const getBookCates = '/admin/bookCate/index';
+export const updateBookCate = '/admin/bookCate/update';
+export const createBookCate = '/admin/bookCate/create';
+export const deleteBookCate = '/admin/bookCate/delete';
+export const getAllBookCates = '/admin/bookCate/allCates';
 
 // 书籍评论
-export const getBookComments = '/bookComment/index';
+export const getBookComments = '/admin/bookComment/index';
 // export const updateBookComment = '/bookComment/update';
 // export const createBookComment = '/bookComment/create';
-export const deleteBookComment = '/bookComment/delete';
+export const deleteBookComment = '/admin/bookComment/delete';
 
 // 文章
-export const getArticles = '/article/index';
-export const updateArticle = '/article/update';
-export const createArticle = '/article/create';
-export const deleteArticle = '/article/delete';
+export const getArticles = '/admin/article/index';
+export const updateArticle = '/admin/article/update';
+export const createArticle = '/admin/article/create';
+export const deleteArticle = '/admin/article/delete';
 
 // 文章评论
-export const getArticleComments = '/articleComment/index';
+export const getArticleComments = '/admin/articleComment/index';
 // export const updateArticleComment = '/articleComment/update';
 // export const createArticleComment = '/articleComment/create';
-export const deleteArticleComment = '/articleComment/delete';
+export const deleteArticleComment = '/admin/articleComment/delete';
 
 // 书圈
-export const getGroups = '/group/index';
-export const updateGroup = '/group/update';
-export const createGroup = '/group/create';
-export const deleteGroup = '/group/delete';
+export const getGroups = '/admin/group/index';
+export const updateGroup = '/admin/group/update';
+export const createGroup = '/admin/group/create';
+export const deleteGroup = '/admin/group/delete';
 
 // 书籍类别
-export const getGroupCates = '/groupCate/index';
-export const updateGroupCate = '/groupCate/update';
-export const createGroupCate = '/groupCate/create';
-export const deleteGroupCate = '/groupCate/delete';
-export const getAllGroupCates = '/groupCate/allCates';
+export const getGroupCates = '/admin/groupCate/index';
+export const updateGroupCate = '/admin/groupCate/update';
+export const createGroupCate = '/admin/groupCate/create';
+export const deleteGroupCate = '/admin/groupCate/delete';
+export const getAllGroupCates = '/admin/groupCate/allCates';
 
 // 活动
-export const getActivities = '/activity/index';
-export const createActivity = '/activity/create';
-export const updateActivity = '/activity/update';
-export const deleteActivity = '/activity/update';
+export const getActivities = '/admin/activity/index';
+export const createActivity = '/admin/activity/create';
+export const updateActivity = '/admin/activity/update';
+export const deleteActivity = '/admin/activity/update';
 
 // 租赁
-export const getRentals = '/rental/index';
-export const createRental = '/rental/create';
-export const updateRental = '/rental/update';
-export const deleteRental = '/rental/update';
+export const getRentals = '/admin/rental/index';
+export const createRental = '/admin/rental/create';
+export const updateRental = '/admin/rental/update';
+export const deleteRental = '/admin/rental/update';

@@ -1,32 +1,36 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
-use App\Models\Group;
-use App\Http\Requests\GroupRequest;
+use App\Http\Requests\ArticleRequest;
+use App\Models\Article;
 use App\Models\User;
 
-class GroupController extends ApiController
+class ArticleController extends ApiController
 {
 
     public function index()
     {
-        $params = request()->all();
+        $params = request()->input();
 
-        $model = Group::with(['cate', 'user']);
+        $model = Article::with(['user', 'activity', 'book']);
         // filter
 //        if (!empty($params['keyword'])) {
 //            $kw = $params['keyword'];
 //            $model = $model->where('id', 'like', "%{$kw}%")
-//                ->orWhere('name', 'like', "%{$kw}%");
+//                ->orWhere('title', 'like', "%{$kw}%");
 //        }
-
         if ( !empty($params['id']) ) {
             $model = $model->where('id', $params['id']);
         }
 
-        if ( !empty($params['name']) ) {
-            $model = $model->where('name', $params['name']);
+        if ( !empty($params['title']) ) {
+            $model = $model->where('title', $params['title']);
+        }
+
+        if ( !empty($params['desc']) ) {
+            $desc = $params['desc'];
+            $model = $model->where('desc', 'like', "%{$desc}");
         }
 
         if ( !empty($params['u_name']) ) {
@@ -38,11 +42,11 @@ class GroupController extends ApiController
         return $this->success($data);
     }
 
-    public function create(GroupRequest $request)
+    public function create(ArticleRequest $request)
     {
         $params = $request->all();
 
-        $result = Group::create($params);
+        $result = Article::create($params);
         if (!$result ) {
             return $this->error('新增失败');
         }
@@ -50,7 +54,7 @@ class GroupController extends ApiController
         return $this->success('新建成功');
     }
 
-    public function update(GroupRequest $request, Group $model)
+    public function update(ArticleRequest $request, Article $model)
     {
         $params = $request->all();
         $id = $params['id'];
@@ -64,11 +68,11 @@ class GroupController extends ApiController
         return $this->success('更新成功');
     }
 
-    public function delete(GroupRequest $request)
+    public function delete(ArticleRequest $request)
     {
         $id = $request->input('id');
 
-        $result = Group::destroy($id);
+        $result = Article::destroy($id);
         if ( !$result ) {
             return $this->error('删除失败');
         }

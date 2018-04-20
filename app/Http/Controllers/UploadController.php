@@ -6,7 +6,7 @@ use Auth;
 use Illuminate\Http\Request;
 use App\Handlers\UploadHandler;
 
-class UploadController extends ApiController
+class UploadController extends Controller
 {
     /*
     |--------------------------------------------------------------------------
@@ -36,8 +36,7 @@ class UploadController extends ApiController
 
         // 如果上传的不是图片将终止操作
         if ( ! in_array($request->folder, $this->folder)) {
-//            return $data;
-            $this->error('上传失败');
+            return $data;
         }
 
         // 判断是否有上传文件，并赋值给 $file

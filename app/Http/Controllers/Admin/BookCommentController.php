@@ -1,26 +1,26 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
-use App\Http\Requests\ArticleCommentRequest;
-use App\Models\Article;
-use App\Models\ArticleComment;
+use App\Http\Requests\BookCommentRequest;
+use App\Models\BookComment;
 
+use App\Models\Book;
 use App\Models\User;
 
-class ArticleCommentController extends ApiController
+class BookCommentController extends ApiController
 {
 
     public function index()
     {
-        $params = request()->input();
+        $params = request()->all();
 
-        $model = ArticleComment::with(['user', 'article']);
+        $model = BookComment::with(['user', 'book']);
         // filter
 //        if (!empty($params['keyword'])) {
 //            $kw = $params['keyword'];
 //            $model = $model->where('id', 'like', "%{$kw}%")
-//                ->orWhere('a_name', 'like', "%{$kw}%");
+//                ->orWhere('content', 'like', "%{$kw}%");
 //        }
         if ( !empty($params['id']) ) {
             $model->where('id', $params['id']);
@@ -36,20 +36,20 @@ class ArticleCommentController extends ApiController
             $model = $model->whereIn('u_id', $u_ids);
         }
 
-        if ( !empty($params['a_title']) ) {
-            $ids = Article::where('name', $params['a_title'])->select('id');
-            $model = $model->whereIn('a_id', $ids);
+        if ( !empty($params['b_name']) ) {
+            $b_ids = Book::where('name', $params['b_name'])->select('id');
+            $model = $model->whereIn('b_id', $b_ids);
         }
 
         $data = $model->select()->paginate($this->pageNum);
         return $this->success($data);
     }
 
-    public function create(ArticleCommentRequest $request)
+    public function create(BookCommentRequest $request)
     {
         $params = $request->all();
 
-        $result = ArticleComment::create($params);
+        $result = BookComment::create($params);
         if (!$result ) {
             return $this->error('新增失败');
         }
@@ -57,7 +57,7 @@ class ArticleCommentController extends ApiController
         return $this->success('新建成功');
     }
 
-    public function update(ArticleCommentRequest $request, ArticleComment $model)
+    public function update(BookCommentRequest $request, BookComment $model)
     {
         $params = $request->all();
         $id = $params['id'];
@@ -71,11 +71,11 @@ class ArticleCommentController extends ApiController
         return $this->success('更新成功');
     }
 
-    public function delete(ArticleCommentRequest $request)
+    public function delete(BookCommentRequest $request)
     {
         $id = $request->input('id');
 
-        $result = ArticleComment::destroy($id);
+        $result = BookComment::destroy($id);
         if ( !$result ) {
             return $this->error('删除失败');
         }
