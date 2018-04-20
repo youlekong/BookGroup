@@ -2,6 +2,9 @@
 // index
 export const getSysInfo = '/admin/sysInfo';
 
+// 登录
+export const login = '/admin/login';
+
 // 用户
 export const getUsers = '/admin/user/index';
 export const updateUser = '/admin/user/update';

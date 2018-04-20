@@ -95,15 +95,13 @@
                 this.getUser();
             },
             handleAdd() {
-                this.form = {
-                    'name': '',
-                    'password': ''
-                };
+                this.form = {   'name': '', 'password': ''};
                 this.type = 0;
                 this.showDialog = true
             },
             handleEdit(index, row) {
                 this.form = Object.assign({}, row);
+                this.form.password = '';
                 this.type = 1;
                 this.showDialog = true;
             },

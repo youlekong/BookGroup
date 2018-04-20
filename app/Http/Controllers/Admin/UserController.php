@@ -4,9 +4,16 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Requests\UserRequest;
 use App\Models\User;
+use App;
 
 class UserController extends ApiController
 {
+    private $bHash;
+
+    public function __construct()
+    {
+        $this->bHash = App::make('hash');
+    }
 
     public function index(User $user)
     {
@@ -27,7 +34,12 @@ class UserController extends ApiController
     {
         $params = $request->all();
 
-        $result = User::create($params);
+        $user = [
+            'name' => $params['name'],
+            'password' => $this->bHash->make($params['password'])
+        ];
+
+        $result = User::create($user);
         if (!$result ) {
             return $this->error('新增失败');
         }
@@ -41,7 +53,11 @@ class UserController extends ApiController
         $id = $params['id'];
         unset($params['id']);
 
-        $result = $user->where(['id' => $id])->update($params);
+        $data = [
+            'name' => $params['name'],
+            'password' => $this->bHash->make($params['password'])
+        ];
+        $result = $user->where(['id' => $id])->update($data);
         if (!$result ) {
             return $this->error('更新失败');
         }

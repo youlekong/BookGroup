@@ -15,9 +15,7 @@ Route::get('/', function () {
     return view('admin');
 });
 
-Auth::routes();
-
-//Route::get('/home', 'HomeController@index')->name('home');
+Route::post('admin/login', 'Admin\LoginController@login');
 
 // 文件上传相关路由
 Route::post('upload/image', 'UploadController@image');

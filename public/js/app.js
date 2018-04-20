@@ -11767,46 +11767,47 @@ module.exports = Vue;
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+/* harmony export (immutable) */ __webpack_exports__["F"] = apiLogin;
 /* harmony export (immutable) */ __webpack_exports__["D"] = apiGetSysInfo;
 /* harmony export (immutable) */ __webpack_exports__["E"] = apiGetUsers;
 /* harmony export (immutable) */ __webpack_exports__["h"] = apiCreateUser;
-/* harmony export (immutable) */ __webpack_exports__["M"] = apiUpdateUser;
+/* harmony export (immutable) */ __webpack_exports__["N"] = apiUpdateUser;
 /* harmony export (immutable) */ __webpack_exports__["r"] = apiDeleteUser;
 /* harmony export (immutable) */ __webpack_exports__["z"] = apiGetBooks;
 /* harmony export (immutable) */ __webpack_exports__["c"] = apiCreateBook;
-/* harmony export (immutable) */ __webpack_exports__["H"] = apiUpdateBook;
+/* harmony export (immutable) */ __webpack_exports__["I"] = apiUpdateBook;
 /* harmony export (immutable) */ __webpack_exports__["l"] = apiDeleteBook;
 /* harmony export (immutable) */ __webpack_exports__["x"] = apiGetBookCates;
 /* harmony export (immutable) */ __webpack_exports__["d"] = apiCreateBookCate;
-/* harmony export (immutable) */ __webpack_exports__["I"] = apiUpdateBookCate;
+/* harmony export (immutable) */ __webpack_exports__["J"] = apiUpdateBookCate;
 /* harmony export (immutable) */ __webpack_exports__["m"] = apiDeleteBookCate;
 /* harmony export (immutable) */ __webpack_exports__["t"] = apiGetAllBookCate;
 /* harmony export (immutable) */ __webpack_exports__["y"] = apiGetBookComments;
 /* harmony export (immutable) */ __webpack_exports__["n"] = apiDeleteBookComment;
 /* harmony export (immutable) */ __webpack_exports__["w"] = apiGetArticles;
 /* harmony export (immutable) */ __webpack_exports__["b"] = apiCreateArticle;
-/* harmony export (immutable) */ __webpack_exports__["G"] = apiUpdateArticle;
+/* harmony export (immutable) */ __webpack_exports__["H"] = apiUpdateArticle;
 /* harmony export (immutable) */ __webpack_exports__["j"] = apiDeleteArticle;
 /* harmony export (immutable) */ __webpack_exports__["v"] = apiGetArticleComments;
 /* harmony export (immutable) */ __webpack_exports__["k"] = apiDeleteArticleComment;
 /* harmony export (immutable) */ __webpack_exports__["B"] = apiGetGroups;
 /* harmony export (immutable) */ __webpack_exports__["e"] = apiCreateGroup;
-/* harmony export (immutable) */ __webpack_exports__["J"] = apiUpdateGroup;
+/* harmony export (immutable) */ __webpack_exports__["K"] = apiUpdateGroup;
 /* harmony export (immutable) */ __webpack_exports__["o"] = apiDeleteGroup;
 /* harmony export (immutable) */ __webpack_exports__["A"] = apiGetGroupCates;
 /* harmony export (immutable) */ __webpack_exports__["f"] = apiCreateGroupCate;
-/* harmony export (immutable) */ __webpack_exports__["K"] = apiUpdateGroupCate;
+/* harmony export (immutable) */ __webpack_exports__["L"] = apiUpdateGroupCate;
 /* harmony export (immutable) */ __webpack_exports__["p"] = apiDeleteGroupCate;
 /* harmony export (immutable) */ __webpack_exports__["u"] = apiGetAllGroupCate;
 /* harmony export (immutable) */ __webpack_exports__["s"] = apiGetActivities;
 /* harmony export (immutable) */ __webpack_exports__["a"] = apiCreateActivity;
-/* harmony export (immutable) */ __webpack_exports__["F"] = apiUpdateActivity;
+/* harmony export (immutable) */ __webpack_exports__["G"] = apiUpdateActivity;
 /* harmony export (immutable) */ __webpack_exports__["i"] = apiDeleteActivity;
 /* harmony export (immutable) */ __webpack_exports__["C"] = apiGetRentals;
 /* harmony export (immutable) */ __webpack_exports__["g"] = apiCreateRental;
-/* harmony export (immutable) */ __webpack_exports__["L"] = apiUpdateRental;
+/* harmony export (immutable) */ __webpack_exports__["M"] = apiUpdateRental;
 /* harmony export (immutable) */ __webpack_exports__["q"] = apiDeleteRental;
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__endpoint_js__ = __webpack_require__(239);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__endpoint_js__ = __webpack_require__(235);
 
 
 
@@ -11838,6 +11839,13 @@ function _serialize(data) {
     }).join('&');
 }
 
+// 登录
+function apiLogin(params) {
+    return axios.post(__WEBPACK_IMPORTED_MODULE_0__endpoint_js__["F" /* login */], params).then(function (res) {
+        return res.data;
+    });
+}
+
 // index
 function apiGetSysInfo() {
     return axios.get(__WEBPACK_IMPORTED_MODULE_0__endpoint_js__["D" /* getSysInfo */]).then(function (res) {
@@ -11863,7 +11871,7 @@ function apiCreateUser(params) {
 }
 
 function apiUpdateUser(params) {
-    return axios.post(__WEBPACK_IMPORTED_MODULE_0__endpoint_js__["M" /* updateUser */], params).then(function (res) {
+    return axios.post(__WEBPACK_IMPORTED_MODULE_0__endpoint_js__["N" /* updateUser */], params).then(function (res) {
         return res.data;
     });
 }
@@ -11892,7 +11900,7 @@ function apiCreateBook(params) {
 }
 
 function apiUpdateBook(params) {
-    return axios.post(__WEBPACK_IMPORTED_MODULE_0__endpoint_js__["H" /* updateBook */], params).then(function (res) {
+    return axios.post(__WEBPACK_IMPORTED_MODULE_0__endpoint_js__["I" /* updateBook */], params).then(function (res) {
         return res.data;
     });
 }
@@ -11921,7 +11929,7 @@ function apiCreateBookCate(params) {
 }
 
 function apiUpdateBookCate(params) {
-    return axios.post(__WEBPACK_IMPORTED_MODULE_0__endpoint_js__["I" /* updateBookCate */], params).then(function (res) {
+    return axios.post(__WEBPACK_IMPORTED_MODULE_0__endpoint_js__["J" /* updateBookCate */], params).then(function (res) {
         return res.data;
     });
 }
@@ -11985,7 +11993,7 @@ function apiCreateArticle(params) {
 }
 
 function apiUpdateArticle(params) {
-    return axios.post(__WEBPACK_IMPORTED_MODULE_0__endpoint_js__["G" /* updateArticle */], params).then(function (res) {
+    return axios.post(__WEBPACK_IMPORTED_MODULE_0__endpoint_js__["H" /* updateArticle */], params).then(function (res) {
         return res.data;
     });
 }
@@ -12031,7 +12039,7 @@ function apiCreateGroup(params) {
 }
 
 function apiUpdateGroup(params) {
-    return axios.post(__WEBPACK_IMPORTED_MODULE_0__endpoint_js__["J" /* updateGroup */], params).then(function (res) {
+    return axios.post(__WEBPACK_IMPORTED_MODULE_0__endpoint_js__["K" /* updateGroup */], params).then(function (res) {
         return res.data;
     });
 }
@@ -12060,7 +12068,7 @@ function apiCreateGroupCate(params) {
 }
 
 function apiUpdateGroupCate(params) {
-    return axios.post(__WEBPACK_IMPORTED_MODULE_0__endpoint_js__["K" /* updateGroupCate */], params).then(function (res) {
+    return axios.post(__WEBPACK_IMPORTED_MODULE_0__endpoint_js__["L" /* updateGroupCate */], params).then(function (res) {
         return res.data;
     });
 }
@@ -12095,7 +12103,7 @@ function apiCreateActivity(params) {
 }
 
 function apiUpdateActivity(params) {
-    return axios.post(__WEBPACK_IMPORTED_MODULE_0__endpoint_js__["F" /* updateActivity */], params).then(function (res) {
+    return axios.post(__WEBPACK_IMPORTED_MODULE_0__endpoint_js__["G" /* updateActivity */], params).then(function (res) {
         return res.data;
     });
 }
@@ -12124,7 +12132,7 @@ function apiCreateRental(params) {
 }
 
 function apiUpdateRental(params) {
-    return axios.post(__WEBPACK_IMPORTED_MODULE_0__endpoint_js__["L" /* updateRental */], params).then(function (res) {
+    return axios.post(__WEBPACK_IMPORTED_MODULE_0__endpoint_js__["M" /* updateRental */], params).then(function (res) {
         return res.data;
     });
 }
@@ -12677,18 +12685,6 @@ function applyToTag (styleElement, obj) {
 
 /***/ }),
 /* 11 */
-/***/ (function(module, exports) {
-
-// https://github.com/zloirock/core-js/issues/86#issuecomment-115759028
-var global = module.exports = typeof window != 'undefined' && window.Math == Math
-  ? window : typeof self != 'undefined' && self.Math == Math ? self
-  // eslint-disable-next-line no-new-func
-  : Function('return this')();
-if (typeof __g == 'number') __g = global; // eslint-disable-line no-undef
-
-
-/***/ }),
-/* 12 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -13020,7 +13016,7 @@ function getRangeRes(value, params, type, suffix) {
 
 
 /***/ }),
-/* 13 */
+/* 12 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -13033,6 +13029,18 @@ function ylTrim(s) {
         return 'not string';
     }
 }
+
+/***/ }),
+/* 13 */
+/***/ (function(module, exports) {
+
+// https://github.com/zloirock/core-js/issues/86#issuecomment-115759028
+var global = module.exports = typeof window != 'undefined' && window.Math == Math
+  ? window : typeof self != 'undefined' && self.Math == Math ? self
+  // eslint-disable-next-line no-new-func
+  : Function('return this')();
+if (typeof __g == 'number') __g = global; // eslint-disable-line no-undef
+
 
 /***/ }),
 /* 14 */
@@ -13247,7 +13255,7 @@ module.exports = function (it) {
 
 var store = __webpack_require__(47)('wks');
 var uid = __webpack_require__(29);
-var Symbol = __webpack_require__(11).Symbol;
+var Symbol = __webpack_require__(13).Symbol;
 var USE_SYMBOL = typeof Symbol == 'function';
 
 var $exports = module.exports = function (name) {
@@ -15170,7 +15178,7 @@ exports.default = function (ref) {
 /* 42 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var global = __webpack_require__(11);
+var global = __webpack_require__(13);
 var core = __webpack_require__(25);
 var ctx = __webpack_require__(155);
 var hide = __webpack_require__(17);
@@ -15289,7 +15297,7 @@ module.exports = function (key) {
 /* 47 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var global = __webpack_require__(11);
+var global = __webpack_require__(13);
 var SHARED = '__core-js_shared__';
 var store = global[SHARED] || (global[SHARED] = {});
 module.exports = function (key) {
@@ -15352,7 +15360,7 @@ exports.f = __webpack_require__(21);
 /* 54 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var global = __webpack_require__(11);
+var global = __webpack_require__(13);
 var core = __webpack_require__(25);
 var LIBRARY = __webpack_require__(50);
 var wksExt = __webpack_require__(53);
@@ -17267,7 +17275,7 @@ module.exports = !__webpack_require__(19) && !__webpack_require__(23)(function (
 /***/ (function(module, exports, __webpack_require__) {
 
 var isObject = __webpack_require__(22);
-var document = __webpack_require__(11).document;
+var document = __webpack_require__(13).document;
 // typeof document.createElement is 'object' in old IE
 var is = isObject(document) && isObject(document.createElement);
 module.exports = function (it) {
@@ -17649,16 +17657,31 @@ function required(rule, value, source, errors, options, type) {
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["a"] = ({
     data: function data() {
         return {
-            isCollapse: false,
-            activeIndex: '1',
-            activeIndex2: '1'
+            isCollapse: false
         };
     },
 
+    computed: {
+        username: function username() {
+            var username = localStorage.getItem('ms_username');
+            return username ? username : this.name;
+        }
+    },
     methods: {
         handleSelect: function handleSelect(key, keyPath) {
             console.log(key, keyPath);
@@ -17666,7 +17689,14 @@ function required(rule, value, source, errors, options, type) {
         collapsed: function collapsed() {
             this.isCollapse = !this.isCollapse;
             bus.$emit('collapse', this.isCollapse);
-        }
+        },
+        handleCommand: function handleCommand() {
+            if (command == 'loginout') {
+                //                    localStorage.removeItem('ms_username')
+                this.$router.push('/login');
+            }
+        },
+        loginout: function loginout() {}
     }
 });
 
@@ -17740,6 +17770,9 @@ function required(rule, value, source, errors, options, type) {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__api_backend__ = __webpack_require__(6);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__tools_lite_validator_js__ = __webpack_require__(11);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__tools_common_js__ = __webpack_require__(12);
 //
 //
 //
@@ -17761,6 +17794,9 @@ function required(rule, value, source, errors, options, type) {
 //
 //
 //
+
+
+
 
 
 /* harmony default export */ __webpack_exports__["a"] = ({
@@ -17768,12 +17804,48 @@ function required(rule, value, source, errors, options, type) {
         return {
             form: {
                 name: '',
-                password: ''
+                password: '',
+                remember: false
             }
         };
     },
 
-    methods: {}
+    methods: {
+        login: function login() {
+            if (!this._validateForm()) return;
+
+            var self = this;
+            Object(__WEBPACK_IMPORTED_MODULE_0__api_backend__["F" /* apiLogin */])(this.form).then(function (res) {
+                if (res.code == 1) {
+                    self.$router.push({ name: 'index' });
+                }
+            }).catch(function (err) {
+                console.log(err);
+            });
+        },
+        _validateForm: function _validateForm() {
+            // 姓名
+            if (Object(__WEBPACK_IMPORTED_MODULE_2__tools_common_js__["a" /* ylTrim */])(this.form.name).length <= 0) {
+                this.$message.error('用户名不能为空！');
+                return false;
+            }
+            if (!__WEBPACK_IMPORTED_MODULE_1__tools_lite_validator_js__["a" /* validValue */].allName(this.form.name)) {
+                this.$message.error('请输入中文字符，且长度为2到15！');
+                return false;
+            }
+
+            if (Object(__WEBPACK_IMPORTED_MODULE_2__tools_common_js__["a" /* ylTrim */])(this.form.password).length <= 0) {
+                this.$message.error('密码不能为空！');
+                return false;
+            }
+            if (!__WEBPACK_IMPORTED_MODULE_1__tools_lite_validator_js__["a" /* validValue */].password(this.form.password)) {
+                this.$message.error('请输入6-20位数字、字母、下划线，不能包含空格！');
+                return false;
+            }
+
+            return true;
+        }
+    }
 });
 
 /***/ }),
@@ -17823,8 +17895,8 @@ function required(rule, value, source, errors, options, type) {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_pagination_vue__ = __webpack_require__(7);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_tableFilter_vue__ = __webpack_require__(8);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__api_backend_js__ = __webpack_require__(6);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__tools_lite_validator_js__ = __webpack_require__(12);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__tools_common_js__ = __webpack_require__(13);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__tools_lite_validator_js__ = __webpack_require__(11);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__tools_common_js__ = __webpack_require__(12);
 //
 //
 //
@@ -17921,15 +17993,13 @@ function required(rule, value, source, errors, options, type) {
             this.getUser();
         },
         handleAdd: function handleAdd() {
-            this.form = {
-                'name': '',
-                'password': ''
-            };
+            this.form = { 'name': '', 'password': '' };
             this.type = 0;
             this.showDialog = true;
         },
         handleEdit: function handleEdit(index, row) {
             this.form = Object.assign({}, row);
+            this.form.password = '';
             this.type = 1;
             this.showDialog = true;
         },
@@ -17968,7 +18038,7 @@ function required(rule, value, source, errors, options, type) {
                     console.log(err);
                 });
             } else if (this.type === 1) {
-                Object(__WEBPACK_IMPORTED_MODULE_2__api_backend_js__["M" /* apiUpdateUser */])(this.form).then(function (res) {
+                Object(__WEBPACK_IMPORTED_MODULE_2__api_backend_js__["N" /* apiUpdateUser */])(this.form).then(function (res) {
                     if (res.code === 1) {
                         self.$message.success(res.msg);
                         self.getUser();
@@ -18174,8 +18244,8 @@ function required(rule, value, source, errors, options, type) {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_pagination_vue__ = __webpack_require__(7);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_tableFilter_vue__ = __webpack_require__(8);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__api_backend_js__ = __webpack_require__(6);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__tools_lite_validator_js__ = __webpack_require__(12);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__tools_common_js__ = __webpack_require__(13);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__tools_lite_validator_js__ = __webpack_require__(11);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__tools_common_js__ = __webpack_require__(12);
 //
 //
 //
@@ -18378,7 +18448,7 @@ function required(rule, value, source, errors, options, type) {
                 });
             } else if (this.type === 1) {
                 delete this.book.c_time;
-                Object(__WEBPACK_IMPORTED_MODULE_2__api_backend_js__["H" /* apiUpdateBook */])(this.book).then(function (res) {
+                Object(__WEBPACK_IMPORTED_MODULE_2__api_backend_js__["I" /* apiUpdateBook */])(this.book).then(function (res) {
                     if (res.code === 1) {
                         self.$message.success(res.msg);
                         self.getBook();
@@ -18449,8 +18519,8 @@ function required(rule, value, source, errors, options, type) {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_pagination_vue__ = __webpack_require__(7);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_tableFilter_vue__ = __webpack_require__(8);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__api_backend_js__ = __webpack_require__(6);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__tools_lite_validator_js__ = __webpack_require__(12);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__tools_common_js__ = __webpack_require__(13);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__tools_lite_validator_js__ = __webpack_require__(11);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__tools_common_js__ = __webpack_require__(12);
 //
 //
 //
@@ -18583,7 +18653,7 @@ function required(rule, value, source, errors, options, type) {
                     console.log(err);
                 });
             } else if (this.type === 1) {
-                Object(__WEBPACK_IMPORTED_MODULE_2__api_backend_js__["I" /* apiUpdateBookCate */])(this.form).then(function (res) {
+                Object(__WEBPACK_IMPORTED_MODULE_2__api_backend_js__["J" /* apiUpdateBookCate */])(this.form).then(function (res) {
                     if (res.code === 1) {
                         self.$message.success(res.msg);
                         self.getCates();
@@ -18737,8 +18807,8 @@ function required(rule, value, source, errors, options, type) {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_editor_vue__ = __webpack_require__(254);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_preview_vue__ = __webpack_require__(271);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__api_backend_js__ = __webpack_require__(6);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__tools_lite_validator_js__ = __webpack_require__(12);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__tools_common_js__ = __webpack_require__(13);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__tools_lite_validator_js__ = __webpack_require__(11);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__tools_common_js__ = __webpack_require__(12);
 //
 //
 //
@@ -18922,7 +18992,7 @@ function required(rule, value, source, errors, options, type) {
                     title: this.form.title,
                     desc: this.form.desc
                 };
-                Object(__WEBPACK_IMPORTED_MODULE_4__api_backend_js__["G" /* apiUpdateArticle */])(form).then(function (res) {
+                Object(__WEBPACK_IMPORTED_MODULE_4__api_backend_js__["H" /* apiUpdateArticle */])(form).then(function (res) {
                     if (res.code === 1) {
                         self.$message.success(res.msg);
                         self.getList();
@@ -19274,8 +19344,8 @@ __WEBPACK_IMPORTED_MODULE_3_vue_quill_editor__["Quill"].register('modules/ImageE
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_pagination_vue__ = __webpack_require__(7);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_tableFilter_vue__ = __webpack_require__(8);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__api_backend_js__ = __webpack_require__(6);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__tools_lite_validator_js__ = __webpack_require__(12);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__tools_common_js__ = __webpack_require__(13);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__tools_lite_validator_js__ = __webpack_require__(11);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__tools_common_js__ = __webpack_require__(12);
 //
 //
 //
@@ -19480,7 +19550,7 @@ __WEBPACK_IMPORTED_MODULE_3_vue_quill_editor__["Quill"].register('modules/ImageE
             } else if (this.type === 1) {
                 delete this.form.cate;
                 delete this.form.user;
-                Object(__WEBPACK_IMPORTED_MODULE_2__api_backend_js__["J" /* apiUpdateGroup */])(this.form).then(function (res) {
+                Object(__WEBPACK_IMPORTED_MODULE_2__api_backend_js__["K" /* apiUpdateGroup */])(this.form).then(function (res) {
                     if (res.code === 1) {
                         self.$message.success(res.msg);
                         self.getlist();
@@ -19551,8 +19621,8 @@ __WEBPACK_IMPORTED_MODULE_3_vue_quill_editor__["Quill"].register('modules/ImageE
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_pagination_vue__ = __webpack_require__(7);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_tableFilter_vue__ = __webpack_require__(8);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__api_backend_js__ = __webpack_require__(6);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__tools_lite_validator_js__ = __webpack_require__(12);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__tools_common_js__ = __webpack_require__(13);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__tools_lite_validator_js__ = __webpack_require__(11);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__tools_common_js__ = __webpack_require__(12);
 //
 //
 //
@@ -19693,7 +19763,7 @@ __WEBPACK_IMPORTED_MODULE_3_vue_quill_editor__["Quill"].register('modules/ImageE
                     console.log(err);
                 });
             } else if (this.type === 1) {
-                Object(__WEBPACK_IMPORTED_MODULE_2__api_backend_js__["K" /* apiUpdateGroupCate */])(this.form).then(function (res) {
+                Object(__WEBPACK_IMPORTED_MODULE_2__api_backend_js__["L" /* apiUpdateGroupCate */])(this.form).then(function (res) {
                     if (res.code === 1) {
                         self.$message.success(res.msg);
                         self.getCates();
@@ -19738,8 +19808,8 @@ __WEBPACK_IMPORTED_MODULE_3_vue_quill_editor__["Quill"].register('modules/ImageE
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_pagination_vue__ = __webpack_require__(7);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_tableFilter_vue__ = __webpack_require__(8);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__api_backend_js__ = __webpack_require__(6);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__tools_lite_validator_js__ = __webpack_require__(12);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__tools_common_js__ = __webpack_require__(13);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__tools_lite_validator_js__ = __webpack_require__(11);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__tools_common_js__ = __webpack_require__(12);
 //
 //
 //
@@ -19935,7 +20005,7 @@ __WEBPACK_IMPORTED_MODULE_3_vue_quill_editor__["Quill"].register('modules/ImageE
             } else if (this.type === 1) {
                 delete this.form.cate;
                 delete this.form.user;
-                Object(__WEBPACK_IMPORTED_MODULE_2__api_backend_js__["F" /* apiUpdateActivity */])(this.form).then(function (res) {
+                Object(__WEBPACK_IMPORTED_MODULE_2__api_backend_js__["G" /* apiUpdateActivity */])(this.form).then(function (res) {
                     if (res.code === 1) {
                         self.$message.success(res.msg);
                         self.getlist();
@@ -19996,8 +20066,8 @@ __WEBPACK_IMPORTED_MODULE_3_vue_quill_editor__["Quill"].register('modules/ImageE
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_pagination_vue__ = __webpack_require__(7);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_tableFilter_vue__ = __webpack_require__(8);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__api_backend_js__ = __webpack_require__(6);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__tools_lite_validator_js__ = __webpack_require__(12);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__tools_common_js__ = __webpack_require__(13);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__tools_lite_validator_js__ = __webpack_require__(11);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__tools_common_js__ = __webpack_require__(12);
 //
 //
 //
@@ -20184,7 +20254,7 @@ __WEBPACK_IMPORTED_MODULE_3_vue_quill_editor__["Quill"].register('modules/ImageE
             } else if (this.type === 1) {
                 delete this.form.cate;
                 delete this.form.user;
-                Object(__WEBPACK_IMPORTED_MODULE_2__api_backend_js__["L" /* apiUpdateRental */])(this.form).then(function (res) {
+                Object(__WEBPACK_IMPORTED_MODULE_2__api_backend_js__["M" /* apiUpdateRental */])(this.form).then(function (res) {
                     if (res.code === 1) {
                         self.$message.success(res.msg);
                         self.getlist();
@@ -61520,7 +61590,7 @@ module.exports = __webpack_require__(19) ? Object.defineProperties : function de
 /* 167 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var document = __webpack_require__(11).document;
+var document = __webpack_require__(13).document;
 module.exports = document && document.documentElement;
 
 
@@ -61548,7 +61618,7 @@ module.exports = Object.getPrototypeOf || function (O) {
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(170);
-var global = __webpack_require__(11);
+var global = __webpack_require__(13);
 var hide = __webpack_require__(17);
 var Iterators = __webpack_require__(51);
 var TO_STRING_TAG = __webpack_require__(21)('toStringTag');
@@ -61649,7 +61719,7 @@ module.exports = __webpack_require__(25).Symbol;
 "use strict";
 
 // ECMAScript 6 symbols shim
-var global = __webpack_require__(11);
+var global = __webpack_require__(13);
 var has = __webpack_require__(15);
 var DESCRIPTORS = __webpack_require__(19);
 var $export = __webpack_require__(42);
@@ -63682,7 +63752,7 @@ var main = __webpack_require__(215).default;
 var login = __webpack_require__(232).default;
 
 // children
-var index = __webpack_require__(236).default;
+var index = __webpack_require__(237).default;
 var user = __webpack_require__(241).default;
 var book = __webpack_require__(247).default;
 var bookCate = __webpack_require__(249).default;
@@ -66654,7 +66724,7 @@ exports = module.exports = __webpack_require__(3)(false);
 
 
 // module
-exports.push([module.i, "\n.brand {\n    height: 60px;\n    line-height: 60px;\n    float: left;\n    font-size: 20px;\n    margin: 0 20px;\n}\n", ""]);
+exports.push([module.i, "\n.brand {\n    height: 60px;\n    line-height: 60px;\n    float: left;\n    font-size: 20px;\n    margin: 0 20px;\n}\n.user-info {\n    float: right;\n    padding-right: 50px;\n    font-size: 16px;\n    color: #fff;\n}\n.user-info .el-dropdown-link{\n    position: relative;\n    display: inline-block;\n    padding-left: 50px;\n    color: #fff;\n    cursor: pointer;\n    vertical-align: middle;\n}\n.user-info .user-logo{\n    position: absolute;\n    left:0;\n    top:15px;\n    width:40px;\n    height:40px;\n    border-radius: 50%;\n}\n.el-dropdown-menu__item{\n    text-align: center;\n}\n", ""]);
 
 // exports
 
@@ -66670,84 +66740,42 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    { staticStyle: { overflow: "hidden" } },
-    [
-      _c("div", { staticClass: "brand", on: { click: _vm.collapsed } }, [
-        _vm._v("书圈管理系统")
-      ]),
-      _vm._v(" "),
-      _c(
-        "el-menu",
-        {
-          staticClass: "el-menu-demo",
-          staticStyle: { float: "right" },
-          attrs: { "default-active": _vm.activeIndex, mode: "horizontal" },
-          on: { select: _vm.handleSelect }
-        },
-        [
-          _c("el-menu-item", { attrs: { index: "1" } }, [_vm._v("处理中心")]),
-          _vm._v(" "),
-          _c(
-            "el-submenu",
-            { attrs: { index: "2" } },
-            [
-              _c("template", { slot: "title" }, [_vm._v("我的工作台")]),
-              _vm._v(" "),
-              _c("el-menu-item", { attrs: { index: "2-1" } }, [
-                _vm._v("选项1")
-              ]),
-              _vm._v(" "),
-              _c("el-menu-item", { attrs: { index: "2-2" } }, [
-                _vm._v("选项2")
-              ]),
-              _vm._v(" "),
-              _c("el-menu-item", { attrs: { index: "2-3" } }, [
-                _vm._v("选项3")
-              ]),
-              _vm._v(" "),
-              _c(
-                "el-submenu",
-                { attrs: { index: "2-4" } },
-                [
-                  _c("template", { slot: "title" }, [_vm._v("选项4")]),
-                  _vm._v(" "),
-                  _c("el-menu-item", { attrs: { index: "2-4-1" } }, [
-                    _vm._v("选项1")
-                  ]),
-                  _vm._v(" "),
-                  _c("el-menu-item", { attrs: { index: "2-4-2" } }, [
-                    _vm._v("选项2")
-                  ]),
-                  _vm._v(" "),
-                  _c("el-menu-item", { attrs: { index: "2-4-3" } }, [
-                    _vm._v("选项3")
-                  ])
-                ],
-                2
+  return _c("div", { staticStyle: { overflow: "hidden" } }, [
+    _c("div", { staticClass: "brand", on: { click: _vm.collapsed } }, [
+      _vm._v("书圈管理系统")
+    ]),
+    _vm._v(" "),
+    _c(
+      "div",
+      { staticClass: "user-info" },
+      [
+        _c(
+          "el-dropdown",
+          { attrs: { trigger: "click" }, on: { command: _vm.handleCommand } },
+          [
+            _c("span", { staticClass: "el-dropdown-link" }, [
+              _vm._v(
+                "\n                " + _vm._s(_vm.username) + "\n            "
               )
-            ],
-            2
-          ),
-          _vm._v(" "),
-          _c("el-menu-item", { attrs: { index: "3", disabled: "" } }, [
-            _vm._v("消息中心")
-          ]),
-          _vm._v(" "),
-          _c("el-menu-item", { attrs: { index: "4" } }, [
+            ]),
+            _vm._v(" "),
             _c(
-              "a",
-              { attrs: { href: "https://www.ele.me", target: "_blank" } },
-              [_vm._v("订单管理")]
+              "el-dropdown-menu",
+              { attrs: { slot: "dropdown" }, slot: "dropdown" },
+              [
+                _c("el-dropdown-item", { attrs: { command: "loginout" } }, [
+                  _vm._v("退出登录")
+                ])
+              ],
+              1
             )
-          ])
-        ],
-        1
-      )
-    ],
-    1
-  )
+          ],
+          1
+        )
+      ],
+      1
+    )
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -66969,7 +66997,7 @@ if (false) {
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_cacheDirectory_true_presets_env_modules_false_targets_browsers_2_uglify_true_plugins_transform_object_rest_spread_transform_runtime_polyfill_false_helpers_false_node_modules_vue_loader_lib_selector_type_script_index_0_login_vue__ = __webpack_require__(86);
 /* empty harmony namespace reexport */
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_88a1ed74_hasScoped_true_optionsId_0_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_login_vue__ = __webpack_require__(235);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_88a1ed74_hasScoped_true_optionsId_0_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_login_vue__ = __webpack_require__(236);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__node_modules_vue_loader_lib_runtime_component_normalizer__ = __webpack_require__(1);
 var disposed = false
 function injectStyle (context) {
@@ -67056,13 +67084,127 @@ exports = module.exports = __webpack_require__(3)(false);
 
 
 // module
-exports.push([module.i, "\n.login-container[data-v-88a1ed74] {\n    max-width: 400px;\n    margin: 50px auto;\n    padding: 20px;\n    background-color: #efefef;\n    border-radius: 10px;\n}\n", ""]);
+exports.push([module.i, "\n.login-container[data-v-88a1ed74] {\n    max-width: 350px;\n    margin: 50px auto;\n    padding: 20px;\n    border-radius: 10px;\n    border: 1px solid #efefef;\n}\n", ""]);
 
 // exports
 
 
 /***/ }),
 /* 235 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "D", function() { return getSysInfo; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "F", function() { return login; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "E", function() { return getUsers; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "N", function() { return updateUser; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "h", function() { return createUser; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "r", function() { return deleteUser; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "z", function() { return getBooks; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "I", function() { return updateBook; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return createBook; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "l", function() { return deleteBook; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "x", function() { return getBookCates; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "J", function() { return updateBookCate; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "d", function() { return createBookCate; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "m", function() { return deleteBookCate; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "t", function() { return getAllBookCates; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "y", function() { return getBookComments; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "n", function() { return deleteBookComment; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "w", function() { return getArticles; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "H", function() { return updateArticle; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return createArticle; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "j", function() { return deleteArticle; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "v", function() { return getArticleComments; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "k", function() { return deleteArticleComment; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "B", function() { return getGroups; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "K", function() { return updateGroup; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "e", function() { return createGroup; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "o", function() { return deleteGroup; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "A", function() { return getGroupCates; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "L", function() { return updateGroupCate; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "f", function() { return createGroupCate; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "p", function() { return deleteGroupCate; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "u", function() { return getAllGroupCates; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "s", function() { return getActivities; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return createActivity; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "G", function() { return updateActivity; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "i", function() { return deleteActivity; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "C", function() { return getRentals; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "g", function() { return createRental; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "M", function() { return updateRental; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "q", function() { return deleteRental; });
+
+// index
+var getSysInfo = '/admin/sysInfo';
+
+// 登录
+var login = '/admin/login';
+
+// 用户
+var getUsers = '/admin/user/index';
+var updateUser = '/admin/user/update';
+var createUser = '/admin/user/create';
+var deleteUser = '/admin/user/delete';
+
+// 书籍
+var getBooks = '/admin/book/index';
+var updateBook = '/admin/book/update';
+var createBook = '/admin/book/create';
+var deleteBook = '/admin/book/delete';
+
+// 书籍类别
+var getBookCates = '/admin/bookCate/index';
+var updateBookCate = '/admin/bookCate/update';
+var createBookCate = '/admin/bookCate/create';
+var deleteBookCate = '/admin/bookCate/delete';
+var getAllBookCates = '/admin/bookCate/allCates';
+
+// 书籍评论
+var getBookComments = '/admin/bookComment/index';
+// export const updateBookComment = '/bookComment/update';
+// export const createBookComment = '/bookComment/create';
+var deleteBookComment = '/admin/bookComment/delete';
+
+// 文章
+var getArticles = '/admin/article/index';
+var updateArticle = '/admin/article/update';
+var createArticle = '/admin/article/create';
+var deleteArticle = '/admin/article/delete';
+
+// 文章评论
+var getArticleComments = '/admin/articleComment/index';
+// export const updateArticleComment = '/articleComment/update';
+// export const createArticleComment = '/articleComment/create';
+var deleteArticleComment = '/admin/articleComment/delete';
+
+// 书圈
+var getGroups = '/admin/group/index';
+var updateGroup = '/admin/group/update';
+var createGroup = '/admin/group/create';
+var deleteGroup = '/admin/group/delete';
+
+// 书籍类别
+var getGroupCates = '/admin/groupCate/index';
+var updateGroupCate = '/admin/groupCate/update';
+var createGroupCate = '/admin/groupCate/create';
+var deleteGroupCate = '/admin/groupCate/delete';
+var getAllGroupCates = '/admin/groupCate/allCates';
+
+// 活动
+var getActivities = '/admin/activity/index';
+var createActivity = '/admin/activity/create';
+var updateActivity = '/admin/activity/update';
+var deleteActivity = '/admin/activity/update';
+
+// 租赁
+var getRentals = '/admin/rental/index';
+var createRental = '/admin/rental/create';
+var updateRental = '/admin/rental/update';
+var deleteRental = '/admin/rental/update';
+
+/***/ }),
+/* 236 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -67129,7 +67271,22 @@ var render = function() {
       _c(
         "el-form-item",
         { attrs: { prop: "remember" } },
-        [_c("el-checkbox", { staticClass: "remember" }, [_vm._v("记住密码")])],
+        [
+          _c(
+            "el-checkbox",
+            {
+              staticClass: "remember",
+              model: {
+                value: _vm.form.remember,
+                callback: function($$v) {
+                  _vm.$set(_vm.form, "remember", $$v)
+                },
+                expression: "form.remember"
+              }
+            },
+            [_vm._v("记住密码")]
+          )
+        ],
         1
       ),
       _vm._v(" "),
@@ -67139,7 +67296,11 @@ var render = function() {
         [
           _c(
             "el-button",
-            { staticStyle: { width: "100%" }, attrs: { type: "primary" } },
+            {
+              staticStyle: { width: "100%" },
+              attrs: { type: "primary" },
+              on: { click: _vm.login }
+            },
             [_vm._v("登录")]
           )
         ],
@@ -67160,7 +67321,7 @@ if (false) {
 }
 
 /***/ }),
-/* 236 */
+/* 237 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -67172,7 +67333,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 var disposed = false
 function injectStyle (context) {
   if (disposed) return
-  __webpack_require__(237)
+  __webpack_require__(238)
 }
 /* script */
 
@@ -67219,13 +67380,13 @@ if (false) {(function () {
 
 
 /***/ }),
-/* 237 */
+/* 238 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(238);
+var content = __webpack_require__(239);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -67246,7 +67407,7 @@ if(false) {
 }
 
 /***/ }),
-/* 238 */
+/* 239 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(3)(false);
@@ -67258,116 +67419,6 @@ exports.push([module.i, "\n.wrapper {\n    margin: 20px;\n}\n.text {\n    font-s
 
 // exports
 
-
-/***/ }),
-/* 239 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "D", function() { return getSysInfo; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "E", function() { return getUsers; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "M", function() { return updateUser; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "h", function() { return createUser; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "r", function() { return deleteUser; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "z", function() { return getBooks; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "H", function() { return updateBook; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return createBook; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "l", function() { return deleteBook; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "x", function() { return getBookCates; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "I", function() { return updateBookCate; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "d", function() { return createBookCate; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "m", function() { return deleteBookCate; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "t", function() { return getAllBookCates; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "y", function() { return getBookComments; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "n", function() { return deleteBookComment; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "w", function() { return getArticles; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "G", function() { return updateArticle; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return createArticle; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "j", function() { return deleteArticle; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "v", function() { return getArticleComments; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "k", function() { return deleteArticleComment; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "B", function() { return getGroups; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "J", function() { return updateGroup; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "e", function() { return createGroup; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "o", function() { return deleteGroup; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "A", function() { return getGroupCates; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "K", function() { return updateGroupCate; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "f", function() { return createGroupCate; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "p", function() { return deleteGroupCate; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "u", function() { return getAllGroupCates; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "s", function() { return getActivities; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return createActivity; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "F", function() { return updateActivity; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "i", function() { return deleteActivity; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "C", function() { return getRentals; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "g", function() { return createRental; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "L", function() { return updateRental; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "q", function() { return deleteRental; });
-
-// index
-var getSysInfo = '/admin/sysInfo';
-
-// 用户
-var getUsers = '/admin/user/index';
-var updateUser = '/admin/user/update';
-var createUser = '/admin/user/create';
-var deleteUser = '/admin/user/delete';
-
-// 书籍
-var getBooks = '/admin/book/index';
-var updateBook = '/admin/book/update';
-var createBook = '/admin/book/create';
-var deleteBook = '/admin/book/delete';
-
-// 书籍类别
-var getBookCates = '/admin/bookCate/index';
-var updateBookCate = '/admin/bookCate/update';
-var createBookCate = '/admin/bookCate/create';
-var deleteBookCate = '/admin/bookCate/delete';
-var getAllBookCates = '/admin/bookCate/allCates';
-
-// 书籍评论
-var getBookComments = '/admin/bookComment/index';
-// export const updateBookComment = '/bookComment/update';
-// export const createBookComment = '/bookComment/create';
-var deleteBookComment = '/admin/bookComment/delete';
-
-// 文章
-var getArticles = '/admin/article/index';
-var updateArticle = '/admin/article/update';
-var createArticle = '/admin/article/create';
-var deleteArticle = '/admin/article/delete';
-
-// 文章评论
-var getArticleComments = '/admin/articleComment/index';
-// export const updateArticleComment = '/articleComment/update';
-// export const createArticleComment = '/articleComment/create';
-var deleteArticleComment = '/admin/articleComment/delete';
-
-// 书圈
-var getGroups = '/admin/group/index';
-var updateGroup = '/admin/group/update';
-var createGroup = '/admin/group/create';
-var deleteGroup = '/admin/group/delete';
-
-// 书籍类别
-var getGroupCates = '/admin/groupCate/index';
-var updateGroupCate = '/admin/groupCate/update';
-var createGroupCate = '/admin/groupCate/create';
-var deleteGroupCate = '/admin/groupCate/delete';
-var getAllGroupCates = '/admin/groupCate/allCates';
-
-// 活动
-var getActivities = '/admin/activity/index';
-var createActivity = '/admin/activity/create';
-var updateActivity = '/admin/activity/update';
-var deleteActivity = '/admin/activity/update';
-
-// 租赁
-var getRentals = '/admin/rental/index';
-var createRental = '/admin/rental/create';
-var updateRental = '/admin/rental/update';
-var deleteRental = '/admin/rental/update';
 
 /***/ }),
 /* 240 */

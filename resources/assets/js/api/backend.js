@@ -29,6 +29,13 @@ function _serialize (data) {
     }).join('&')
 }
 
+// 登录
+export function apiLogin(params) {
+    return axios.post(endpoint.login, params).then(res => {
+        return res.data;
+    });
+}
+
 // index
 export function apiGetSysInfo() {
     return axios.get(endpoint.getSysInfo).then(function (res) {
