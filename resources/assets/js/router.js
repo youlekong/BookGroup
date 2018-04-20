@@ -45,4 +45,12 @@ const router = new VueRouter({
     routes
 });
 
+// router.beforeEach( (to, from, next) => {
+    // NProgress.start();
+//     setTimeout(function () {
+//         next();
+//         NProgress.done()
+//     }, 2000)
+// });
+
 module.exports = router;
