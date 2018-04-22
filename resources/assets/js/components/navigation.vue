@@ -42,9 +42,17 @@
         },
         computed: {
             username(){
-                return 'admin';
-//                let username = localStorage.getItem('username');
-//                return username ? username : this.name;
+                let uInfo = localStorage.getItem('uInfo');
+                try {
+                    uInfo = JSON.parse(uInfo);
+                } catch (err) {
+                    uInfo = ''
+                }
+
+                if (uInfo)
+                    return uInfo.name;
+                else
+                    return '';
             }
         },
         methods: {
@@ -60,14 +68,11 @@
 //                    localStorage.removeItem('ms_username')
                     apiLogout().then(res => {
                         if (res.code === 1) {
-                            this.$router.push({name: '/login'});
+                            this.$router.push({name: 'login'});
                         }
                     });
                 }
             },
-            loginout() {
-
-            }
         }
     }
 </script>

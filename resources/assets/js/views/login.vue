@@ -42,6 +42,8 @@
                 let self = this;
                 apiLogin(this.form).then( res => {
                     if (res.code == 1){
+                        let uInfo = JSON.stringify(res.msg);
+                        let username = localStorage.setItem('uInfo', uInfo);
                         self.$router.push({name: 'index'});
                     }
                 }).catch( err => {
