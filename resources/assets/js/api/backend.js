@@ -18,6 +18,10 @@ axios.interceptors.response.use(function (response) {
     NProgress.done();
     return response;
 }, function (error) {
+    let statusCode = error.response.status;
+    if (statusCode == 401)
+        app.$router.push({name: 'login'});
+
     // 对响应错误做点什么
     NProgress.done();
     return Promise.reject(error);
@@ -34,6 +38,15 @@ export function apiLogin(params) {
     return axios.post(endpoint.login, params).then(res => {
         return res.data;
     });
+}
+
+// 登出
+export function apiLogout() {
+    return axios.get(endpoint.logout).then(function (res) {
+        return res.data;
+    }).catch(err => {
+        console.log(err);
+    })
 }
 
 // index

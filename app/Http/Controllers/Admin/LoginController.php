@@ -22,5 +22,6 @@ class LoginController extends ApiController
 
     public function logout() {
         Auth::logout();
+        return $this->success('登出成功');
     }
 }

@@ -4,6 +4,7 @@ export const getSysInfo = '/admin/sysInfo';
 
 // 登录
 export const login = '/admin/login';
+export const logout = '/admin/logout';
 
 // 用户
 export const getUsers = '/admin/user/index';

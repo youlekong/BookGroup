@@ -25,7 +25,7 @@ const router = require('./router');
 // Vue.component('example-component', require('./components/ExampleComponent.vue'));
 window.bus = new Vue();
 
-const app = new Vue({
+window.app = new Vue({
     router,
 }).$mount('#app');
 

@@ -11768,44 +11768,45 @@ module.exports = Vue;
 
 "use strict";
 /* harmony export (immutable) */ __webpack_exports__["F"] = apiLogin;
+/* harmony export (immutable) */ __webpack_exports__["G"] = apiLogout;
 /* harmony export (immutable) */ __webpack_exports__["D"] = apiGetSysInfo;
 /* harmony export (immutable) */ __webpack_exports__["E"] = apiGetUsers;
 /* harmony export (immutable) */ __webpack_exports__["h"] = apiCreateUser;
-/* harmony export (immutable) */ __webpack_exports__["N"] = apiUpdateUser;
+/* harmony export (immutable) */ __webpack_exports__["O"] = apiUpdateUser;
 /* harmony export (immutable) */ __webpack_exports__["r"] = apiDeleteUser;
 /* harmony export (immutable) */ __webpack_exports__["z"] = apiGetBooks;
 /* harmony export (immutable) */ __webpack_exports__["c"] = apiCreateBook;
-/* harmony export (immutable) */ __webpack_exports__["I"] = apiUpdateBook;
+/* harmony export (immutable) */ __webpack_exports__["J"] = apiUpdateBook;
 /* harmony export (immutable) */ __webpack_exports__["l"] = apiDeleteBook;
 /* harmony export (immutable) */ __webpack_exports__["x"] = apiGetBookCates;
 /* harmony export (immutable) */ __webpack_exports__["d"] = apiCreateBookCate;
-/* harmony export (immutable) */ __webpack_exports__["J"] = apiUpdateBookCate;
+/* harmony export (immutable) */ __webpack_exports__["K"] = apiUpdateBookCate;
 /* harmony export (immutable) */ __webpack_exports__["m"] = apiDeleteBookCate;
 /* harmony export (immutable) */ __webpack_exports__["t"] = apiGetAllBookCate;
 /* harmony export (immutable) */ __webpack_exports__["y"] = apiGetBookComments;
 /* harmony export (immutable) */ __webpack_exports__["n"] = apiDeleteBookComment;
 /* harmony export (immutable) */ __webpack_exports__["w"] = apiGetArticles;
 /* harmony export (immutable) */ __webpack_exports__["b"] = apiCreateArticle;
-/* harmony export (immutable) */ __webpack_exports__["H"] = apiUpdateArticle;
+/* harmony export (immutable) */ __webpack_exports__["I"] = apiUpdateArticle;
 /* harmony export (immutable) */ __webpack_exports__["j"] = apiDeleteArticle;
 /* harmony export (immutable) */ __webpack_exports__["v"] = apiGetArticleComments;
 /* harmony export (immutable) */ __webpack_exports__["k"] = apiDeleteArticleComment;
 /* harmony export (immutable) */ __webpack_exports__["B"] = apiGetGroups;
 /* harmony export (immutable) */ __webpack_exports__["e"] = apiCreateGroup;
-/* harmony export (immutable) */ __webpack_exports__["K"] = apiUpdateGroup;
+/* harmony export (immutable) */ __webpack_exports__["L"] = apiUpdateGroup;
 /* harmony export (immutable) */ __webpack_exports__["o"] = apiDeleteGroup;
 /* harmony export (immutable) */ __webpack_exports__["A"] = apiGetGroupCates;
 /* harmony export (immutable) */ __webpack_exports__["f"] = apiCreateGroupCate;
-/* harmony export (immutable) */ __webpack_exports__["L"] = apiUpdateGroupCate;
+/* harmony export (immutable) */ __webpack_exports__["M"] = apiUpdateGroupCate;
 /* harmony export (immutable) */ __webpack_exports__["p"] = apiDeleteGroupCate;
 /* harmony export (immutable) */ __webpack_exports__["u"] = apiGetAllGroupCate;
 /* harmony export (immutable) */ __webpack_exports__["s"] = apiGetActivities;
 /* harmony export (immutable) */ __webpack_exports__["a"] = apiCreateActivity;
-/* harmony export (immutable) */ __webpack_exports__["G"] = apiUpdateActivity;
+/* harmony export (immutable) */ __webpack_exports__["H"] = apiUpdateActivity;
 /* harmony export (immutable) */ __webpack_exports__["i"] = apiDeleteActivity;
 /* harmony export (immutable) */ __webpack_exports__["C"] = apiGetRentals;
 /* harmony export (immutable) */ __webpack_exports__["g"] = apiCreateRental;
-/* harmony export (immutable) */ __webpack_exports__["M"] = apiUpdateRental;
+/* harmony export (immutable) */ __webpack_exports__["N"] = apiUpdateRental;
 /* harmony export (immutable) */ __webpack_exports__["q"] = apiDeleteRental;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__endpoint_js__ = __webpack_require__(235);
 
@@ -11828,6 +11829,9 @@ axios.interceptors.response.use(function (response) {
     NProgress.done();
     return response;
 }, function (error) {
+    var statusCode = error.response.status;
+    if (statusCode == 401) app.$router.push({ name: 'login' });
+
     // 对响应错误做点什么
     NProgress.done();
     return Promise.reject(error);
@@ -11843,6 +11847,15 @@ function _serialize(data) {
 function apiLogin(params) {
     return axios.post(__WEBPACK_IMPORTED_MODULE_0__endpoint_js__["F" /* login */], params).then(function (res) {
         return res.data;
+    });
+}
+
+// 登出
+function apiLogout() {
+    return axios.get(__WEBPACK_IMPORTED_MODULE_0__endpoint_js__["G" /* logout */]).then(function (res) {
+        return res.data;
+    }).catch(function (err) {
+        console.log(err);
     });
 }
 
@@ -11871,7 +11884,7 @@ function apiCreateUser(params) {
 }
 
 function apiUpdateUser(params) {
-    return axios.post(__WEBPACK_IMPORTED_MODULE_0__endpoint_js__["N" /* updateUser */], params).then(function (res) {
+    return axios.post(__WEBPACK_IMPORTED_MODULE_0__endpoint_js__["O" /* updateUser */], params).then(function (res) {
         return res.data;
     });
 }
@@ -11900,7 +11913,7 @@ function apiCreateBook(params) {
 }
 
 function apiUpdateBook(params) {
-    return axios.post(__WEBPACK_IMPORTED_MODULE_0__endpoint_js__["I" /* updateBook */], params).then(function (res) {
+    return axios.post(__WEBPACK_IMPORTED_MODULE_0__endpoint_js__["J" /* updateBook */], params).then(function (res) {
         return res.data;
     });
 }
@@ -11929,7 +11942,7 @@ function apiCreateBookCate(params) {
 }
 
 function apiUpdateBookCate(params) {
-    return axios.post(__WEBPACK_IMPORTED_MODULE_0__endpoint_js__["J" /* updateBookCate */], params).then(function (res) {
+    return axios.post(__WEBPACK_IMPORTED_MODULE_0__endpoint_js__["K" /* updateBookCate */], params).then(function (res) {
         return res.data;
     });
 }
@@ -11993,7 +12006,7 @@ function apiCreateArticle(params) {
 }
 
 function apiUpdateArticle(params) {
-    return axios.post(__WEBPACK_IMPORTED_MODULE_0__endpoint_js__["H" /* updateArticle */], params).then(function (res) {
+    return axios.post(__WEBPACK_IMPORTED_MODULE_0__endpoint_js__["I" /* updateArticle */], params).then(function (res) {
         return res.data;
     });
 }
@@ -12039,7 +12052,7 @@ function apiCreateGroup(params) {
 }
 
 function apiUpdateGroup(params) {
-    return axios.post(__WEBPACK_IMPORTED_MODULE_0__endpoint_js__["K" /* updateGroup */], params).then(function (res) {
+    return axios.post(__WEBPACK_IMPORTED_MODULE_0__endpoint_js__["L" /* updateGroup */], params).then(function (res) {
         return res.data;
     });
 }
@@ -12068,7 +12081,7 @@ function apiCreateGroupCate(params) {
 }
 
 function apiUpdateGroupCate(params) {
-    return axios.post(__WEBPACK_IMPORTED_MODULE_0__endpoint_js__["L" /* updateGroupCate */], params).then(function (res) {
+    return axios.post(__WEBPACK_IMPORTED_MODULE_0__endpoint_js__["M" /* updateGroupCate */], params).then(function (res) {
         return res.data;
     });
 }
@@ -12103,7 +12116,7 @@ function apiCreateActivity(params) {
 }
 
 function apiUpdateActivity(params) {
-    return axios.post(__WEBPACK_IMPORTED_MODULE_0__endpoint_js__["G" /* updateActivity */], params).then(function (res) {
+    return axios.post(__WEBPACK_IMPORTED_MODULE_0__endpoint_js__["H" /* updateActivity */], params).then(function (res) {
         return res.data;
     });
 }
@@ -12132,7 +12145,7 @@ function apiCreateRental(params) {
 }
 
 function apiUpdateRental(params) {
-    return axios.post(__WEBPACK_IMPORTED_MODULE_0__endpoint_js__["M" /* updateRental */], params).then(function (res) {
+    return axios.post(__WEBPACK_IMPORTED_MODULE_0__endpoint_js__["N" /* updateRental */], params).then(function (res) {
         return res.data;
     });
 }
@@ -17634,6 +17647,7 @@ function required(rule, value, source, errors, options, type) {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__api_backend__ = __webpack_require__(6);
 //
 //
 //
@@ -17667,7 +17681,8 @@ function required(rule, value, source, errors, options, type) {
 //
 //
 //
-//
+
+
 
 /* harmony default export */ __webpack_exports__["a"] = ({
     data: function data() {
@@ -17678,8 +17693,9 @@ function required(rule, value, source, errors, options, type) {
 
     computed: {
         username: function username() {
-            var username = localStorage.getItem('ms_username');
-            return username ? username : this.name;
+            return 'admin';
+            //                let username = localStorage.getItem('username');
+            //                return username ? username : this.name;
         }
     },
     methods: {
@@ -17690,10 +17706,16 @@ function required(rule, value, source, errors, options, type) {
             this.isCollapse = !this.isCollapse;
             bus.$emit('collapse', this.isCollapse);
         },
-        handleCommand: function handleCommand() {
-            if (command == 'loginout') {
+        handleCommand: function handleCommand(command) {
+            var _this = this;
+
+            if (command == 'logout') {
                 //                    localStorage.removeItem('ms_username')
-                this.$router.push('/login');
+                Object(__WEBPACK_IMPORTED_MODULE_0__api_backend__["G" /* apiLogout */])().then(function (res) {
+                    if (res.code === 1) {
+                        _this.$router.push({ name: '/login' });
+                    }
+                });
             }
         },
         loginout: function loginout() {}
@@ -18038,7 +18060,7 @@ function required(rule, value, source, errors, options, type) {
                     console.log(err);
                 });
             } else if (this.type === 1) {
-                Object(__WEBPACK_IMPORTED_MODULE_2__api_backend_js__["N" /* apiUpdateUser */])(this.form).then(function (res) {
+                Object(__WEBPACK_IMPORTED_MODULE_2__api_backend_js__["O" /* apiUpdateUser */])(this.form).then(function (res) {
                     if (res.code === 1) {
                         self.$message.success(res.msg);
                         self.getUser();
@@ -18448,7 +18470,7 @@ function required(rule, value, source, errors, options, type) {
                 });
             } else if (this.type === 1) {
                 delete this.book.c_time;
-                Object(__WEBPACK_IMPORTED_MODULE_2__api_backend_js__["I" /* apiUpdateBook */])(this.book).then(function (res) {
+                Object(__WEBPACK_IMPORTED_MODULE_2__api_backend_js__["J" /* apiUpdateBook */])(this.book).then(function (res) {
                     if (res.code === 1) {
                         self.$message.success(res.msg);
                         self.getBook();
@@ -18653,7 +18675,7 @@ function required(rule, value, source, errors, options, type) {
                     console.log(err);
                 });
             } else if (this.type === 1) {
-                Object(__WEBPACK_IMPORTED_MODULE_2__api_backend_js__["J" /* apiUpdateBookCate */])(this.form).then(function (res) {
+                Object(__WEBPACK_IMPORTED_MODULE_2__api_backend_js__["K" /* apiUpdateBookCate */])(this.form).then(function (res) {
                     if (res.code === 1) {
                         self.$message.success(res.msg);
                         self.getCates();
@@ -18992,7 +19014,7 @@ function required(rule, value, source, errors, options, type) {
                     title: this.form.title,
                     desc: this.form.desc
                 };
-                Object(__WEBPACK_IMPORTED_MODULE_4__api_backend_js__["H" /* apiUpdateArticle */])(form).then(function (res) {
+                Object(__WEBPACK_IMPORTED_MODULE_4__api_backend_js__["I" /* apiUpdateArticle */])(form).then(function (res) {
                     if (res.code === 1) {
                         self.$message.success(res.msg);
                         self.getList();
@@ -19550,7 +19572,7 @@ __WEBPACK_IMPORTED_MODULE_3_vue_quill_editor__["Quill"].register('modules/ImageE
             } else if (this.type === 1) {
                 delete this.form.cate;
                 delete this.form.user;
-                Object(__WEBPACK_IMPORTED_MODULE_2__api_backend_js__["K" /* apiUpdateGroup */])(this.form).then(function (res) {
+                Object(__WEBPACK_IMPORTED_MODULE_2__api_backend_js__["L" /* apiUpdateGroup */])(this.form).then(function (res) {
                     if (res.code === 1) {
                         self.$message.success(res.msg);
                         self.getlist();
@@ -19763,7 +19785,7 @@ __WEBPACK_IMPORTED_MODULE_3_vue_quill_editor__["Quill"].register('modules/ImageE
                     console.log(err);
                 });
             } else if (this.type === 1) {
-                Object(__WEBPACK_IMPORTED_MODULE_2__api_backend_js__["L" /* apiUpdateGroupCate */])(this.form).then(function (res) {
+                Object(__WEBPACK_IMPORTED_MODULE_2__api_backend_js__["M" /* apiUpdateGroupCate */])(this.form).then(function (res) {
                     if (res.code === 1) {
                         self.$message.success(res.msg);
                         self.getCates();
@@ -20005,7 +20027,7 @@ __WEBPACK_IMPORTED_MODULE_3_vue_quill_editor__["Quill"].register('modules/ImageE
             } else if (this.type === 1) {
                 delete this.form.cate;
                 delete this.form.user;
-                Object(__WEBPACK_IMPORTED_MODULE_2__api_backend_js__["G" /* apiUpdateActivity */])(this.form).then(function (res) {
+                Object(__WEBPACK_IMPORTED_MODULE_2__api_backend_js__["H" /* apiUpdateActivity */])(this.form).then(function (res) {
                     if (res.code === 1) {
                         self.$message.success(res.msg);
                         self.getlist();
@@ -20254,7 +20276,7 @@ __WEBPACK_IMPORTED_MODULE_3_vue_quill_editor__["Quill"].register('modules/ImageE
             } else if (this.type === 1) {
                 delete this.form.cate;
                 delete this.form.user;
-                Object(__WEBPACK_IMPORTED_MODULE_2__api_backend_js__["M" /* apiUpdateRental */])(this.form).then(function (res) {
+                Object(__WEBPACK_IMPORTED_MODULE_2__api_backend_js__["N" /* apiUpdateRental */])(this.form).then(function (res) {
                     if (res.code === 1) {
                         self.$message.success(res.msg);
                         self.getlist();
@@ -20351,7 +20373,7 @@ var router = __webpack_require__(213);
 // Vue.component('example-component', require('./components/ExampleComponent.vue'));
 window.bus = new Vue();
 
-var app = new Vue({
+window.app = new Vue({
   router: router
 }).$mount('#app');
 
@@ -66724,7 +66746,7 @@ exports = module.exports = __webpack_require__(3)(false);
 
 
 // module
-exports.push([module.i, "\n.brand {\n    height: 60px;\n    line-height: 60px;\n    float: left;\n    font-size: 20px;\n    margin: 0 20px;\n}\n.user-info {\n    float: right;\n    padding-right: 50px;\n    font-size: 16px;\n    color: #fff;\n}\n.user-info .el-dropdown-link{\n    position: relative;\n    display: inline-block;\n    padding-left: 50px;\n    color: #fff;\n    cursor: pointer;\n    vertical-align: middle;\n}\n.user-info .user-logo{\n    position: absolute;\n    left:0;\n    top:15px;\n    width:40px;\n    height:40px;\n    border-radius: 50%;\n}\n.el-dropdown-menu__item{\n    text-align: center;\n}\n", ""]);
+exports.push([module.i, "\n.brand {\n    height: 60px;\n    line-height: 60px;\n    float: left;\n    font-size: 20px;\n    margin: 0 20px;\n}\n.user-info {\n    float: right;\n    padding-right: 50px;\n    font-size: 16px;\n    color: #fff;\n    height: 60px;\n    line-height: 60px;\n}\n.user-info .el-dropdown-link {\n    position: relative;\n    display: inline-block;\n    padding-left: 50px;\n    /*color: #fff;*/\n    cursor: pointer;\n    vertical-align: middle;\n}\n.user-info .user-logo {\n    position: absolute;\n    left: 0;\n    top: 15px;\n    width: 40px;\n    height: 40px;\n    border-radius: 50%;\n}\n", ""]);
 
 // exports
 
@@ -66751,19 +66773,18 @@ var render = function() {
       [
         _c(
           "el-dropdown",
-          { attrs: { trigger: "click" }, on: { command: _vm.handleCommand } },
+          { on: { command: _vm.handleCommand } },
           [
             _c("span", { staticClass: "el-dropdown-link" }, [
-              _vm._v(
-                "\n                " + _vm._s(_vm.username) + "\n            "
-              )
+              _vm._v("\n                " + _vm._s(_vm.username)),
+              _c("i", { staticClass: "el-icon-arrow-down el-icon--right" })
             ]),
             _vm._v(" "),
             _c(
               "el-dropdown-menu",
               { attrs: { slot: "dropdown" }, slot: "dropdown" },
               [
-                _c("el-dropdown-item", { attrs: { command: "loginout" } }, [
+                _c("el-dropdown-item", { attrs: { command: "logout" } }, [
                   _vm._v("退出登录")
                 ])
               ],
@@ -67096,43 +67117,44 @@ exports.push([module.i, "\n.login-container[data-v-88a1ed74] {\n    max-width: 3
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "D", function() { return getSysInfo; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "F", function() { return login; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "G", function() { return logout; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "E", function() { return getUsers; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "N", function() { return updateUser; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "O", function() { return updateUser; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "h", function() { return createUser; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "r", function() { return deleteUser; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "z", function() { return getBooks; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "I", function() { return updateBook; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "J", function() { return updateBook; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return createBook; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "l", function() { return deleteBook; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "x", function() { return getBookCates; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "J", function() { return updateBookCate; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "K", function() { return updateBookCate; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "d", function() { return createBookCate; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "m", function() { return deleteBookCate; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "t", function() { return getAllBookCates; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "y", function() { return getBookComments; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "n", function() { return deleteBookComment; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "w", function() { return getArticles; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "H", function() { return updateArticle; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "I", function() { return updateArticle; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return createArticle; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "j", function() { return deleteArticle; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "v", function() { return getArticleComments; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "k", function() { return deleteArticleComment; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "B", function() { return getGroups; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "K", function() { return updateGroup; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "L", function() { return updateGroup; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "e", function() { return createGroup; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "o", function() { return deleteGroup; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "A", function() { return getGroupCates; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "L", function() { return updateGroupCate; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "M", function() { return updateGroupCate; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "f", function() { return createGroupCate; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "p", function() { return deleteGroupCate; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "u", function() { return getAllGroupCates; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "s", function() { return getActivities; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return createActivity; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "G", function() { return updateActivity; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "H", function() { return updateActivity; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "i", function() { return deleteActivity; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "C", function() { return getRentals; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "g", function() { return createRental; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "M", function() { return updateRental; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "N", function() { return updateRental; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "q", function() { return deleteRental; });
 
 // index
@@ -67140,6 +67162,7 @@ var getSysInfo = '/admin/sysInfo';
 
 // 登录
 var login = '/admin/login';
+var logout = '/admin/logout';
 
 // 用户
 var getUsers = '/admin/user/index';
