@@ -183,6 +183,8 @@ return [
         Barryvdh\Debugbar\ServiceProvider::class,
         // 图片
         Intervention\Image\ImageServiceProvider::class,
+        // api
+        Dingo\Api\Provider\LaravelServiceProvider::class
     ],
 
     /*
