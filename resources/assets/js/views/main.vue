@@ -62,6 +62,11 @@
                         subs: [
                             {   index: 'rental', title: '租赁列表'    }
                         ]
+                    },
+                    {   icon: 'el-icon-view', index: 'share', title: '分享信息',
+                        subs: [
+                            {   index: 'share', title: '分享列表'    }
+                        ]
                     }
                 ]
             }

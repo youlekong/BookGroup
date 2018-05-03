@@ -19,6 +19,7 @@ const group = require('./views/group/group.vue').default;
 const groupCate = require('./views/group/groupCate.vue').default;
 const activity = require('./views/activity.vue').default;
 const rental = require('./views/rental.vue').default;
+const share = require('./views/share.vue').default;
 
 const children = [
     {   name: 'index', path: 'index', component: index },
@@ -32,6 +33,7 @@ const children = [
     {   name: 'groupCate', path: 'groupCate', component: groupCate },
     {   name: 'activity', path: 'activity', component: activity },
     {   name: 'rental', path: 'rental', component: rental   },
+    {   name: 'share', path: 'share', component: share   },
     {   path: '/', redirect: 'index' }
 ];
 

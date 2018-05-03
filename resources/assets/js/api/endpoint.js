@@ -60,10 +60,16 @@ export const getAllGroupCates = '/admin/groupCate/allCates';
 export const getActivities = '/admin/activity/index';
 export const createActivity = '/admin/activity/create';
 export const updateActivity = '/admin/activity/update';
-export const deleteActivity = '/admin/activity/update';
+export const deleteActivity = '/admin/activity/delete';
 
 // 租赁
 export const getRentals = '/admin/rental/index';
 export const createRental = '/admin/rental/create';
 export const updateRental = '/admin/rental/update';
-export const deleteRental = '/admin/rental/update';
+export const deleteRental = '/admin/rental/delete';
+
+// 分享
+export const getShares = '/admin/share/index';
+export const createShare = '/admin/share/create';
+export const updateShare = '/admin/share/update';
+export const deleteShare = '/admin/share/delete';

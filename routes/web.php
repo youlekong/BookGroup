@@ -94,5 +94,12 @@ Route::group(['middleware' => ['auth'], 'namespace' => 'admin', 'prefix' => 'adm
         Route::get('/delete', 'RentalController@delete');
     });
 
+    Route::prefix('share')->group(function () {
+        Route::get('/index', 'ShareController@index');
+        Route::post('/create', 'ShareController@create');
+        Route::post('/update', 'ShareController@update');
+        Route::get('/delete', 'ShareController@delete');
+    });
+
     Route::get('/sysInfo', 'SystemController@index');
 });

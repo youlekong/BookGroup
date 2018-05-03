@@ -348,3 +348,32 @@ export function apiDeleteRental(params) {
         return res.data;
     })
 }
+
+// 分享
+export function apiGetShares(params) {
+    return axios.get(endpoint.getShares, {
+        params
+    }).then(function (res) {
+        return res.data;
+    })
+}
+
+export function apiCreateShare(params) {
+    return axios.post(endpoint.createShare, params).then( res => {
+        return res.data;
+    });
+}
+
+export function apiUpdateShare(params) {
+    return axios.post(endpoint.updateShare, params).then(function (res) {
+        return res.data;
+    })
+}
+
+export function apiDeleteShare(params) {
+    return axios.get(endpoint.deleteShare, {
+        params: params
+    }).then(function (res) {
+        return res.data;
+    })
+}

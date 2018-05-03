@@ -491,47 +491,51 @@ function toComment(sourceMap) {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (immutable) */ __webpack_exports__["F"] = apiLogin;
-/* harmony export (immutable) */ __webpack_exports__["G"] = apiLogout;
-/* harmony export (immutable) */ __webpack_exports__["D"] = apiGetSysInfo;
-/* harmony export (immutable) */ __webpack_exports__["E"] = apiGetUsers;
-/* harmony export (immutable) */ __webpack_exports__["h"] = apiCreateUser;
-/* harmony export (immutable) */ __webpack_exports__["O"] = apiUpdateUser;
-/* harmony export (immutable) */ __webpack_exports__["r"] = apiDeleteUser;
-/* harmony export (immutable) */ __webpack_exports__["z"] = apiGetBooks;
+/* harmony export (immutable) */ __webpack_exports__["I"] = apiLogin;
+/* harmony export (immutable) */ __webpack_exports__["J"] = apiLogout;
+/* harmony export (immutable) */ __webpack_exports__["G"] = apiGetSysInfo;
+/* harmony export (immutable) */ __webpack_exports__["H"] = apiGetUsers;
+/* harmony export (immutable) */ __webpack_exports__["i"] = apiCreateUser;
+/* harmony export (immutable) */ __webpack_exports__["S"] = apiUpdateUser;
+/* harmony export (immutable) */ __webpack_exports__["t"] = apiDeleteUser;
+/* harmony export (immutable) */ __webpack_exports__["B"] = apiGetBooks;
 /* harmony export (immutable) */ __webpack_exports__["c"] = apiCreateBook;
-/* harmony export (immutable) */ __webpack_exports__["J"] = apiUpdateBook;
-/* harmony export (immutable) */ __webpack_exports__["l"] = apiDeleteBook;
-/* harmony export (immutable) */ __webpack_exports__["x"] = apiGetBookCates;
+/* harmony export (immutable) */ __webpack_exports__["M"] = apiUpdateBook;
+/* harmony export (immutable) */ __webpack_exports__["m"] = apiDeleteBook;
+/* harmony export (immutable) */ __webpack_exports__["z"] = apiGetBookCates;
 /* harmony export (immutable) */ __webpack_exports__["d"] = apiCreateBookCate;
-/* harmony export (immutable) */ __webpack_exports__["K"] = apiUpdateBookCate;
-/* harmony export (immutable) */ __webpack_exports__["m"] = apiDeleteBookCate;
-/* harmony export (immutable) */ __webpack_exports__["t"] = apiGetAllBookCate;
-/* harmony export (immutable) */ __webpack_exports__["y"] = apiGetBookComments;
-/* harmony export (immutable) */ __webpack_exports__["n"] = apiDeleteBookComment;
-/* harmony export (immutable) */ __webpack_exports__["w"] = apiGetArticles;
+/* harmony export (immutable) */ __webpack_exports__["N"] = apiUpdateBookCate;
+/* harmony export (immutable) */ __webpack_exports__["n"] = apiDeleteBookCate;
+/* harmony export (immutable) */ __webpack_exports__["v"] = apiGetAllBookCate;
+/* harmony export (immutable) */ __webpack_exports__["A"] = apiGetBookComments;
+/* harmony export (immutable) */ __webpack_exports__["o"] = apiDeleteBookComment;
+/* harmony export (immutable) */ __webpack_exports__["y"] = apiGetArticles;
 /* harmony export (immutable) */ __webpack_exports__["b"] = apiCreateArticle;
-/* harmony export (immutable) */ __webpack_exports__["I"] = apiUpdateArticle;
-/* harmony export (immutable) */ __webpack_exports__["j"] = apiDeleteArticle;
-/* harmony export (immutable) */ __webpack_exports__["v"] = apiGetArticleComments;
-/* harmony export (immutable) */ __webpack_exports__["k"] = apiDeleteArticleComment;
-/* harmony export (immutable) */ __webpack_exports__["B"] = apiGetGroups;
+/* harmony export (immutable) */ __webpack_exports__["L"] = apiUpdateArticle;
+/* harmony export (immutable) */ __webpack_exports__["k"] = apiDeleteArticle;
+/* harmony export (immutable) */ __webpack_exports__["x"] = apiGetArticleComments;
+/* harmony export (immutable) */ __webpack_exports__["l"] = apiDeleteArticleComment;
+/* harmony export (immutable) */ __webpack_exports__["D"] = apiGetGroups;
 /* harmony export (immutable) */ __webpack_exports__["e"] = apiCreateGroup;
-/* harmony export (immutable) */ __webpack_exports__["L"] = apiUpdateGroup;
-/* harmony export (immutable) */ __webpack_exports__["o"] = apiDeleteGroup;
-/* harmony export (immutable) */ __webpack_exports__["A"] = apiGetGroupCates;
+/* harmony export (immutable) */ __webpack_exports__["O"] = apiUpdateGroup;
+/* harmony export (immutable) */ __webpack_exports__["p"] = apiDeleteGroup;
+/* harmony export (immutable) */ __webpack_exports__["C"] = apiGetGroupCates;
 /* harmony export (immutable) */ __webpack_exports__["f"] = apiCreateGroupCate;
-/* harmony export (immutable) */ __webpack_exports__["M"] = apiUpdateGroupCate;
-/* harmony export (immutable) */ __webpack_exports__["p"] = apiDeleteGroupCate;
-/* harmony export (immutable) */ __webpack_exports__["u"] = apiGetAllGroupCate;
-/* harmony export (immutable) */ __webpack_exports__["s"] = apiGetActivities;
+/* harmony export (immutable) */ __webpack_exports__["P"] = apiUpdateGroupCate;
+/* harmony export (immutable) */ __webpack_exports__["q"] = apiDeleteGroupCate;
+/* harmony export (immutable) */ __webpack_exports__["w"] = apiGetAllGroupCate;
+/* harmony export (immutable) */ __webpack_exports__["u"] = apiGetActivities;
 /* harmony export (immutable) */ __webpack_exports__["a"] = apiCreateActivity;
-/* harmony export (immutable) */ __webpack_exports__["H"] = apiUpdateActivity;
-/* harmony export (immutable) */ __webpack_exports__["i"] = apiDeleteActivity;
-/* harmony export (immutable) */ __webpack_exports__["C"] = apiGetRentals;
+/* harmony export (immutable) */ __webpack_exports__["K"] = apiUpdateActivity;
+/* harmony export (immutable) */ __webpack_exports__["j"] = apiDeleteActivity;
+/* harmony export (immutable) */ __webpack_exports__["E"] = apiGetRentals;
 /* harmony export (immutable) */ __webpack_exports__["g"] = apiCreateRental;
-/* harmony export (immutable) */ __webpack_exports__["N"] = apiUpdateRental;
-/* harmony export (immutable) */ __webpack_exports__["q"] = apiDeleteRental;
+/* harmony export (immutable) */ __webpack_exports__["Q"] = apiUpdateRental;
+/* harmony export (immutable) */ __webpack_exports__["r"] = apiDeleteRental;
+/* harmony export (immutable) */ __webpack_exports__["F"] = apiGetShares;
+/* harmony export (immutable) */ __webpack_exports__["h"] = apiCreateShare;
+/* harmony export (immutable) */ __webpack_exports__["R"] = apiUpdateShare;
+/* harmony export (immutable) */ __webpack_exports__["s"] = apiDeleteShare;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__endpoint_js__ = __webpack_require__(226);
 
 
@@ -569,14 +573,14 @@ function _serialize(data) {
 
 // 登录
 function apiLogin(params) {
-    return axios.post(__WEBPACK_IMPORTED_MODULE_0__endpoint_js__["F" /* login */], params).then(function (res) {
+    return axios.post(__WEBPACK_IMPORTED_MODULE_0__endpoint_js__["I" /* login */], params).then(function (res) {
         return res.data;
     });
 }
 
 // 登出
 function apiLogout() {
-    return axios.get(__WEBPACK_IMPORTED_MODULE_0__endpoint_js__["G" /* logout */]).then(function (res) {
+    return axios.get(__WEBPACK_IMPORTED_MODULE_0__endpoint_js__["J" /* logout */]).then(function (res) {
         return res.data;
     }).catch(function (err) {
         console.log(err);
@@ -585,7 +589,7 @@ function apiLogout() {
 
 // index
 function apiGetSysInfo() {
-    return axios.get(__WEBPACK_IMPORTED_MODULE_0__endpoint_js__["D" /* getSysInfo */]).then(function (res) {
+    return axios.get(__WEBPACK_IMPORTED_MODULE_0__endpoint_js__["G" /* getSysInfo */]).then(function (res) {
         return res.data;
     }).catch(function (err) {
         console.log(err);
@@ -594,7 +598,7 @@ function apiGetSysInfo() {
 
 // user
 function apiGetUsers(params) {
-    return axios.get(__WEBPACK_IMPORTED_MODULE_0__endpoint_js__["E" /* getUsers */], {
+    return axios.get(__WEBPACK_IMPORTED_MODULE_0__endpoint_js__["H" /* getUsers */], {
         params: params
     }).then(function (res) {
         return res.data;
@@ -602,19 +606,19 @@ function apiGetUsers(params) {
 }
 
 function apiCreateUser(params) {
-    return axios.post(__WEBPACK_IMPORTED_MODULE_0__endpoint_js__["h" /* createUser */], params).then(function (res) {
+    return axios.post(__WEBPACK_IMPORTED_MODULE_0__endpoint_js__["i" /* createUser */], params).then(function (res) {
         return res.data;
     });
 }
 
 function apiUpdateUser(params) {
-    return axios.post(__WEBPACK_IMPORTED_MODULE_0__endpoint_js__["O" /* updateUser */], params).then(function (res) {
+    return axios.post(__WEBPACK_IMPORTED_MODULE_0__endpoint_js__["S" /* updateUser */], params).then(function (res) {
         return res.data;
     });
 }
 
 function apiDeleteUser(params) {
-    return axios.get(__WEBPACK_IMPORTED_MODULE_0__endpoint_js__["r" /* deleteUser */], {
+    return axios.get(__WEBPACK_IMPORTED_MODULE_0__endpoint_js__["t" /* deleteUser */], {
         params: params
     }).then(function (res) {
         return res.data;
@@ -623,7 +627,7 @@ function apiDeleteUser(params) {
 
 // book
 function apiGetBooks(params) {
-    return axios.get(__WEBPACK_IMPORTED_MODULE_0__endpoint_js__["z" /* getBooks */], {
+    return axios.get(__WEBPACK_IMPORTED_MODULE_0__endpoint_js__["B" /* getBooks */], {
         params: params
     }).then(function (res) {
         return res.data;
@@ -637,13 +641,13 @@ function apiCreateBook(params) {
 }
 
 function apiUpdateBook(params) {
-    return axios.post(__WEBPACK_IMPORTED_MODULE_0__endpoint_js__["J" /* updateBook */], params).then(function (res) {
+    return axios.post(__WEBPACK_IMPORTED_MODULE_0__endpoint_js__["M" /* updateBook */], params).then(function (res) {
         return res.data;
     });
 }
 
 function apiDeleteBook(params) {
-    return axios.get(__WEBPACK_IMPORTED_MODULE_0__endpoint_js__["l" /* deleteBook */], {
+    return axios.get(__WEBPACK_IMPORTED_MODULE_0__endpoint_js__["m" /* deleteBook */], {
         params: params
     }).then(function (res) {
         return res.data;
@@ -652,7 +656,7 @@ function apiDeleteBook(params) {
 
 // 书籍类别
 function apiGetBookCates(params) {
-    return axios.get(__WEBPACK_IMPORTED_MODULE_0__endpoint_js__["x" /* getBookCates */], {
+    return axios.get(__WEBPACK_IMPORTED_MODULE_0__endpoint_js__["z" /* getBookCates */], {
         params: params
     }).then(function (res) {
         return res.data;
@@ -666,13 +670,13 @@ function apiCreateBookCate(params) {
 }
 
 function apiUpdateBookCate(params) {
-    return axios.post(__WEBPACK_IMPORTED_MODULE_0__endpoint_js__["K" /* updateBookCate */], params).then(function (res) {
+    return axios.post(__WEBPACK_IMPORTED_MODULE_0__endpoint_js__["N" /* updateBookCate */], params).then(function (res) {
         return res.data;
     });
 }
 
 function apiDeleteBookCate(params) {
-    return axios.get(__WEBPACK_IMPORTED_MODULE_0__endpoint_js__["m" /* deleteBookCate */], {
+    return axios.get(__WEBPACK_IMPORTED_MODULE_0__endpoint_js__["n" /* deleteBookCate */], {
         params: params
     }).then(function (res) {
         return res.data;
@@ -680,14 +684,14 @@ function apiDeleteBookCate(params) {
 }
 
 function apiGetAllBookCate() {
-    return axios.get(__WEBPACK_IMPORTED_MODULE_0__endpoint_js__["t" /* getAllBookCates */]).then(function (res) {
+    return axios.get(__WEBPACK_IMPORTED_MODULE_0__endpoint_js__["v" /* getAllBookCates */]).then(function (res) {
         return res.data;
     });
 }
 
 // 书籍评论
 function apiGetBookComments(params) {
-    return axios.get(__WEBPACK_IMPORTED_MODULE_0__endpoint_js__["y" /* getBookComments */], {
+    return axios.get(__WEBPACK_IMPORTED_MODULE_0__endpoint_js__["A" /* getBookComments */], {
         params: params
     }).then(function (res) {
         return res.data;
@@ -707,7 +711,7 @@ function apiGetBookComments(params) {
 // }
 
 function apiDeleteBookComment(params) {
-    return axios.get(__WEBPACK_IMPORTED_MODULE_0__endpoint_js__["n" /* deleteBookComment */], {
+    return axios.get(__WEBPACK_IMPORTED_MODULE_0__endpoint_js__["o" /* deleteBookComment */], {
         params: params
     }).then(function (res) {
         return res.data;
@@ -716,7 +720,7 @@ function apiDeleteBookComment(params) {
 
 // 文章
 function apiGetArticles(params) {
-    return axios.get(__WEBPACK_IMPORTED_MODULE_0__endpoint_js__["w" /* getArticles */], {
+    return axios.get(__WEBPACK_IMPORTED_MODULE_0__endpoint_js__["y" /* getArticles */], {
         params: params
     }).then(function (res) {
         return res.data;
@@ -730,13 +734,13 @@ function apiCreateArticle(params) {
 }
 
 function apiUpdateArticle(params) {
-    return axios.post(__WEBPACK_IMPORTED_MODULE_0__endpoint_js__["I" /* updateArticle */], params).then(function (res) {
+    return axios.post(__WEBPACK_IMPORTED_MODULE_0__endpoint_js__["L" /* updateArticle */], params).then(function (res) {
         return res.data;
     });
 }
 
 function apiDeleteArticle(params) {
-    return axios.get(__WEBPACK_IMPORTED_MODULE_0__endpoint_js__["j" /* deleteArticle */], {
+    return axios.get(__WEBPACK_IMPORTED_MODULE_0__endpoint_js__["k" /* deleteArticle */], {
         params: params
     }).then(function (res) {
         return res.data;
@@ -745,7 +749,7 @@ function apiDeleteArticle(params) {
 
 // 文章评论
 function apiGetArticleComments(params) {
-    return axios.get(__WEBPACK_IMPORTED_MODULE_0__endpoint_js__["v" /* getArticleComments */], {
+    return axios.get(__WEBPACK_IMPORTED_MODULE_0__endpoint_js__["x" /* getArticleComments */], {
         params: params
     }).then(function (res) {
         return res.data;
@@ -753,7 +757,7 @@ function apiGetArticleComments(params) {
 }
 
 function apiDeleteArticleComment(params) {
-    return axios.get(__WEBPACK_IMPORTED_MODULE_0__endpoint_js__["k" /* deleteArticleComment */], {
+    return axios.get(__WEBPACK_IMPORTED_MODULE_0__endpoint_js__["l" /* deleteArticleComment */], {
         params: params
     }).then(function (res) {
         return res.data;
@@ -762,7 +766,7 @@ function apiDeleteArticleComment(params) {
 
 // 书圈
 function apiGetGroups(params) {
-    return axios.get(__WEBPACK_IMPORTED_MODULE_0__endpoint_js__["B" /* getGroups */], {
+    return axios.get(__WEBPACK_IMPORTED_MODULE_0__endpoint_js__["D" /* getGroups */], {
         params: params
     }).then(function (res) {
         return res.data;
@@ -776,13 +780,13 @@ function apiCreateGroup(params) {
 }
 
 function apiUpdateGroup(params) {
-    return axios.post(__WEBPACK_IMPORTED_MODULE_0__endpoint_js__["L" /* updateGroup */], params).then(function (res) {
+    return axios.post(__WEBPACK_IMPORTED_MODULE_0__endpoint_js__["O" /* updateGroup */], params).then(function (res) {
         return res.data;
     });
 }
 
 function apiDeleteGroup(params) {
-    return axios.get(__WEBPACK_IMPORTED_MODULE_0__endpoint_js__["o" /* deleteGroup */], {
+    return axios.get(__WEBPACK_IMPORTED_MODULE_0__endpoint_js__["p" /* deleteGroup */], {
         params: params
     }).then(function (res) {
         return res.data;
@@ -791,7 +795,7 @@ function apiDeleteGroup(params) {
 
 // 书籍类别
 function apiGetGroupCates(params) {
-    return axios.get(__WEBPACK_IMPORTED_MODULE_0__endpoint_js__["A" /* getGroupCates */], {
+    return axios.get(__WEBPACK_IMPORTED_MODULE_0__endpoint_js__["C" /* getGroupCates */], {
         params: params
     }).then(function (res) {
         return res.data;
@@ -805,13 +809,13 @@ function apiCreateGroupCate(params) {
 }
 
 function apiUpdateGroupCate(params) {
-    return axios.post(__WEBPACK_IMPORTED_MODULE_0__endpoint_js__["M" /* updateGroupCate */], params).then(function (res) {
+    return axios.post(__WEBPACK_IMPORTED_MODULE_0__endpoint_js__["P" /* updateGroupCate */], params).then(function (res) {
         return res.data;
     });
 }
 
 function apiDeleteGroupCate(params) {
-    return axios.get(__WEBPACK_IMPORTED_MODULE_0__endpoint_js__["p" /* deleteGroupCate */], {
+    return axios.get(__WEBPACK_IMPORTED_MODULE_0__endpoint_js__["q" /* deleteGroupCate */], {
         params: params
     }).then(function (res) {
         return res.data;
@@ -819,14 +823,14 @@ function apiDeleteGroupCate(params) {
 }
 
 function apiGetAllGroupCate() {
-    return axios.get(__WEBPACK_IMPORTED_MODULE_0__endpoint_js__["u" /* getAllGroupCates */]).then(function (res) {
+    return axios.get(__WEBPACK_IMPORTED_MODULE_0__endpoint_js__["w" /* getAllGroupCates */]).then(function (res) {
         return res.data;
     });
 }
 
 // 活动
 function apiGetActivities(params) {
-    return axios.get(__WEBPACK_IMPORTED_MODULE_0__endpoint_js__["s" /* getActivities */], {
+    return axios.get(__WEBPACK_IMPORTED_MODULE_0__endpoint_js__["u" /* getActivities */], {
         params: params
     }).then(function (res) {
         return res.data;
@@ -840,13 +844,13 @@ function apiCreateActivity(params) {
 }
 
 function apiUpdateActivity(params) {
-    return axios.post(__WEBPACK_IMPORTED_MODULE_0__endpoint_js__["H" /* updateActivity */], params).then(function (res) {
+    return axios.post(__WEBPACK_IMPORTED_MODULE_0__endpoint_js__["K" /* updateActivity */], params).then(function (res) {
         return res.data;
     });
 }
 
 function apiDeleteActivity(params) {
-    return axios.get(__WEBPACK_IMPORTED_MODULE_0__endpoint_js__["i" /* deleteActivity */], {
+    return axios.get(__WEBPACK_IMPORTED_MODULE_0__endpoint_js__["j" /* deleteActivity */], {
         params: params
     }).then(function (res) {
         return res.data;
@@ -855,7 +859,7 @@ function apiDeleteActivity(params) {
 
 // 租赁
 function apiGetRentals(params) {
-    return axios.get(__WEBPACK_IMPORTED_MODULE_0__endpoint_js__["C" /* getRentals */], {
+    return axios.get(__WEBPACK_IMPORTED_MODULE_0__endpoint_js__["E" /* getRentals */], {
         params: params
     }).then(function (res) {
         return res.data;
@@ -869,13 +873,42 @@ function apiCreateRental(params) {
 }
 
 function apiUpdateRental(params) {
-    return axios.post(__WEBPACK_IMPORTED_MODULE_0__endpoint_js__["N" /* updateRental */], params).then(function (res) {
+    return axios.post(__WEBPACK_IMPORTED_MODULE_0__endpoint_js__["Q" /* updateRental */], params).then(function (res) {
         return res.data;
     });
 }
 
 function apiDeleteRental(params) {
-    return axios.get(__WEBPACK_IMPORTED_MODULE_0__endpoint_js__["q" /* deleteRental */], {
+    return axios.get(__WEBPACK_IMPORTED_MODULE_0__endpoint_js__["r" /* deleteRental */], {
+        params: params
+    }).then(function (res) {
+        return res.data;
+    });
+}
+
+// 分享
+function apiGetShares(params) {
+    return axios.get(__WEBPACK_IMPORTED_MODULE_0__endpoint_js__["F" /* getShares */], {
+        params: params
+    }).then(function (res) {
+        return res.data;
+    });
+}
+
+function apiCreateShare(params) {
+    return axios.post(__WEBPACK_IMPORTED_MODULE_0__endpoint_js__["h" /* createShare */], params).then(function (res) {
+        return res.data;
+    });
+}
+
+function apiUpdateShare(params) {
+    return axios.post(__WEBPACK_IMPORTED_MODULE_0__endpoint_js__["R" /* updateShare */], params).then(function (res) {
+        return res.data;
+    });
+}
+
+function apiDeleteShare(params) {
+    return axios.get(__WEBPACK_IMPORTED_MODULE_0__endpoint_js__["s" /* deleteShare */], {
         params: params
     }).then(function (res) {
         return res.data;
@@ -17573,6 +17606,8 @@ function required(rule, value, source, errors, options, type) {
                 subs: [{ index: 'activity', title: '活动列表' }]
             }, { icon: 'el-icon-time', index: 'rental', title: '租赁信息',
                 subs: [{ index: 'rental', title: '租赁列表' }]
+            }, { icon: 'el-icon-view', index: 'share', title: '分享信息',
+                subs: [{ index: 'share', title: '分享列表' }]
             }]
         };
     },
@@ -17716,7 +17751,7 @@ function required(rule, value, source, errors, options, type) {
 
             if (command == 'logout') {
                 //                    localStorage.removeItem('ms_username')
-                Object(__WEBPACK_IMPORTED_MODULE_0__api_backend__["G" /* apiLogout */])().then(function (res) {
+                Object(__WEBPACK_IMPORTED_MODULE_0__api_backend__["J" /* apiLogout */])().then(function (res) {
                     if (res.code === 1) {
                         _this.$router.push({ name: 'login' });
                     }
@@ -17841,7 +17876,7 @@ function required(rule, value, source, errors, options, type) {
             if (!this._validateForm()) return;
 
             var self = this;
-            Object(__WEBPACK_IMPORTED_MODULE_0__api_backend__["F" /* apiLogin */])(this.form).then(function (res) {
+            Object(__WEBPACK_IMPORTED_MODULE_0__api_backend__["I" /* apiLogin */])(this.form).then(function (res) {
                 if (res.code == 1) {
                     var uInfo = JSON.stringify(res.msg);
                     var username = localStorage.setItem('uInfo', uInfo);
@@ -17909,7 +17944,7 @@ function required(rule, value, source, errors, options, type) {
     created: function created() {
         var _this = this;
 
-        Object(__WEBPACK_IMPORTED_MODULE_0__api_backend__["D" /* apiGetSysInfo */])().then(function (res) {
+        Object(__WEBPACK_IMPORTED_MODULE_0__api_backend__["G" /* apiGetSysInfo */])().then(function (res) {
             if (res.code === 1) _this.info = res.msg;
         });
     }
@@ -18003,7 +18038,7 @@ function required(rule, value, source, errors, options, type) {
             if (keyword) params = Object.assign(params, keyword);
 
             var self = this;
-            Object(__WEBPACK_IMPORTED_MODULE_2__api_backend_js__["E" /* apiGetUsers */])(params).then(function (res) {
+            Object(__WEBPACK_IMPORTED_MODULE_2__api_backend_js__["H" /* apiGetUsers */])(params).then(function (res) {
                 if (res.code === 1) {
                     self.list = res.msg.data;
                     self.pagination.total = res.msg.total;
@@ -18037,7 +18072,7 @@ function required(rule, value, source, errors, options, type) {
         },
         delRecord: function delRecord() {
             var self = this;
-            Object(__WEBPACK_IMPORTED_MODULE_2__api_backend_js__["r" /* apiDeleteUser */])({ id: this.uid }).then(function (res) {
+            Object(__WEBPACK_IMPORTED_MODULE_2__api_backend_js__["t" /* apiDeleteUser */])({ id: this.uid }).then(function (res) {
                 if (res.code === 1) {
                     self.$message.success(res.msg);
                     self.getUser();
@@ -18054,7 +18089,7 @@ function required(rule, value, source, errors, options, type) {
 
             var self = this;
             if (this.type === 0) {
-                Object(__WEBPACK_IMPORTED_MODULE_2__api_backend_js__["h" /* apiCreateUser */])(this.form).then(function (res) {
+                Object(__WEBPACK_IMPORTED_MODULE_2__api_backend_js__["i" /* apiCreateUser */])(this.form).then(function (res) {
                     if (res.code === 1) {
                         self.$message.success(res.msg);
                         self.getUser();
@@ -18066,7 +18101,7 @@ function required(rule, value, source, errors, options, type) {
                     console.log(err);
                 });
             } else if (this.type === 1) {
-                Object(__WEBPACK_IMPORTED_MODULE_2__api_backend_js__["O" /* apiUpdateUser */])(this.form).then(function (res) {
+                Object(__WEBPACK_IMPORTED_MODULE_2__api_backend_js__["S" /* apiUpdateUser */])(this.form).then(function (res) {
                     if (res.code === 1) {
                         self.$message.success(res.msg);
                         self.getUser();
@@ -18383,7 +18418,7 @@ function required(rule, value, source, errors, options, type) {
     methods: {
         getCates: function getCates() {
             var self = this;
-            Object(__WEBPACK_IMPORTED_MODULE_2__api_backend_js__["t" /* apiGetAllBookCate */])().then(function (res) {
+            Object(__WEBPACK_IMPORTED_MODULE_2__api_backend_js__["v" /* apiGetAllBookCate */])().then(function (res) {
                 if (res.code === 1) {
                     self.cates = res.msg;
                     self.initFilter(res.msg);
@@ -18397,7 +18432,7 @@ function required(rule, value, source, errors, options, type) {
             if (keyword) params = Object.assign(params, keyword);
 
             var self = this;
-            Object(__WEBPACK_IMPORTED_MODULE_2__api_backend_js__["z" /* apiGetBooks */])(params).then(function (res) {
+            Object(__WEBPACK_IMPORTED_MODULE_2__api_backend_js__["B" /* apiGetBooks */])(params).then(function (res) {
                 if (res.code === 1) {
                     self.books = res.msg.data;
                     self.pagination.total = res.msg.total;
@@ -18446,7 +18481,7 @@ function required(rule, value, source, errors, options, type) {
         },
         delRecord: function delRecord() {
             var self = this;
-            Object(__WEBPACK_IMPORTED_MODULE_2__api_backend_js__["l" /* apiDeleteBook */])({ id: this.uid }).then(function (res) {
+            Object(__WEBPACK_IMPORTED_MODULE_2__api_backend_js__["m" /* apiDeleteBook */])({ id: this.uid }).then(function (res) {
                 if (res.code === 1) {
                     self.$message.success(res.msg);
                     self.getBook();
@@ -18476,7 +18511,7 @@ function required(rule, value, source, errors, options, type) {
                 });
             } else if (this.type === 1) {
                 delete this.book.c_time;
-                Object(__WEBPACK_IMPORTED_MODULE_2__api_backend_js__["J" /* apiUpdateBook */])(this.book).then(function (res) {
+                Object(__WEBPACK_IMPORTED_MODULE_2__api_backend_js__["M" /* apiUpdateBook */])(this.book).then(function (res) {
                     if (res.code === 1) {
                         self.$message.success(res.msg);
                         self.getBook();
@@ -18622,7 +18657,7 @@ function required(rule, value, source, errors, options, type) {
             if (keyword) params.keyword = keyword;
 
             var self = this;
-            Object(__WEBPACK_IMPORTED_MODULE_2__api_backend_js__["x" /* apiGetBookCates */])(params).then(function (res) {
+            Object(__WEBPACK_IMPORTED_MODULE_2__api_backend_js__["z" /* apiGetBookCates */])(params).then(function (res) {
                 if (res.code === 1) {
                     self.list = res.msg.data;
                     self.pagination.total = res.msg.total;
@@ -18652,7 +18687,7 @@ function required(rule, value, source, errors, options, type) {
         },
         delRecord: function delRecord() {
             var self = this;
-            Object(__WEBPACK_IMPORTED_MODULE_2__api_backend_js__["m" /* apiDeleteBookCate */])({ id: this.uid }).then(function (res) {
+            Object(__WEBPACK_IMPORTED_MODULE_2__api_backend_js__["n" /* apiDeleteBookCate */])({ id: this.uid }).then(function (res) {
                 if (res.code === 1) {
                     self.$message.success(res.msg);
                     self.getCates();
@@ -18681,7 +18716,7 @@ function required(rule, value, source, errors, options, type) {
                     console.log(err);
                 });
             } else if (this.type === 1) {
-                Object(__WEBPACK_IMPORTED_MODULE_2__api_backend_js__["K" /* apiUpdateBookCate */])(this.form).then(function (res) {
+                Object(__WEBPACK_IMPORTED_MODULE_2__api_backend_js__["N" /* apiUpdateBookCate */])(this.form).then(function (res) {
                     if (res.code === 1) {
                         self.$message.success(res.msg);
                         self.getCates();
@@ -18785,7 +18820,7 @@ function required(rule, value, source, errors, options, type) {
             if (keyword) params = Object.assign(params, keyword);
 
             var self = this;
-            Object(__WEBPACK_IMPORTED_MODULE_2__api_backend_js__["y" /* apiGetBookComments */])(params).then(function (res) {
+            Object(__WEBPACK_IMPORTED_MODULE_2__api_backend_js__["A" /* apiGetBookComments */])(params).then(function (res) {
                 if (res.code === 1) {
                     self.list = res.msg.data;
                     self.pagination.total = res.msg.total;
@@ -18803,7 +18838,7 @@ function required(rule, value, source, errors, options, type) {
         },
         delRecord: function delRecord() {
             var self = this;
-            Object(__WEBPACK_IMPORTED_MODULE_2__api_backend_js__["n" /* apiDeleteBookComment */])({ ids: this.ids }).then(function (res) {
+            Object(__WEBPACK_IMPORTED_MODULE_2__api_backend_js__["o" /* apiDeleteBookComment */])({ ids: this.ids }).then(function (res) {
                 if (res.code === 1) {
                     self.$message.success(res.msg);
                     self.getBookComment();
@@ -18943,7 +18978,7 @@ function required(rule, value, source, errors, options, type) {
             if (keyword) params = Object.assign(params, keyword);
 
             var self = this;
-            Object(__WEBPACK_IMPORTED_MODULE_4__api_backend_js__["w" /* apiGetArticles */])(params).then(function (res) {
+            Object(__WEBPACK_IMPORTED_MODULE_4__api_backend_js__["y" /* apiGetArticles */])(params).then(function (res) {
                 if (res.code === 1) {
                     self.list = res.msg.data;
                     self.pagination.total = res.msg.total;
@@ -18984,7 +19019,7 @@ function required(rule, value, source, errors, options, type) {
         },
         delRecord: function delRecord() {
             var self = this;
-            Object(__WEBPACK_IMPORTED_MODULE_4__api_backend_js__["j" /* apiDeleteArticle */])({ id: this.uid }).then(function (res) {
+            Object(__WEBPACK_IMPORTED_MODULE_4__api_backend_js__["k" /* apiDeleteArticle */])({ id: this.uid }).then(function (res) {
                 if (res.code === 1) {
                     self.$message.success(res.msg);
                     self.getList();
@@ -19020,7 +19055,7 @@ function required(rule, value, source, errors, options, type) {
                     title: this.form.title,
                     desc: this.form.desc
                 };
-                Object(__WEBPACK_IMPORTED_MODULE_4__api_backend_js__["I" /* apiUpdateArticle */])(form).then(function (res) {
+                Object(__WEBPACK_IMPORTED_MODULE_4__api_backend_js__["L" /* apiUpdateArticle */])(form).then(function (res) {
                     if (res.code === 1) {
                         self.$message.success(res.msg);
                         self.getList();
@@ -19323,7 +19358,7 @@ __WEBPACK_IMPORTED_MODULE_3_vue_quill_editor__["Quill"].register('modules/ImageE
             if (keyword) params = Object.assign(params, keyword);
 
             var self = this;
-            Object(__WEBPACK_IMPORTED_MODULE_2__api_backend_js__["v" /* apiGetArticleComments */])(params).then(function (res) {
+            Object(__WEBPACK_IMPORTED_MODULE_2__api_backend_js__["x" /* apiGetArticleComments */])(params).then(function (res) {
                 if (res.code === 1) {
                     self.list = res.msg.data;
                     self.pagination.total = res.msg.total;
@@ -19342,7 +19377,7 @@ __WEBPACK_IMPORTED_MODULE_3_vue_quill_editor__["Quill"].register('modules/ImageE
         },
         delRecord: function delRecord() {
             var self = this;
-            Object(__WEBPACK_IMPORTED_MODULE_2__api_backend_js__["k" /* apiDeleteArticleComment */])({ ids: this.ids }).then(function (res) {
+            Object(__WEBPACK_IMPORTED_MODULE_2__api_backend_js__["l" /* apiDeleteArticleComment */])({ ids: this.ids }).then(function (res) {
                 if (res.code === 1) {
                     self.$message.success(res.msg);
                     self.getList();
@@ -19485,7 +19520,7 @@ __WEBPACK_IMPORTED_MODULE_3_vue_quill_editor__["Quill"].register('modules/ImageE
     methods: {
         getCates: function getCates() {
             var self = this;
-            Object(__WEBPACK_IMPORTED_MODULE_2__api_backend_js__["u" /* apiGetAllGroupCate */])().then(function (res) {
+            Object(__WEBPACK_IMPORTED_MODULE_2__api_backend_js__["w" /* apiGetAllGroupCate */])().then(function (res) {
                 if (res.code === 1) {
                     self.cates = res.msg;
                     self.initFilter(res.msg);
@@ -19499,7 +19534,7 @@ __WEBPACK_IMPORTED_MODULE_3_vue_quill_editor__["Quill"].register('modules/ImageE
             if (keyword) params = Object.assign(params, keyword);
 
             var self = this;
-            Object(__WEBPACK_IMPORTED_MODULE_2__api_backend_js__["B" /* apiGetGroups */])(params).then(function (res) {
+            Object(__WEBPACK_IMPORTED_MODULE_2__api_backend_js__["D" /* apiGetGroups */])(params).then(function (res) {
                 if (res.code === 1) {
                     self.list = res.msg.data;
                     self.pagination.total = res.msg.total;
@@ -19547,7 +19582,7 @@ __WEBPACK_IMPORTED_MODULE_3_vue_quill_editor__["Quill"].register('modules/ImageE
         },
         delRecord: function delRecord() {
             var self = this;
-            Object(__WEBPACK_IMPORTED_MODULE_2__api_backend_js__["o" /* apiDeleteGroup */])({ id: this.uid }).then(function (res) {
+            Object(__WEBPACK_IMPORTED_MODULE_2__api_backend_js__["p" /* apiDeleteGroup */])({ id: this.uid }).then(function (res) {
                 if (res.code === 1) {
                     self.$message.success(res.msg);
                     self.getlist();
@@ -19578,7 +19613,7 @@ __WEBPACK_IMPORTED_MODULE_3_vue_quill_editor__["Quill"].register('modules/ImageE
             } else if (this.type === 1) {
                 delete this.form.cate;
                 delete this.form.user;
-                Object(__WEBPACK_IMPORTED_MODULE_2__api_backend_js__["L" /* apiUpdateGroup */])(this.form).then(function (res) {
+                Object(__WEBPACK_IMPORTED_MODULE_2__api_backend_js__["O" /* apiUpdateGroup */])(this.form).then(function (res) {
                     if (res.code === 1) {
                         self.$message.success(res.msg);
                         self.getlist();
@@ -19727,7 +19762,7 @@ __WEBPACK_IMPORTED_MODULE_3_vue_quill_editor__["Quill"].register('modules/ImageE
             if (keyword) params.keyword = keyword;
 
             var self = this;
-            Object(__WEBPACK_IMPORTED_MODULE_2__api_backend_js__["A" /* apiGetGroupCates */])(params).then(function (res) {
+            Object(__WEBPACK_IMPORTED_MODULE_2__api_backend_js__["C" /* apiGetGroupCates */])(params).then(function (res) {
                 if (res.code === 1) {
                     self.list = res.msg.data;
                     self.pagination.total = res.msg.total;
@@ -19762,7 +19797,7 @@ __WEBPACK_IMPORTED_MODULE_3_vue_quill_editor__["Quill"].register('modules/ImageE
         },
         delRecord: function delRecord() {
             var self = this;
-            Object(__WEBPACK_IMPORTED_MODULE_2__api_backend_js__["p" /* apiDeleteGroupCate */])({ id: this.uid }).then(function (res) {
+            Object(__WEBPACK_IMPORTED_MODULE_2__api_backend_js__["q" /* apiDeleteGroupCate */])({ id: this.uid }).then(function (res) {
                 if (res.code === 1) {
                     self.$message.success(res.msg);
                     self.getCates();
@@ -19791,7 +19826,7 @@ __WEBPACK_IMPORTED_MODULE_3_vue_quill_editor__["Quill"].register('modules/ImageE
                     console.log(err);
                 });
             } else if (this.type === 1) {
-                Object(__WEBPACK_IMPORTED_MODULE_2__api_backend_js__["M" /* apiUpdateGroupCate */])(this.form).then(function (res) {
+                Object(__WEBPACK_IMPORTED_MODULE_2__api_backend_js__["P" /* apiUpdateGroupCate */])(this.form).then(function (res) {
                     if (res.code === 1) {
                         self.$message.success(res.msg);
                         self.getCates();
@@ -19958,7 +19993,7 @@ __WEBPACK_IMPORTED_MODULE_3_vue_quill_editor__["Quill"].register('modules/ImageE
             if (keyword) params = Object.assign(params, keyword);
 
             var self = this;
-            Object(__WEBPACK_IMPORTED_MODULE_2__api_backend_js__["s" /* apiGetActivities */])(params).then(function (res) {
+            Object(__WEBPACK_IMPORTED_MODULE_2__api_backend_js__["u" /* apiGetActivities */])(params).then(function (res) {
                 if (res.code === 1) {
                     self.list = res.msg.data;
                     self.pagination.total = res.msg.total;
@@ -20002,7 +20037,7 @@ __WEBPACK_IMPORTED_MODULE_3_vue_quill_editor__["Quill"].register('modules/ImageE
         },
         delRecord: function delRecord() {
             var self = this;
-            Object(__WEBPACK_IMPORTED_MODULE_2__api_backend_js__["i" /* apiDeleteActivity */])({ id: this.uid }).then(function (res) {
+            Object(__WEBPACK_IMPORTED_MODULE_2__api_backend_js__["j" /* apiDeleteActivity */])({ id: this.uid }).then(function (res) {
                 if (res.code === 1) {
                     self.$message.success(res.msg);
                     self.getlist();
@@ -20033,7 +20068,7 @@ __WEBPACK_IMPORTED_MODULE_3_vue_quill_editor__["Quill"].register('modules/ImageE
             } else if (this.type === 1) {
                 delete this.form.cate;
                 delete this.form.user;
-                Object(__WEBPACK_IMPORTED_MODULE_2__api_backend_js__["H" /* apiUpdateActivity */])(this.form).then(function (res) {
+                Object(__WEBPACK_IMPORTED_MODULE_2__api_backend_js__["K" /* apiUpdateActivity */])(this.form).then(function (res) {
                     if (res.code === 1) {
                         self.$message.success(res.msg);
                         self.getlist();
@@ -20208,7 +20243,7 @@ __WEBPACK_IMPORTED_MODULE_3_vue_quill_editor__["Quill"].register('modules/ImageE
             if (keyword) params = Object.assign(params, keyword);
 
             var self = this;
-            Object(__WEBPACK_IMPORTED_MODULE_2__api_backend_js__["C" /* apiGetRentals */])(params).then(function (res) {
+            Object(__WEBPACK_IMPORTED_MODULE_2__api_backend_js__["E" /* apiGetRentals */])(params).then(function (res) {
                 if (res.code === 1) {
                     self.list = res.msg.data;
                     self.pagination.total = res.msg.total;
@@ -20251,7 +20286,7 @@ __WEBPACK_IMPORTED_MODULE_3_vue_quill_editor__["Quill"].register('modules/ImageE
         },
         delRecord: function delRecord() {
             var self = this;
-            Object(__WEBPACK_IMPORTED_MODULE_2__api_backend_js__["q" /* apiDeleteRental */])({ id: this.uid }).then(function (res) {
+            Object(__WEBPACK_IMPORTED_MODULE_2__api_backend_js__["r" /* apiDeleteRental */])({ id: this.uid }).then(function (res) {
                 if (res.code === 1) {
                     self.$message.success(res.msg);
                     self.getlist();
@@ -20282,7 +20317,7 @@ __WEBPACK_IMPORTED_MODULE_3_vue_quill_editor__["Quill"].register('modules/ImageE
             } else if (this.type === 1) {
                 delete this.form.cate;
                 delete this.form.user;
-                Object(__WEBPACK_IMPORTED_MODULE_2__api_backend_js__["N" /* apiUpdateRental */])(this.form).then(function (res) {
+                Object(__WEBPACK_IMPORTED_MODULE_2__api_backend_js__["Q" /* apiUpdateRental */])(this.form).then(function (res) {
                     if (res.code === 1) {
                         self.$message.success(res.msg);
                         self.getlist();
@@ -63791,8 +63826,9 @@ var group = __webpack_require__(278).default;
 var groupCate = __webpack_require__(280).default;
 var activity = __webpack_require__(282).default;
 var rental = __webpack_require__(284).default;
+var share = __webpack_require__(287).default;
 
-var children = [{ name: 'index', path: 'index', component: index }, { name: 'user', path: 'user', component: user }, { name: 'book', path: 'book', component: book }, { name: 'bookCate', path: 'bookCate', component: bookCate }, { name: 'bookComment', path: 'bookComment', component: bookComment }, { name: 'article', path: 'article', component: article }, { name: 'articleComment', path: 'articleComment', component: articleComment }, { name: 'group', path: 'group', component: group }, { name: 'groupCate', path: 'groupCate', component: groupCate }, { name: 'activity', path: 'activity', component: activity }, { name: 'rental', path: 'rental', component: rental }, { path: '/', redirect: 'index' }];
+var children = [{ name: 'index', path: 'index', component: index }, { name: 'user', path: 'user', component: user }, { name: 'book', path: 'book', component: book }, { name: 'bookCate', path: 'bookCate', component: bookCate }, { name: 'bookComment', path: 'bookComment', component: bookComment }, { name: 'article', path: 'article', component: article }, { name: 'articleComment', path: 'articleComment', component: articleComment }, { name: 'group', path: 'group', component: group }, { name: 'groupCate', path: 'groupCate', component: groupCate }, { name: 'activity', path: 'activity', component: activity }, { name: 'rental', path: 'rental', component: rental }, { name: 'share', path: 'share', component: share }, { path: '/', redirect: 'index' }];
 
 var routes = [{ name: 'login', path: '/login', component: login }, { path: '/main', component: main, children: children }, { path: '/', redirect: 'login' }];
 
@@ -66762,47 +66798,51 @@ exports.push([module.i, "\n.brand {\n    height: 60px;\n    line-height: 60px;\n
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "D", function() { return getSysInfo; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "F", function() { return login; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "G", function() { return logout; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "E", function() { return getUsers; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "O", function() { return updateUser; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "h", function() { return createUser; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "r", function() { return deleteUser; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "z", function() { return getBooks; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "J", function() { return updateBook; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "G", function() { return getSysInfo; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "I", function() { return login; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "J", function() { return logout; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "H", function() { return getUsers; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "S", function() { return updateUser; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "i", function() { return createUser; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "t", function() { return deleteUser; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "B", function() { return getBooks; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "M", function() { return updateBook; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return createBook; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "l", function() { return deleteBook; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "x", function() { return getBookCates; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "K", function() { return updateBookCate; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "m", function() { return deleteBook; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "z", function() { return getBookCates; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "N", function() { return updateBookCate; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "d", function() { return createBookCate; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "m", function() { return deleteBookCate; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "t", function() { return getAllBookCates; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "y", function() { return getBookComments; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "n", function() { return deleteBookComment; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "w", function() { return getArticles; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "I", function() { return updateArticle; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "n", function() { return deleteBookCate; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "v", function() { return getAllBookCates; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "A", function() { return getBookComments; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "o", function() { return deleteBookComment; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "y", function() { return getArticles; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "L", function() { return updateArticle; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return createArticle; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "j", function() { return deleteArticle; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "v", function() { return getArticleComments; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "k", function() { return deleteArticleComment; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "B", function() { return getGroups; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "L", function() { return updateGroup; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "k", function() { return deleteArticle; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "x", function() { return getArticleComments; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "l", function() { return deleteArticleComment; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "D", function() { return getGroups; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "O", function() { return updateGroup; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "e", function() { return createGroup; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "o", function() { return deleteGroup; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "A", function() { return getGroupCates; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "M", function() { return updateGroupCate; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "p", function() { return deleteGroup; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "C", function() { return getGroupCates; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "P", function() { return updateGroupCate; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "f", function() { return createGroupCate; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "p", function() { return deleteGroupCate; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "u", function() { return getAllGroupCates; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "s", function() { return getActivities; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "q", function() { return deleteGroupCate; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "w", function() { return getAllGroupCates; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "u", function() { return getActivities; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return createActivity; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "H", function() { return updateActivity; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "i", function() { return deleteActivity; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "C", function() { return getRentals; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "K", function() { return updateActivity; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "j", function() { return deleteActivity; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "E", function() { return getRentals; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "g", function() { return createRental; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "N", function() { return updateRental; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "q", function() { return deleteRental; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Q", function() { return updateRental; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "r", function() { return deleteRental; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "F", function() { return getShares; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "h", function() { return createShare; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "R", function() { return updateShare; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "s", function() { return deleteShare; });
 
 // index
 var getSysInfo = '/admin/sysInfo';
@@ -66865,13 +66905,19 @@ var getAllGroupCates = '/admin/groupCate/allCates';
 var getActivities = '/admin/activity/index';
 var createActivity = '/admin/activity/create';
 var updateActivity = '/admin/activity/update';
-var deleteActivity = '/admin/activity/update';
+var deleteActivity = '/admin/activity/delete';
 
 // 租赁
 var getRentals = '/admin/rental/index';
 var createRental = '/admin/rental/create';
 var updateRental = '/admin/rental/update';
-var deleteRental = '/admin/rental/update';
+var deleteRental = '/admin/rental/delete';
+
+// 分享
+var getShares = '/admin/share/index';
+var createShare = '/admin/share/create';
+var updateShare = '/admin/share/update';
+var deleteShare = '/admin/share/delete';
 
 /***/ }),
 /* 227 */
@@ -85172,6 +85218,654 @@ if (false) {
   module.hot.accept()
   if (module.hot.data) {
     require("vue-hot-reload-api")      .rerender("data-v-99359ad2", { render: render, staticRenderFns: staticRenderFns })
+  }
+}
+
+/***/ }),
+/* 286 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_pagination_vue__ = __webpack_require__(7);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_tableFilter_vue__ = __webpack_require__(8);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__api_backend_js__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__tools_lite_validator_js__ = __webpack_require__(11);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__tools_common_js__ = __webpack_require__(12);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+
+
+
+
+
+/* harmony default export */ __webpack_exports__["a"] = ({
+    data: function data() {
+        return {
+            list: [],
+            form: {
+                'name': '',
+                'info': '',
+                'loc': '',
+                'lng': 0.0,
+                'lat': 0.0
+            },
+            pagination: {
+                total: 0,
+                curPage: 1
+            },
+            showDialog: false,
+            showDelete: false,
+            type: 0, // 0:新增 1:编辑
+            uid: 0,
+            exactTypes: [{ type: 'id', name: 'id' }, { type: 'name', name: '分享名' }, { type: 'loc', name: '分享地点' }]
+        };
+    },
+
+    watch: {
+        'form.loc': function formLoc() {
+            this.geocoderAddr();
+        }
+    },
+    methods: {
+        getlist: function getlist(keyword) {
+            var params = { page: this.pagination.curPage };
+            if (keyword) params = Object.assign(params, keyword);
+
+            var self = this;
+            Object(__WEBPACK_IMPORTED_MODULE_2__api_backend_js__["F" /* apiGetShares */])(params).then(function (res) {
+                if (res.code === 1) {
+                    self.list = res.msg.data;
+                    self.pagination.total = res.msg.total;
+                    self.pagination.curPage = res.msg.current_page;
+                }
+            }).catch(function (err) {
+                console.log(err);
+            });
+        },
+        nextPage: function nextPage(page) {
+            this.pagination.curPage = page;
+            this.getlist();
+        },
+        filter: function filter(keyword) {
+            this.getlist(keyword);
+        },
+        handleAdd: function handleAdd() {
+            this.form = {
+                'name': '',
+                'info': '',
+                'loc': '',
+                'lng': 0.0,
+                'lat': 0.0
+            };
+            this.type = 0;
+            this.showDialog = true;
+        },
+        handleEdit: function handleEdit(index, row) {
+            this.form = Object.assign({}, row);
+            this.type = 1;
+            this.showDialog = true;
+        },
+        handleDelete: function handleDelete(index, row) {
+            this.uid = row.id;
+            this.showDelete = true;
+        },
+        delRecord: function delRecord() {
+            var self = this;
+            Object(__WEBPACK_IMPORTED_MODULE_2__api_backend_js__["s" /* apiDeleteShare */])({ id: this.uid }).then(function (res) {
+                if (res.code === 1) {
+                    self.$message.success(res.msg);
+                    self.getlist();
+                    self.showDelete = false;
+                } else {
+                    self.$message.error(res.msg);
+                }
+            }).catch(function (err) {
+                console.log(err);
+            });
+        },
+        submitForm: function submitForm() {
+            if (!this._validateForm()) return;
+
+            var self = this;
+            if (this.type === 0) {
+                Object(__WEBPACK_IMPORTED_MODULE_2__api_backend_js__["h" /* apiCreateShare */])(this.form).then(function (res) {
+                    if (res.code === 1) {
+                        self.$message.success(res.msg);
+                        self.getlist();
+                        self.showDialog = false;
+                    } else {
+                        self.$message.error(res.msg);
+                    }
+                }).catch(function (err) {
+                    console.log(err);
+                });
+            } else if (this.type === 1) {
+                Object(__WEBPACK_IMPORTED_MODULE_2__api_backend_js__["R" /* apiUpdateShare */])(this.form).then(function (res) {
+                    if (res.code === 1) {
+                        self.$message.success(res.msg);
+                        self.getlist();
+                        self.showDialog = false;
+                    } else {
+                        self.$message.error(res.msg);
+                    }
+                }).catch(function (err) {
+                    console.log(err);
+                });
+            }
+        },
+        _validateForm: function _validateForm() {
+
+            // 书名
+            if (Object(__WEBPACK_IMPORTED_MODULE_4__tools_common_js__["a" /* ylTrim */])(this.form.name).length <= 0) {
+                this.$message.error('分享名不能为空！');
+                return false;
+            }
+            if (!__WEBPACK_IMPORTED_MODULE_3__tools_lite_validator_js__["a" /* validValue */].allName(this.form.name)) {
+                this.$message.error('请输入分享，且长度为2到15！');
+                return false;
+            }
+
+            // 作者
+            if (Object(__WEBPACK_IMPORTED_MODULE_4__tools_common_js__["a" /* ylTrim */])(this.form.loc).length <= 0) {
+                this.$message.error('分享点不能为空！');
+                return false;
+            }
+            if (!__WEBPACK_IMPORTED_MODULE_3__tools_lite_validator_js__["a" /* validValue */].allName(this.form.author)) {
+                this.$message.error('分享点请输入中文名称或英文！');
+                return false;
+            }
+
+            // 描述
+            if (Object(__WEBPACK_IMPORTED_MODULE_4__tools_common_js__["a" /* ylTrim */])(this.form.desc).length <= 0) {
+                this.$message.error('分享描述不能为空！');
+                return false;
+            }
+
+            return true;
+        },
+        geocoderAddr: function geocoderAddr() {
+            var myGeo = new BMap.Geocoder();
+            var str = this.form.loc;
+            var self = this;
+            // 将地址解析结果显示在地图上,并调整地图视野
+            myGeo.getPoint(str, function (point) {
+                if (point) {
+                    //                        console.log(point);
+                    self.form.lng = point.lng;
+                    self.form.lat = point.lat;
+                } else {
+                    console.log('您选择地址没有解析到结果!');
+                }
+            });
+        }
+    },
+    components: {
+        'pagination': __WEBPACK_IMPORTED_MODULE_0__components_pagination_vue__["a" /* default */],
+        'tableFilter': __WEBPACK_IMPORTED_MODULE_1__components_tableFilter_vue__["a" /* default */]
+    },
+    created: function created() {
+        this.getlist();
+    }
+});
+
+/***/ }),
+/* 287 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_cacheDirectory_true_presets_env_modules_false_targets_browsers_2_uglify_true_plugins_transform_object_rest_spread_transform_runtime_polyfill_false_helpers_false_node_modules_vue_loader_lib_selector_type_script_index_0_share_vue__ = __webpack_require__(286);
+/* empty harmony namespace reexport */
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_78458288_hasScoped_false_optionsId_0_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_share_vue__ = __webpack_require__(288);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__node_modules_vue_loader_lib_runtime_component_normalizer__ = __webpack_require__(1);
+var disposed = false
+/* script */
+
+
+/* template */
+
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+
+var Component = Object(__WEBPACK_IMPORTED_MODULE_2__node_modules_vue_loader_lib_runtime_component_normalizer__["a" /* default */])(
+  __WEBPACK_IMPORTED_MODULE_0__babel_loader_cacheDirectory_true_presets_env_modules_false_targets_browsers_2_uglify_true_plugins_transform_object_rest_spread_transform_runtime_polyfill_false_helpers_false_node_modules_vue_loader_lib_selector_type_script_index_0_share_vue__["a" /* default */],
+  __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_78458288_hasScoped_false_optionsId_0_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_share_vue__["a" /* render */],
+  __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_78458288_hasScoped_false_optionsId_0_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_share_vue__["b" /* staticRenderFns */],
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/assets/js/views/share.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-78458288", Component.options)
+  } else {
+    hotAPI.reload("data-v-78458288", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+/* harmony default export */ __webpack_exports__["default"] = (Component.exports);
+
+
+/***/ }),
+/* 288 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "section",
+    [
+      _c(
+        "el-main",
+        [
+          _c("table-filter", {
+            attrs: {
+              layout: "exact, input, search, add",
+              exactTypes: _vm.exactTypes
+            },
+            on: { addRecord: _vm.handleAdd, filter: _vm.filter }
+          }),
+          _vm._v(" "),
+          _c(
+            "el-table",
+            {
+              staticStyle: { width: "100%" },
+              attrs: { data: _vm.list, stripe: "" }
+            },
+            [
+              _c("el-table-column", {
+                attrs: { prop: "id", label: "id", width: "50" }
+              }),
+              _vm._v(" "),
+              _c("el-table-column", {
+                attrs: { prop: "name", label: "分享名", width: "150" }
+              }),
+              _vm._v(" "),
+              _c("el-table-column", {
+                attrs: { prop: "lng", label: "经度", width: "150" }
+              }),
+              _vm._v(" "),
+              _c("el-table-column", {
+                attrs: { prop: "lat", label: "纬度", width: "150" }
+              }),
+              _vm._v(" "),
+              _c("el-table-column", {
+                attrs: { prop: "info", label: "分享描述", width: "150" }
+              }),
+              _vm._v(" "),
+              _c("el-table-column", {
+                attrs: { prop: "loc", label: "分享点信息", width: "150" }
+              }),
+              _vm._v(" "),
+              _c("el-table-column", {
+                attrs: { label: "操作", width: "180" },
+                scopedSlots: _vm._u([
+                  {
+                    key: "default",
+                    fn: function(scope) {
+                      return [
+                        _c(
+                          "el-button",
+                          {
+                            attrs: { size: "mini" },
+                            on: {
+                              click: function($event) {
+                                _vm.handleEdit(scope.$index, scope.row)
+                              }
+                            }
+                          },
+                          [_vm._v("编辑")]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "el-button",
+                          {
+                            attrs: { size: "mini", type: "danger" },
+                            on: {
+                              click: function($event) {
+                                _vm.handleDelete(scope.$index, scope.row)
+                              }
+                            }
+                          },
+                          [_vm._v("删除")]
+                        )
+                      ]
+                    }
+                  }
+                ])
+              })
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c("pagination", {
+            attrs: { pagination: _vm.pagination },
+            on: { nextPage: _vm.nextPage }
+          })
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _c(
+        "el-dialog",
+        {
+          attrs: { title: _vm.type ? "编辑" : "新增", visible: _vm.showDialog },
+          on: {
+            "update:visible": function($event) {
+              _vm.showDialog = $event
+            }
+          }
+        },
+        [
+          _c(
+            "el-form",
+            { attrs: { model: _vm.form, "label-width": "80px" } },
+            [
+              _c(
+                "el-form-item",
+                { attrs: { label: "分享名", prop: "name" } },
+                [
+                  _c("el-input", {
+                    attrs: {
+                      placeholder: "请输入分享名",
+                      "auto-complete": "off"
+                    },
+                    model: {
+                      value: _vm.form.name,
+                      callback: function($$v) {
+                        _vm.$set(
+                          _vm.form,
+                          "name",
+                          typeof $$v === "string" ? $$v.trim() : $$v
+                        )
+                      },
+                      expression: "form.name"
+                    }
+                  })
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "el-form-item",
+                { attrs: { label: "分享地", prop: "loc" } },
+                [
+                  _c("el-input", {
+                    attrs: {
+                      placeholder: "请输入分享地",
+                      "auto-complete": "off"
+                    },
+                    model: {
+                      value: _vm.form.loc,
+                      callback: function($$v) {
+                        _vm.$set(
+                          _vm.form,
+                          "loc",
+                          typeof $$v === "string" ? $$v.trim() : $$v
+                        )
+                      },
+                      expression: "form.loc"
+                    }
+                  })
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "el-form-item",
+                { attrs: { label: "分享经度", prop: "lng" } },
+                [
+                  _c("el-input", {
+                    attrs: {
+                      disabled: true,
+                      placeholder: "请输入分享经度",
+                      "auto-complete": "off"
+                    },
+                    model: {
+                      value: _vm.form.lng,
+                      callback: function($$v) {
+                        _vm.$set(
+                          _vm.form,
+                          "lng",
+                          typeof $$v === "string" ? $$v.trim() : $$v
+                        )
+                      },
+                      expression: "form.lng"
+                    }
+                  })
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "el-form-item",
+                { attrs: { label: "分享纬度", prop: "lat" } },
+                [
+                  _c("el-input", {
+                    attrs: {
+                      disabled: true,
+                      placeholder: "请输入分享纬度",
+                      "auto-complete": "off"
+                    },
+                    model: {
+                      value: _vm.form.lat,
+                      callback: function($$v) {
+                        _vm.$set(
+                          _vm.form,
+                          "lat",
+                          typeof $$v === "string" ? $$v.trim() : $$v
+                        )
+                      },
+                      expression: "form.lat"
+                    }
+                  })
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "el-form-item",
+                { attrs: { label: "分享说明", prop: "info" } },
+                [
+                  _c("el-input", {
+                    attrs: {
+                      placeholder: "请输入分享说明",
+                      "auto-complete": "off",
+                      type: "textarea",
+                      rows: "5"
+                    },
+                    model: {
+                      value: _vm.form.info,
+                      callback: function($$v) {
+                        _vm.$set(
+                          _vm.form,
+                          "info",
+                          typeof $$v === "string" ? $$v.trim() : $$v
+                        )
+                      },
+                      expression: "form.info"
+                    }
+                  })
+                ],
+                1
+              )
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            {
+              staticClass: "dialog-footer",
+              attrs: { slot: "footer" },
+              slot: "footer"
+            },
+            [
+              _c(
+                "el-button",
+                {
+                  on: {
+                    click: function($event) {
+                      _vm.showDialog = false
+                    }
+                  }
+                },
+                [_vm._v("取消")]
+              ),
+              _vm._v(" "),
+              _c(
+                "el-button",
+                { attrs: { type: "primary" }, on: { click: _vm.submitForm } },
+                [_vm._v("提交")]
+              )
+            ],
+            1
+          )
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _c(
+        "el-dialog",
+        {
+          attrs: { title: "确认删除", visible: _vm.showDelete, width: "30%" },
+          on: {
+            "update:visible": function($event) {
+              _vm.showDelete = $event
+            }
+          }
+        },
+        [
+          _c("span", [_vm._v("确认删除？")]),
+          _vm._v(" "),
+          _c(
+            "span",
+            {
+              staticClass: "dialog-footer",
+              attrs: { slot: "footer" },
+              slot: "footer"
+            },
+            [
+              _c(
+                "el-button",
+                {
+                  on: {
+                    click: function($event) {
+                      _vm.showDelete = false
+                    }
+                  }
+                },
+                [_vm._v("取消")]
+              ),
+              _vm._v(" "),
+              _c(
+                "el-button",
+                { attrs: { type: "primary" }, on: { click: _vm.delRecord } },
+                [_vm._v("确定")]
+              )
+            ],
+            1
+          )
+        ]
+      )
+    ],
+    1
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-78458288", { render: render, staticRenderFns: staticRenderFns })
   }
 }
 
