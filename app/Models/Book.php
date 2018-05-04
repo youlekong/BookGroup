@@ -19,4 +19,8 @@ class Book extends Model
     public function cate() {
         return $this->belongsTo('App\Models\BookCate', 'c_id');
     }
+
+    public function user() {
+        return $this->belongsTo('App\Models\User', 'u_id');
+    }
 }

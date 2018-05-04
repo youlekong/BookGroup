@@ -103,3 +103,23 @@ Route::group(['middleware' => ['auth'], 'namespace' => 'admin', 'prefix' => 'adm
 
     Route::get('/sysInfo', 'SystemController@index');
 });
+
+Route::group(['middleware' => ['cross'], 'namespace' => 'h5', 'prefix' => 'h5'], function () {
+    Route::prefix('share')->group(function () {
+        Route::get('/index', 'ShareController@index');
+    });
+
+    Route::prefix('book')->group(function () {
+        Route::get('/getBooks', 'BookController@getBooks');
+    });
+
+    Route::prefix('bookComment')->group(function () {
+        Route::get('/getComments', 'BookCommentController@getComments');
+    });
+
+    Route::prefix('sign')->group(function () {
+        Route::get('/captcha', 'SignController@captcha');
+        Route::post('/signIn', 'SignController@signIn');
+        Route::post('/signUp', 'SignController@signUp');
+    });
+});
