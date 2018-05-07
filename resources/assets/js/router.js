@@ -47,12 +47,16 @@ const router = new VueRouter({
     routes
 });
 
-// router.beforeEach( (to, from, next) => {
-    // NProgress.start();
-//     setTimeout(function () {
-//         next();
-//         NProgress.done()
-//     }, 2000)
-// });
+router.beforeEach( (to, from, next) => {
+
+    if (to.name === 'login') {
+        let user = cookie('user');
+        if (user.length > 0) {
+            next({path: '/'});
+        }
+    }
+
+    next();
+});
 
 module.exports = router;

@@ -2,9 +2,11 @@
 
 namespace App\Handlers;
 
+use Illuminate\Support\Facades\Log;
+
 class CaptchaHandle
 {
-    function generateCaptcha()
+    public static function generateCaptcha()
     {
         $charset = 'abcdefghkmnprstuvwxyzABCDEFGHKMNPRSTUVWXYZ23456789';
         $code = ''; //验证码
@@ -40,7 +42,7 @@ class CaptchaHandle
             imagettftext($img, $fontsize, mt_rand(-30, 30), $_x * $i + mt_rand(1, 5), $height / 1.4, $fontcolor, $font, $code[$i]);
         }
 //        ssetcookie('checkCode', authcode(strtolower($code), 1));
-        session('captcha', $code);
+        session()->put('captcha', $code);
 
         ob_start();
         imagepng($img);
@@ -49,5 +51,11 @@ class CaptchaHandle
         ob_end_clean();
 
         return $content;//$response = Response()->make($content)->header('Content-Type', 'image/png');
+    }
+
+    public static function getCaptchaCode() {
+        $code = session()->get('captcha');
+        session()->forget('captcha');
+        return strtolower($code);
     }
 }

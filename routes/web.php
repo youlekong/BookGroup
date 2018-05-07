@@ -104,7 +104,16 @@ Route::group(['middleware' => ['auth'], 'namespace' => 'admin', 'prefix' => 'adm
     Route::get('/sysInfo', 'SystemController@index');
 });
 
+
 Route::group(['middleware' => ['cross'], 'namespace' => 'h5', 'prefix' => 'h5'], function () {
+    Route::prefix('sign')->group(function () {
+        Route::get('/captcha', 'SignController@captcha');
+        Route::post('/signIn', 'SignController@signIn');
+        Route::post('/signUp', 'SignController@signUp');
+    });
+});
+
+Route::group(['middleware' => ['cross', 'h5Auth'], 'namespace' => 'h5', 'prefix' => 'h5'], function () {
     Route::prefix('share')->group(function () {
         Route::get('/index', 'ShareController@index');
     });
@@ -117,9 +126,9 @@ Route::group(['middleware' => ['cross'], 'namespace' => 'h5', 'prefix' => 'h5'],
         Route::get('/getComments', 'BookCommentController@getComments');
     });
 
-    Route::prefix('sign')->group(function () {
-        Route::get('/captcha', 'SignController@captcha');
-        Route::post('/signIn', 'SignController@signIn');
-        Route::post('/signUp', 'SignController@signUp');
-    });
+//    Route::prefix('sign')->group(function () {
+//        Route::get('/captcha', 'SignController@captcha');
+//        Route::post('/signIn', 'SignController@signIn');
+//        Route::post('/signUp', 'SignController@signUp');
+//    });
 });
