@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\H5;
 
+use App\Models\User;
 use App\Models\Book;
 use App\Http\Requests\BookRequest;
 
@@ -21,7 +22,8 @@ class BookController extends ApiController
             $model = Book::with(['user']);
             $model->where('s_id', $params['sid']);
         } elseif ($type == 1) {    // 还书
-//            $model = Book::where('uid', $params['uid']);
+            $uid = session()->get('login_h5');
+            $model = User::find($uid)->oweBooks()->with(['user']);
         }
 
         $data = $model->get();

@@ -126,6 +126,11 @@ Route::group(['middleware' => ['cross', 'h5Auth'], 'namespace' => 'h5', 'prefix'
         Route::get('/getComments', 'BookCommentController@getComments');
     });
 
+    Route::prefix('group')->group(function () {
+        Route::get('/getGroups', 'GroupController@getGroups');
+        Route::get('/getGroupCates', 'GroupController@getGroupCategories');
+    });
+
 //    Route::prefix('sign')->group(function () {
 //        Route::get('/captcha', 'SignController@captcha');
 //        Route::post('/signIn', 'SignController@signIn');

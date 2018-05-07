@@ -19,4 +19,8 @@ class User extends Model implements AuthenticatableContract
         'name', 'password',
     ];
 
+    public function oweBooks() {
+        return $this->belongsToMany('App\Models\Book', 'user_book', 'u_id', 'b_id');
+    }
+
 }
