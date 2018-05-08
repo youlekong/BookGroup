@@ -215,7 +215,7 @@ CREATE TABLE `file` (
   `status` smallint(6) NOT NULL DEFAULT '0' COMMENT '附件状态',
   `created_op` int(11) NOT NULL DEFAULT '0' COMMENT '创建人',
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `updated_at` timestamp NOT NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 
