@@ -15,5 +15,6 @@
     </body>
     <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=Ous0WkmOlcCTgrswniPozXe9q8LDICby"></script>
     <script src="{{ asset('js/nprogress.js') }}"></script>
+    <script src="{{ asset('js/cookie.js') }}"></script>
     <script src="{{ asset('js/app.js') }}"></script>
 </html>
