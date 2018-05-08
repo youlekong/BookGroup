@@ -113,7 +113,7 @@ Route::group(['middleware' => ['cross'], 'namespace' => 'H5', 'prefix' => 'h5'],
     });
 });
 
-Route::group(['middleware' => ['cross', 'h5Auth'], 'namespace' => 'h5', 'prefix' => 'h5'], function () {
+Route::group(['middleware' => ['cross', 'h5Auth'], 'namespace' => 'H5', 'prefix' => 'h5'], function () {
     Route::prefix('share')->group(function () {
         Route::get('/index', 'ShareController@index');
     });
