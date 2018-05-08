@@ -105,7 +105,7 @@ Route::group(['middleware' => ['auth'], 'namespace' => 'Admin', 'prefix' => 'adm
 });
 
 
-Route::group(['middleware' => ['cross'], 'namespace' => 'h5', 'prefix' => 'h5'], function () {
+Route::group(['middleware' => ['cross'], 'namespace' => 'H5', 'prefix' => 'h5'], function () {
     Route::prefix('sign')->group(function () {
         Route::get('/captcha', 'SignController@captcha');
         Route::post('/signIn', 'SignController@signIn');
