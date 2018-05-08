@@ -21,7 +21,7 @@ Route::get('admin/logout', 'Admin\LoginController@logout');
 // 文件上传相关路由
 Route::post('upload/image', 'UploadController@image');
 
-Route::group(['middleware' => ['auth'], 'namespace' => 'admin', 'prefix' => 'admin'], function () {
+Route::group(['middleware' => ['auth'], 'namespace' => 'Admin', 'prefix' => 'admin'], function () {
     Route::prefix('user')->group(function () {
         Route::get('/index', 'UserController@index');
         Route::post('/create', 'UserController@create');
