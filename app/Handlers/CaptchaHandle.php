@@ -16,8 +16,9 @@ class CaptchaHandle
         if (strrpos(strtolower(PHP_OS), "win") === false) {
             $font = '/usr/share/fonts/bitstream-vera/VeraBd.ttf';
         } else {
-            putenv('GDFONTPATH=' . realpath('.'));
-            $font = public_path('fonts/captcha/VeraBd.ttf'); //指定的字体
+            // putenv('GDFONTPATH=' . realpath('.'));
+            // $font = public_path('fonts/captcha/VeraBd.ttf'); //指定的字体
+            $font = '../../public/fonts/captcha/VeraBd.ttf';
         }
         $fontsize = 20; //指定字体大小
         $img = imagecreatetruecolor($width, $height);
