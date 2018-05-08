@@ -13,12 +13,12 @@ class CaptchaHandle
         $codelen = 4; //验证码长度
         $width = 102; //宽度
         $height = 40; //高度
-        if (strrpos(strtolower(PHP_OS), "win") === false) {
-            $font = '/usr/share/fonts/bitstream-vera/VeraBd.ttf';
-        } else {
-            $font = dirname(dirname(dirname(__file__))) . '/public/fonts/captcha/VeraBd.ttf';
-            // $font = public_path('fonts/captcha/VeraBd.ttf'); //指定的字体
-        }
+        // if (strrpos(strtolower(PHP_OS), "win") === false) {
+        //     $font = '/usr/share/fonts/bitstream-vera/VeraBd.ttf';
+        // } else {
+        //     $font = public_path('fonts/captcha/VeraBd.ttf'); //指定的字体
+        // }
+        $font = public_path('fonts/captcha/VeraBd.ttf'); //指定的字体
         $fontsize = 20; //指定字体大小
         $img = imagecreatetruecolor($width, $height);
         $color = imagecolorallocate($img, mt_rand(157, 255), mt_rand(157, 255), mt_rand(157, 255));
