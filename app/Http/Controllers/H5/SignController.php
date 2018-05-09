@@ -34,7 +34,7 @@ class SignController extends ApiController
         if (!$this->bHash->check($password, $user['password']))
             return $this->error('密码错误');
 
-        session()->put($this->getName(), $user['id']);
+        $this->userSession($user['id']);
 
         unset($user['password']);
         return $this->success($user);
@@ -42,7 +42,30 @@ class SignController extends ApiController
 
     public function signUp(UserRequest $request)
     {
+        $params = $request->all();
 
+        $captcha = strtolower($params['code']);
+        if ($captcha !== CaptchaHandle::getCaptchaCode())
+            return $this->error('验证码错误');
+
+        if ( User::where('name', $params['name'])->first() ) {
+            return $this->error('用户已经存在');
+        }
+
+        if ( $params['rePassword'] !== $params['password'] ) {
+            return $this->error('两次密码不一样');
+        }
+
+        $user = ['name' => $params['name'], 'password' => $params['password']];
+        $user['password'] = $this->bHash->make($user['password']);
+        if ( !User::create($user) ) {
+            return $this->error('注册失败');
+        }
+
+        $user = User::where('name', $params['name'])->first();
+        $this->userSession($user['id']);
+
+        return $this->success($user);
     }
 
     public function captcha()
@@ -53,5 +76,9 @@ class SignController extends ApiController
 
     private function getName() {
         return 'login_h5';
+    }
+
+    private function userSession($uid) {
+        session()->put($this->getName(), $uid);
     }
 }

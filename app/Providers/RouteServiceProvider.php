@@ -40,6 +40,7 @@ class RouteServiceProvider extends ServiceProvider
         $this->mapWebRoutes();
 
         //
+        $this->mapH5Routers();
     }
 
     /**
@@ -69,5 +70,13 @@ class RouteServiceProvider extends ServiceProvider
              ->middleware('api')
              ->namespace($this->namespace)
              ->group(base_path('routes/api.php'));
+    }
+
+    protected  function mapH5Routers()
+    {
+        Route::middleware('h5')
+            ->prefix('h5')
+            ->namespace($this->namespace)
+            ->group(base_path('routes/h5.php'));
     }
 }

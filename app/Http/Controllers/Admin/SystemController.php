@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\Admin;
 
+use Illuminate\Support\Facades\Log;
+
 class SystemController extends ApiController
 {
     public function index()
@@ -32,7 +34,6 @@ class SystemController extends ApiController
             'max_cgf' => $maxCGF,
             'max_memory' => $maxMemory,
         ];
-
 
         return $this->success($data);
     }
