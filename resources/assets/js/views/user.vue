@@ -25,7 +25,7 @@
         <el-dialog :title="type?'编辑':'新增'" :visible.sync="showDialog">
             <el-form :model="form" label-width="80px">
                 <el-form-item label="姓名" prop="name">
-                    <el-input v-model.trim="form.name" placeholder="请输入姓名" auto-complete="off"></el-input>
+                    <el-input v-model.trim="form.name" :disabled="type==1" placeholder="请输入姓名" auto-complete="off"></el-input>
                 </el-form-item>
                 <el-form-item label="密码" prop="password">
                     <el-input v-model.trim="form.password" placeholder="请输入密码" type="password" auto-complete="off"></el-input>

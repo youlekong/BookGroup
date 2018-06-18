@@ -82,12 +82,9 @@
     export default {
         data() {
             return {
+                id: 0,
                 list: [],
-                form: {
-                    'title': '',
-                    'desc': '',
-                    'u_name': ''
-                },
+                form: { 'title': '', 'desc': '', 'u_name': ''   },
                 pagination: {   total: 0, curPage: 1    },
                 showDialog: false,
                 showDelete: false,
@@ -132,16 +129,17 @@
                 this.showPreview = true;
             },
             handleAdd() {
-                this.form = {
-                    'title': '',
-                    'desc': '',
-                    'u_name': ''
-                };
+                this.form = { 'title': '', 'desc': '', 'u_name': ''   };
+
                 this.type = 0;
                 this.showDialog = true
             },
             handleEdit(index, row) {
-                this.form = Object.assign({}, row);
+                this.form.title = row.title;
+                this.form.desc = row.desc;
+                this.form.u_name = row.user.name;
+                this.id = row.id
+
                 this.type = 1;
                 this.showDialog = true;
             },
@@ -178,11 +176,10 @@
                     }).catch(err => { console.log(err); })
                 } else if (this.type === 1) {
                     let form = {
-                        id: this.form.id,
-                        u_id: 1,
-                        b_id: this.form.b_id,
+                        id: this.id,
                         title: this.form.title,
                         desc: this.form.desc,
+                        u_name: this.form.u_name
                     };
                     apiUpdateArticle(form).then(res => {
                         if (res.code === 1) {
@@ -211,7 +208,7 @@
                     this.$message.error('标题不能为空！');
                     return false
                 }
-                if (!validValue.chinese(this.form.title) ) {
+                if (!validValue.allName(this.form.title) ) {
                     this.$message.error('请输入标题，且长度为2到15！');
                     return false
                 }

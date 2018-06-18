@@ -47,6 +47,14 @@ class ActivityController extends ApiController
     {
         $params = $request->all();
 
+        $uName = $params['u_name'];
+        unset($params['u_name']);
+        $user = $this->getUser($uName);
+        if ( !$user ) {
+            return $this->error('用户名不存在');
+        }
+
+        $params['u_id'] = $user['id'];
         $result = Activity::create($params);
         if (!$result ) {
             return $this->error('新增失败');
@@ -61,6 +69,14 @@ class ActivityController extends ApiController
         $id = $params['id'];
         unset($params['id']);
 
+        $uName = $params['u_name'];
+        unset($params['u_name']);
+        $user = $this->getUser($uName);
+        if ( !$user ) {
+            return $this->error('用户名不存在');
+        }
+
+        $params['u_id'] = $user['id'];
         $result = $book->where(['id' => $id])->update($params);
         if (!$result ) {
             return $this->error('更新失败');

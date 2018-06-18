@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\User;
 
 class ApiController extends Controller
 {
@@ -24,5 +25,11 @@ class ApiController extends Controller
             'code' => $code
         ];
         return $result;
+    }
+
+    public function getUser($name)
+    {
+        $model = User::where('name', $name)->select('id')->first();
+        return $model ? $model->toArray() : null;
     }
 }

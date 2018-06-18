@@ -51,7 +51,7 @@
                               auto-complete="off"></el-input>
                 </el-form-item>
                 <el-form-item label="作者" prop="author">
-                    <el-input v-model.trim="form.author" placeholder="请输入作者"
+                    <el-input v-model.trim="form.u_name" placeholder="请输入作者"
                               auto-complete="off"></el-input>
                 </el-form-item>
                 <el-form-item label="描述" prop="desc">
@@ -86,14 +86,15 @@
     export default {
         data() {
             return {
+                id: 0,
                 filters: [],
                 cates: [],
                 list: [],
                 form: {
-//                    'name': '',
-//                    'desc': '',
-//                    'author': '',
-//                    'c_id': 0,
+                    'name': '',
+                    'desc': '',
+                    'u_name': '',
+                    'c_id': 0,
                 },
                 pagination: {
                     total: 0,
@@ -157,14 +158,18 @@
                 this.form = {
                     'name': '',
                     'desc': '',
-                    'author': '',
+                    'u_name': '',
                     'c_id': '',
-                };
+                }
+
                 this.type = 0;
                 this.showDialog = true
             },
             handleEdit(index, row) {
                 this.form = Object.assign({}, row);
+                this.form.u_name = row.user.name;
+                this.id = row.id
+
                 this.type = 1;
                 this.showDialog = true;
             },
@@ -200,9 +205,14 @@
                         }
                     }).catch(err => { console.log(err); })
                 } else if (this.type === 1) {
-                    delete this.form.cate;
-                    delete this.form.user;
-                    apiUpdateGroup(this.form).then(res => {
+                    let form = {
+                        'name': this.form.name,
+                        'desc': this.form.desc,
+                        'u_name': this.form.u_name,
+                        'c_id': this.form.c_id,
+                        'id': this.id
+                    };
+                    apiUpdateGroup(form).then(res => {
                         if (res.code === 1) {
                             self.$message.success(res.msg);
                             self.getlist();

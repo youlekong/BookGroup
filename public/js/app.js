@@ -18955,12 +18955,9 @@ function required(rule, value, source, errors, options, type) {
 /* harmony default export */ __webpack_exports__["a"] = ({
     data: function data() {
         return {
+            id: 0,
             list: [],
-            form: {
-                'title': '',
-                'desc': '',
-                'u_name': ''
-            },
+            form: { 'title': '', 'desc': '', 'u_name': '' },
             pagination: { total: 0, curPage: 1 },
             showDialog: false,
             showDelete: false,
@@ -19000,16 +18997,17 @@ function required(rule, value, source, errors, options, type) {
             this.showPreview = true;
         },
         handleAdd: function handleAdd() {
-            this.form = {
-                'title': '',
-                'desc': '',
-                'u_name': ''
-            };
+            this.form = { 'title': '', 'desc': '', 'u_name': '' };
+
             this.type = 0;
             this.showDialog = true;
         },
         handleEdit: function handleEdit(index, row) {
-            this.form = Object.assign({}, row);
+            this.form.title = row.title;
+            this.form.desc = row.desc;
+            this.form.u_name = row.user.name;
+            this.id = row.id;
+
             this.type = 1;
             this.showDialog = true;
         },
@@ -19049,11 +19047,10 @@ function required(rule, value, source, errors, options, type) {
                 });
             } else if (this.type === 1) {
                 var form = {
-                    id: this.form.id,
-                    u_id: 1,
-                    b_id: this.form.b_id,
+                    id: this.id,
                     title: this.form.title,
-                    desc: this.form.desc
+                    desc: this.form.desc,
+                    u_name: this.form.u_name
                 };
                 Object(__WEBPACK_IMPORTED_MODULE_4__api_backend_js__["L" /* apiUpdateArticle */])(form).then(function (res) {
                     if (res.code === 1) {
@@ -19084,7 +19081,7 @@ function required(rule, value, source, errors, options, type) {
                 this.$message.error('标题不能为空！');
                 return false;
             }
-            if (!__WEBPACK_IMPORTED_MODULE_5__tools_lite_validator_js__["a" /* validValue */].chinese(this.form.title)) {
+            if (!__WEBPACK_IMPORTED_MODULE_5__tools_lite_validator_js__["a" /* validValue */].allName(this.form.title)) {
                 this.$message.error('请输入标题，且长度为2到15！');
                 return false;
             }
@@ -19496,14 +19493,15 @@ __WEBPACK_IMPORTED_MODULE_3_vue_quill_editor__["Quill"].register('modules/ImageE
 /* harmony default export */ __webpack_exports__["a"] = ({
     data: function data() {
         return {
+            id: 0,
             filters: [],
             cates: [],
             list: [],
             form: {
-                //                    'name': '',
-                //                    'desc': '',
-                //                    'author': '',
-                //                    'c_id': 0,
+                'name': '',
+                'desc': '',
+                'u_name': '',
+                'c_id': 0
             },
             pagination: {
                 total: 0,
@@ -19565,14 +19563,18 @@ __WEBPACK_IMPORTED_MODULE_3_vue_quill_editor__["Quill"].register('modules/ImageE
             this.form = {
                 'name': '',
                 'desc': '',
-                'author': '',
+                'u_name': '',
                 'c_id': ''
             };
+
             this.type = 0;
             this.showDialog = true;
         },
         handleEdit: function handleEdit(index, row) {
             this.form = Object.assign({}, row);
+            this.form.u_name = row.user.name;
+            this.id = row.id;
+
             this.type = 1;
             this.showDialog = true;
         },
@@ -19611,9 +19613,14 @@ __WEBPACK_IMPORTED_MODULE_3_vue_quill_editor__["Quill"].register('modules/ImageE
                     console.log(err);
                 });
             } else if (this.type === 1) {
-                delete this.form.cate;
-                delete this.form.user;
-                Object(__WEBPACK_IMPORTED_MODULE_2__api_backend_js__["O" /* apiUpdateGroup */])(this.form).then(function (res) {
+                var form = {
+                    'name': this.form.name,
+                    'desc': this.form.desc,
+                    'u_name': this.form.u_name,
+                    'c_id': this.form.c_id,
+                    'id': this.id
+                };
+                Object(__WEBPACK_IMPORTED_MODULE_2__api_backend_js__["O" /* apiUpdateGroup */])(form).then(function (res) {
                     if (res.code === 1) {
                         self.$message.success(res.msg);
                         self.getlist();
@@ -19959,12 +19966,15 @@ __WEBPACK_IMPORTED_MODULE_3_vue_quill_editor__["Quill"].register('modules/ImageE
 /* harmony default export */ __webpack_exports__["a"] = ({
     data: function data() {
         return {
+            id: 0,
             list: [],
             form: {
                 'name': '',
                 'desc': '',
-                'author': '',
-                'c_id': 0
+                'u_name': '',
+                'c_id': '',
+                'start_time': '',
+                'end_time': ''
             },
             dateTime: '',
             pagination: {
@@ -20015,7 +20025,7 @@ __WEBPACK_IMPORTED_MODULE_3_vue_quill_editor__["Quill"].register('modules/ImageE
             this.form = {
                 'name': '',
                 'desc': '',
-                'author': '',
+                'u_name': '',
                 'start_time': '',
                 'end_time': ''
             };
@@ -20026,6 +20036,9 @@ __WEBPACK_IMPORTED_MODULE_3_vue_quill_editor__["Quill"].register('modules/ImageE
         },
         handleEdit: function handleEdit(index, row) {
             this.form = Object.assign({}, row);
+            this.form.u_name = row.user.name;
+            this.id = row.id;
+
             this.type = 1;
             this.showDialog = true;
 
@@ -20066,9 +20079,16 @@ __WEBPACK_IMPORTED_MODULE_3_vue_quill_editor__["Quill"].register('modules/ImageE
                     console.log(err);
                 });
             } else if (this.type === 1) {
-                delete this.form.cate;
-                delete this.form.user;
-                Object(__WEBPACK_IMPORTED_MODULE_2__api_backend_js__["K" /* apiUpdateActivity */])(this.form).then(function (res) {
+                var form = {
+                    'id': this.id,
+                    'name': this.form.name,
+                    'desc': this.form.desc,
+                    'u_name': this.form.u_name,
+                    'start_time': this.form.start_time,
+                    'end_time': this.form.end_time
+                };
+
+                Object(__WEBPACK_IMPORTED_MODULE_2__api_backend_js__["K" /* apiUpdateActivity */])(form).then(function (res) {
                     if (res.code === 1) {
                         self.$message.success(res.msg);
                         self.getlist();
@@ -68228,6 +68248,7 @@ var render = function() {
                 [
                   _c("el-input", {
                     attrs: {
+                      disabled: _vm.type == 1,
                       placeholder: "请输入姓名",
                       "auto-complete": "off"
                     },
@@ -84306,15 +84327,15 @@ var render = function() {
                       "auto-complete": "off"
                     },
                     model: {
-                      value: _vm.form.author,
+                      value: _vm.form.u_name,
                       callback: function($$v) {
                         _vm.$set(
                           _vm.form,
-                          "author",
+                          "u_name",
                           typeof $$v === "string" ? $$v.trim() : $$v
                         )
                       },
-                      expression: "form.author"
+                      expression: "form.u_name"
                     }
                   })
                 ],
@@ -84959,7 +84980,7 @@ var render = function() {
               _vm._v(" "),
               _c(
                 "el-form-item",
-                { attrs: { label: "组织者", prop: "author" } },
+                { attrs: { label: "组织者", prop: "u_name" } },
                 [
                   _c("el-input", {
                     attrs: {
@@ -84967,15 +84988,15 @@ var render = function() {
                       "auto-complete": "off"
                     },
                     model: {
-                      value: _vm.form.author,
+                      value: _vm.form.u_name,
                       callback: function($$v) {
                         _vm.$set(
                           _vm.form,
-                          "author",
+                          "u_name",
                           typeof $$v === "string" ? $$v.trim() : $$v
                         )
                       },
-                      expression: "form.author"
+                      expression: "form.u_name"
                     }
                   })
                 ],

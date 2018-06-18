@@ -49,8 +49,8 @@
                             end-placeholder="结束日期">
                     </el-date-picker>
                 </el-form-item>
-                <el-form-item label="组织者" prop="author">
-                    <el-input v-model.trim="form.author" placeholder="请输入组织者"
+                <el-form-item label="组织者" prop="u_name">
+                    <el-input v-model.trim="form.u_name" placeholder="请输入组织者"
                               auto-complete="off"></el-input>
                 </el-form-item>
                 <el-form-item label="活动描述" prop="desc">
@@ -85,12 +85,15 @@
     export default {
         data() {
             return {
+                id: 0,
                 list: [],
                 form: {
                     'name': '',
                     'desc': '',
-                    'author': '',
-                    'c_id': 0,
+                    'u_name': '',
+                    'c_id': '',
+                    'start_time': '',
+                    'end_time': ''
                 },
                 dateTime: '',
                 pagination: {
@@ -146,7 +149,7 @@
                 this.form = {
                     'name': '',
                     'desc': '',
-                    'author': '',
+                    'u_name': '',
                     'start_time': '',
                     'end_time': ''
                 };
@@ -157,6 +160,9 @@
             },
             handleEdit(index, row) {
                 this.form = Object.assign({}, row);
+                this.form.u_name = row.user.name;
+                this.id = row.id;
+
                 this.type = 1;
                 this.showDialog = true;
 
@@ -194,9 +200,16 @@
                         }
                     }).catch(err => { console.log(err); })
                 } else if (this.type === 1) {
-                    delete this.form.cate;
-                    delete this.form.user;
-                    apiUpdateActivity(this.form).then(res => {
+                    let form = {
+                        'id': this.id,
+                        'name': this.form.name,
+                        'desc': this.form.desc,
+                        'u_name': this.form.u_name,
+                        'start_time': this.form.start_time,
+                        'end_time': this.form.end_time
+                    };
+
+                    apiUpdateActivity(form).then(res => {
                         if (res.code === 1) {
                             self.$message.success(res.msg);
                             self.getlist();

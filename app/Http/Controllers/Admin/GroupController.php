@@ -42,6 +42,14 @@ class GroupController extends ApiController
     {
         $params = $request->all();
 
+        $uName = $params['u_name'];
+        unset($params['u_name']);
+        $user = $this->getUser($uName);
+        if ( !$user ) {
+            return $this->error('用户名不存在');
+        }
+
+        $params['u_id'] = $user['id'];
         $result = Group::create($params);
         if (!$result ) {
             return $this->error('新增失败');
@@ -56,6 +64,14 @@ class GroupController extends ApiController
         $id = $params['id'];
         unset($params['id']);
 
+        $uName = $params['u_name'];
+        unset($params['u_name']);
+        $user = $this->getUser($uName);
+        if ( !$user ) {
+            return $this->error('用户名不存在');
+        }
+
+        $params['u_id'] = $user['id'];
         $result = $model->where(['id' => $id])->update($params);
         if (!$result ) {
             return $this->error('更新失败');
