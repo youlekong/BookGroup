@@ -36,13 +36,13 @@
                     if (v.hasOwnProperty('subs')) {
 //                        self.initSelected(v.subs)
                         v.subs.forEach(sv => {
-                            if (sv.index == act) {
+                            if (sv.router == act) {
                                 tmp.push(v.title);
                                 tmp.push(sv.title);
                             }
                         })
                     } else {
-                        if (v.index == act)
+                        if (v.router == act)
                             tmp.push(v.title);
                     }
                 });

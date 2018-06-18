@@ -26,46 +26,47 @@
     export default {
         data() {
             return {
+                actIdx: '1',
                 isCollapse: false,
                 items: [
-                    {   icon: 'el-icon-setting', index: 'index', title: '首页'},
-                    {   icon: 'el-icon-tickets', index: 'user', title: '用户信息',
+                    {   icon: 'el-icon-setting', index: '1', title: '首页', router: 'index' },
+                    {   icon: 'el-icon-tickets', index: '2', title: '用户信息', router: 'user',
                         subs: [
-                            {   index: 'user', title: '用户列表'    }
+                            {   index: '2-1', title: '用户列表', router: 'user',   }
                         ]
                     },
-                    {   icon: 'el-icon-date', index: 'book', title: '书籍信息',
+                    {   icon: 'el-icon-date', index: '3', title: '书籍信息', router: 'book',
                         subs: [
-                            {   index: 'book', title: '书籍列表'    },
-                            {   index: 'bookCate', title: '书籍分类'    },
-                            {   index: 'bookComment', title: '评论列表' }
+                            {   index: '3-1', title: '书籍列表', router: 'book',    },
+                            {   index: '3-2', title: '书籍分类', router: 'bookCate',    },
+                            {   index: '3-3', title: '评论列表', router: 'bookComment', }
                         ]
                     },
-                    {   icon: 'el-icon-star-on', index: 'article', title: '文章信息',
+                    {   icon: 'el-icon-star-on', index: '4', title: '文章信息', router: 'article',
                         subs: [
-                            {   index: 'article', title: '文章列表'    },
-                            {   index: 'articleComment', title: '评论列表' }
+                            {   index: '4-1', title: '文章列表', router: 'article',    },
+                            {   index: '4-2', title: '评论列表', router: 'articleComment', }
                         ]
                     },
-                    {   icon: 'el-icon-rank', index: 'group', title: '书圈信息',
+                    {   icon: 'el-icon-rank', index: '5', title: '书圈信息', groupCate: 'group',
                         subs: [
-                            {   index: 'group', title: '书圈列表'    },
-                            {   index: 'groupCate', title: '书圈分类' }
+                            {   index: '5-1', title: '书圈列表', router: 'group',    },
+                            {   index: '5-2', title: '书圈分类', router: 'groupCate', }
                         ]
                     },
-                    {   icon: 'el-icon-warning', index: 'activity', title: '活动信息',
+                    {   icon: 'el-icon-warning', index: '6', title: '活动信息', router: 'activity',
                         subs: [
-                            {   index: 'activity', title: '活动列表'    }
+                            {   index: '6-1', title: '活动列表', router: 'activity',    }
                         ]
                     },
-                    {   icon: 'el-icon-time', index: 'rental', title: '租赁信息',
+                    {   icon: 'el-icon-time', index: '7', title: '租赁信息', router: 'rental',
                         subs: [
-                            {   index: 'rental', title: '租赁列表'    }
+                            {   index: '7-1', title: '租赁列表', router: 'rental',    }
                         ]
                     },
-                    {   icon: 'el-icon-view', index: 'share', title: '分享信息',
+                    {   icon: 'el-icon-view', index: '8', title: '分享信息', router: 'share',
                         subs: [
-                            {   index: 'share', title: '分享列表'    }
+                            {   index: '8-1', title: '分享列表', router: 'share',    }
                         ]
                     }
                 ]
@@ -74,7 +75,7 @@
         created(){
             bus.$on('collapse', msg => {
                 this.isCollapse = msg;
-            })
+            });
         },
         components: {
             'a-side': aside,
