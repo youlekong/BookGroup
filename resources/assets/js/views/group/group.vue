@@ -15,6 +15,11 @@
                     </template>
                 </el-table-column>
                 <el-table-column prop="id" label="id" width="50"></el-table-column>
+                <el-table-column prop="icon" label="图片">
+                    <template slot-scope="scope">
+                        <img :src="scope.row.icon" alt="" width="60" height="60">
+                    </template>
+                </el-table-column>
                 <el-table-column prop="name" label="书圈名"></el-table-column>
                 <el-table-column prop="user.name" label="作者"></el-table-column>
                 <!--<el-table-column prop="desc" label="描述" width="250"></el-table-column>-->
@@ -45,6 +50,19 @@
                                 :value="cate.id">
                         </el-option>
                     </el-select>
+                </el-form-item>
+                <el-form-item label="logo" prop="icon">
+                    <el-upload
+                            :data="uploadImg.data"
+                            name="upload_file"
+                            class="avatar-uploader"
+                            action="/upload/image"
+                            :show-file-list="false"
+                            :on-success="handleAvatarSuccess"
+                            :before-upload="beforeAvatarUpload">
+                        <img v-if="form.icon" :src="form.icon" class="avatar">
+                        <i v-else class="el-icon-plus avatar-uploader-icon"></i>
+                    </el-upload>
                 </el-form-item>
                 <el-form-item label="书圈名" prop="name">
                     <el-input v-model.trim="form.name" placeholder="请输入书圈名"
@@ -95,6 +113,7 @@
                     'desc': '',
                     'u_name': '',
                     'c_id': 0,
+                    'icon': ''
                 },
                 pagination: {
                     total: 0,
@@ -108,7 +127,10 @@
                     {type: 'id', name: 'id'},
                     {type: 'name', name: '书圈名'},
                     {type: 'u_name', name: '作者'},
-                ]
+                ],
+                uploadImg: {
+                    data: {folder: 'group', width: 100}
+                }
             }
         },
         methods: {
@@ -160,6 +182,7 @@
                     'desc': '',
                     'u_name': '',
                     'c_id': '',
+                    'icon': ''
                 }
 
                 this.type = 0;
@@ -210,7 +233,8 @@
                         'desc': this.form.desc,
                         'u_name': this.form.u_name,
                         'c_id': this.form.c_id,
-                        'id': this.id
+                        'id': this.id,
+                        'icon': this.form.icon
                     };
                     apiUpdateGroup(form).then(res => {
                         if (res.code === 1) {
@@ -261,6 +285,23 @@
                 }
 
                 return true;
+            },
+            handleAvatarSuccess(res, file) {
+                if (res.success) {
+                    this.form.icon = res.file_path || '';
+                }
+            },
+            beforeAvatarUpload(file) {
+                const isJPG = file.type === 'image/jpeg';
+                const isLt2M = file.size / 1024 / 1024 < 2;
+
+                if (!isJPG) {
+                    this.$message.error('上传头像图片只能是 JPG 格式!');
+                }
+                if (!isLt2M) {
+                    this.$message.error('上传头像图片大小不能超过 2MB!');
+                }
+                return isJPG && isLt2M;
             }
         },
         components: {
@@ -273,3 +314,29 @@
         }
     }
 </script>
+
+<style>
+    .avatar-uploader .el-upload {
+        border: 1px dashed #d9d9d9;
+        border-radius: 6px;
+        cursor: pointer;
+        position: relative;
+        overflow: hidden;
+    }
+    .avatar-uploader .el-upload:hover {
+        border-color: #409EFF;
+    }
+    .avatar-uploader-icon {
+        font-size: 28px;
+        color: #8c939d;
+        width: 100px;
+        height: 100px;
+        line-height: 100px;
+        text-align: center;
+    }
+    .avatar {
+        width: 100px;
+        height: 100px;
+        display: block;
+    }
+</style>

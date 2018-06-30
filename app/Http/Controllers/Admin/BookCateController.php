@@ -10,7 +10,7 @@ class BookCateController extends ApiController
 
     public function index(BookCate $bookCate)
     {
-        $data = $bookCate->select(['id', 'name', 'c_time'])->paginate($this->pageNum);
+        $data = $bookCate->select(['id', 'name', 'c_time', 'icon'])->paginate($this->pageNum);
         return $this->success($data);
     }
 

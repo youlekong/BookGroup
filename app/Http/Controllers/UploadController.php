@@ -16,7 +16,7 @@ class UploadController extends Controller
     |
     |
     */
-    protected $folder = ['avatar', 'article', 'blog', 'page', 'website', 'slide', 'link', 'navigation'];
+    protected $folder = ['avatar', 'article', 'blog', 'page', 'website', 'slide', 'group', 'groupCate'];
 
 //    public function __construct()
 //    {
@@ -48,7 +48,7 @@ class UploadController extends Controller
                 $request->folder,
                 intval($request->editor ?? 0),
                 strtolower(substr($request->folder,0,1)),
-                1024);
+                $request->width ?? 1024);
 
             // 图片保存成功的话
             if ($result) {

@@ -33,7 +33,7 @@
         data () {
             return {
                 content: this.value || '',
-                updateUrl: 'http://127.0.0.1:8000/upload/image',
+                updateUrl: '/upload/image',
                 editorOption: {
                     placeholder: '这里写文章...',
                     modules: {

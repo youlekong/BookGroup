@@ -12,7 +12,7 @@ class Group extends Model
     const UPDATED_AT = 'u_time';
 
     protected $fillable = [
-        'name', 'desc', 'c_id', 'u_id'
+        'name', 'desc', 'c_id', 'u_id', 'icon'
     ];
 
     public function cate() {
