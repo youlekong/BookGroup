@@ -13,7 +13,7 @@ class BookController extends ApiController
     {
         $params = request()->input();
 
-        $book = Book::with('cate');
+        $book = Book::with(['cate', 'share', 'user']);
         // filter
         if (!empty($params['keyword'])) {
             $kw = $params['keyword'];

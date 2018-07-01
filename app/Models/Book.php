@@ -16,11 +16,18 @@ class Book extends Model
         'name', 'desc', 'author', 'c_id'
     ];
 
+    // 书籍分类
     public function cate() {
         return $this->belongsTo('App\Models\BookCate', 'c_id');
     }
 
+    // 书籍拥有者
     public function user() {
         return $this->belongsTo('App\Models\User', 'u_id');
+    }
+
+    // 书籍分享点
+    public function share() {
+        return $this->belongsTo('App\Models\Share', 's_id');
     }
 }

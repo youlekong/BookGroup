@@ -5,7 +5,7 @@
                           @filter="filter" layout="input, search, add"></table-filter>
 
             <el-table :data="books" stripe style="width: 100%">
-                <el-table-column type="expand">
+                <el-table-column type="expand" fixed>
                     <template slot-scope="props">
                         <el-form label-position="left" inline>
                             <el-form-item prop="desc" label="书籍简介：">
@@ -14,13 +14,15 @@
                         </el-form>
                     </template>
                 </el-table-column>
-                <el-table-column prop="id" label="id" width="80"></el-table-column>
+                <el-table-column prop="id" label="id" width="40" ></el-table-column>
                 <el-table-column prop="name" label="书名"></el-table-column>
                 <el-table-column prop="author" label="作者"></el-table-column>
                 <el-table-column prop="cate.name" label="类别"
                                  :filters="filters" :filter-method="filterFunc"></el-table-column>
+                <el-table-column prop="share.name" label="分享点"></el-table-column>
+                <el-table-column prop="user.name" label="拥有者"></el-table-column>
                 <el-table-column prop="c_time" label="添加日期"></el-table-column>
-                <el-table-column label="操作" >
+                <el-table-column label="操作" fixed="right" width="200">
                     <template slot-scope="scope">
                         <el-button size="mini"
                                    @click="handleEdit(scope.$index, scope.row)">编辑</el-button>

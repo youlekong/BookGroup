@@ -11,7 +11,7 @@ class ShareController extends ApiController
     {
         $params = request()->input();
 
-        $model = new Share();//Share::with(['user', 'fromUser', 'book']);
+        $model = new Share;//::withCount(['book']);
         // filter
 //        if (!empty($params['keyword'])) {
 //            $kw = $params['keyword'];
@@ -28,7 +28,9 @@ class ShareController extends ApiController
             $model = $model->where('loc', 'like', "%{$desc}%");
         }
 
-        $data = $model->select()->paginate($this->pageNum);
+        $data = $model->select()->withCount(['book'])->paginate($this->pageNum);
+
+//        $count = Share::withCount('book')->get();
         return $this->success($data);
     }
 

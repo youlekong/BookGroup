@@ -5,13 +5,14 @@
                           @filter="filter" :exactTypes="exactTypes"></table-filter>
 
             <el-table :data="list" stripe style="width: 100%">
-                <el-table-column prop="id" label="id" width="50"></el-table-column>
+                <el-table-column prop="id" label="id" width="50" fixed></el-table-column>
                 <el-table-column prop="name" label="分享名" width="150"></el-table-column>
                 <el-table-column prop="lng" label="经度" width="150"></el-table-column>
                 <el-table-column prop="lat" label="纬度" width="150"></el-table-column>
                 <el-table-column prop="info" label="分享描述" width="150"></el-table-column>
                 <el-table-column prop="loc" label="分享点信息" width="150"></el-table-column>
-                <el-table-column label="操作" width="180">
+                <el-table-column prop="book_count" label="书籍数量" width="150"></el-table-column>
+                <el-table-column label="操作" width="180" fixed="right">
                     <template slot-scope="scope">
                         <el-button size="mini"
                                    @click="handleEdit(scope.$index, scope.row)">编辑</el-button>
