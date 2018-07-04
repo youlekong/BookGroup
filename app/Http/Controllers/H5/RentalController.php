@@ -10,10 +10,19 @@ class RentalController extends ApiController
     public function index(RentalRequest $request)
     {
         $params = $request->all();
-//        $u_id = $params['u_id'];
-//        $s_id = $params['s_id'];
-//        $b_id = $params['b_id'];
-//        $from_id = $params['from_id'];
+        $rental = array(
+            'from_id' => $params['from_id'],
+            'u_id' => $params['u_id'],
+            'b_id' => $params['b_id'],
+            'start_time' => $params['start_time'],
+            'end_time' => $params['end_time'],
+            'mark' => $params['mark']
+        );
 
+        $result = Rental::create($rental);
+        if ( !$result )
+            return $this->error('新增失败');
+
+        return $this->success('新建成功');
     }
 }

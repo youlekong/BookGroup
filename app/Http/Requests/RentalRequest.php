@@ -13,7 +13,7 @@ class RentalRequest extends Request
             case 'POST':
             {
                 return [
-                    'mark' => 'required|max:255',
+                    'mark' => 'max:255',
                 ];
             }
             // UPDATE
