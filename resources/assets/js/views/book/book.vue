@@ -15,6 +15,11 @@
                     </template>
                 </el-table-column>
                 <el-table-column prop="id" label="id" width="40" ></el-table-column>
+                <el-table-column prop="icon" label="图片">
+                    <template slot-scope="scope">
+                        <img :src="scope.row.icon" alt="" width="60" height="60">
+                    </template>
+                </el-table-column>
                 <el-table-column prop="name" label="书名"></el-table-column>
                 <el-table-column prop="author" label="作者"></el-table-column>
                 <el-table-column prop="cate.name" label="类别"
@@ -46,6 +51,19 @@
                                 :value="cate.id">
                         </el-option>
                     </el-select>
+                </el-form-item>
+                <el-form-item label="logo" prop="icon">
+                    <el-upload
+                            :data="uploadImg.data"
+                            name="upload_file"
+                            class="avatar-uploader"
+                            action="/upload/image"
+                            :show-file-list="false"
+                            :on-success="handleAvatarSuccess"
+                            :before-upload="beforeAvatarUpload">
+                        <img v-if="book.icon" :src="book.icon" class="avatar">
+                        <i v-else class="el-icon-plus avatar-uploader-icon"></i>
+                    </el-upload>
                 </el-form-item>
                 <el-form-item label="书名" prop="name">
                     <el-input v-model.trim="book.name" placeholder="请输入书名"
@@ -95,6 +113,7 @@
                     'desc': '',
                     'author': '',
                     'c_id': '',
+                    'icon': ''
                 },
                 pagination: {
                     total: 0,
@@ -103,7 +122,10 @@
                 showDialog: false,
                 showDelete: false,
                 type: 0,        // 0:新增 1:编辑
-                uid: 0
+                uid: 0,
+                uploadImg: {
+                    data: {folder: 'book', width: 200}
+                }
             }
         },
         methods: {
@@ -155,6 +177,7 @@
                     'desc': '',
                     'author': '',
                     'c_id': '',
+                    'icon': '',
                 };
                 this.type = 0;
                 this.showDialog = true
@@ -197,8 +220,15 @@
                         }
                     }).catch(err => { console.log(err); })
                 } else if (this.type === 1) {
-                    delete this.book.c_time;
-                    apiUpdateBook(this.book).then(res => {
+                    let form = {
+                        'id': this.book.id,
+                        'name': this.book.name,
+                        'desc': this.book.desc,
+                        'author': this.book.author,
+                        'c_id': this.book.c_id,
+                        'icon': this.book.icon
+                    };
+                    apiUpdateBook(form).then(res => {
                         if (res.code === 1) {
                             self.$message.success(res.msg);
                             self.getBook();
@@ -247,6 +277,23 @@
                 }
 
                 return true;
+            },
+            handleAvatarSuccess(res, file) {
+                if (res.success) {
+                    this.book.icon = res.file_path || '';
+                }
+            },
+            beforeAvatarUpload(file) {
+                const isJPG = file.type === 'image/jpeg';
+                const isLt2M = file.size / 1024 / 1024 < 2;
+
+                if (!isJPG) {
+                    this.$message.error('上传头像图片只能是 JPG 格式!');
+                }
+                if (!isLt2M) {
+                    this.$message.error('上传头像图片大小不能超过 2MB!');
+                }
+                return isJPG && isLt2M;
             }
         },
         components: {
@@ -259,3 +306,29 @@
         }
     }
 </script>
+
+<style>
+    .avatar-uploader .el-upload {
+        border: 1px dashed #d9d9d9;
+        border-radius: 6px;
+        cursor: pointer;
+        position: relative;
+        overflow: hidden;
+    }
+    .avatar-uploader .el-upload:hover {
+        border-color: #409EFF;
+    }
+    .avatar-uploader-icon {
+        font-size: 28px;
+        color: #8c939d;
+        width: 100px;
+        height: 100px;
+        line-height: 100px;
+        text-align: center;
+    }
+    .avatar {
+        width: 100px;
+        height: 100px;
+        display: block;
+    }
+</style>

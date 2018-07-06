@@ -18412,6 +18412,24 @@ function required(rule, value, source, errors, options, type) {
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -18429,7 +18447,8 @@ function required(rule, value, source, errors, options, type) {
                 'name': '',
                 'desc': '',
                 'author': '',
-                'c_id': ''
+                'c_id': '',
+                'icon': ''
             },
             pagination: {
                 total: 0,
@@ -18438,7 +18457,10 @@ function required(rule, value, source, errors, options, type) {
             showDialog: false,
             showDelete: false,
             type: 0, // 0:新增 1:编辑
-            uid: 0
+            uid: 0,
+            uploadImg: {
+                data: { folder: 'book', width: 200 }
+            }
         };
     },
 
@@ -18491,7 +18513,8 @@ function required(rule, value, source, errors, options, type) {
                 'name': '',
                 'desc': '',
                 'author': '',
-                'c_id': ''
+                'c_id': '',
+                'icon': ''
             };
             this.type = 0;
             this.showDialog = true;
@@ -18537,8 +18560,15 @@ function required(rule, value, source, errors, options, type) {
                     console.log(err);
                 });
             } else if (this.type === 1) {
-                delete this.book.c_time;
-                Object(__WEBPACK_IMPORTED_MODULE_2__api_backend_js__["M" /* apiUpdateBook */])(this.book).then(function (res) {
+                var form = {
+                    'id': this.book.id,
+                    'name': this.book.name,
+                    'desc': this.book.desc,
+                    'author': this.book.author,
+                    'c_id': this.book.c_id,
+                    'icon': this.book.icon
+                };
+                Object(__WEBPACK_IMPORTED_MODULE_2__api_backend_js__["M" /* apiUpdateBook */])(form).then(function (res) {
                     if (res.code === 1) {
                         self.$message.success(res.msg);
                         self.getBook();
@@ -18589,6 +18619,23 @@ function required(rule, value, source, errors, options, type) {
             }
 
             return true;
+        },
+        handleAvatarSuccess: function handleAvatarSuccess(res, file) {
+            if (res.success) {
+                this.book.icon = res.file_path || '';
+            }
+        },
+        beforeAvatarUpload: function beforeAvatarUpload(file) {
+            var isJPG = file.type === 'image/jpeg';
+            var isLt2M = file.size / 1024 / 1024 < 2;
+
+            if (!isJPG) {
+                this.$message.error('上传头像图片只能是 JPG 格式!');
+            }
+            if (!isLt2M) {
+                this.$message.error('上传头像图片大小不能超过 2MB!');
+            }
+            return isJPG && isLt2M;
         }
     },
     components: {
@@ -68508,6 +68555,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_2e3f86ac_hasScoped_false_optionsId_0_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_book_vue__ = __webpack_require__(249);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__node_modules_vue_loader_lib_runtime_component_normalizer__ = __webpack_require__(0);
 var disposed = false
+function injectStyle (context) {
+  if (disposed) return
+  __webpack_require__(293)
+}
 /* script */
 
 
@@ -68516,7 +68567,7 @@ var disposed = false
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
-var __vue_styles__ = null
+var __vue_styles__ = injectStyle
 /* scopeId */
 var __vue_scopeId__ = null
 /* moduleIdentifier (server only) */
@@ -68611,6 +68662,27 @@ var render = function() {
               _vm._v(" "),
               _c("el-table-column", {
                 attrs: { prop: "id", label: "id", width: "40" }
+              }),
+              _vm._v(" "),
+              _c("el-table-column", {
+                attrs: { prop: "icon", label: "图片" },
+                scopedSlots: _vm._u([
+                  {
+                    key: "default",
+                    fn: function(scope) {
+                      return [
+                        _c("img", {
+                          attrs: {
+                            src: scope.row.icon,
+                            alt: "",
+                            width: "60",
+                            height: "60"
+                          }
+                        })
+                      ]
+                    }
+                  }
+                ])
               }),
               _vm._v(" "),
               _c("el-table-column", { attrs: { prop: "name", label: "书名" } }),
@@ -68726,6 +68798,38 @@ var render = function() {
                         attrs: { label: cate.name, value: cate.id }
                       })
                     })
+                  )
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "el-form-item",
+                { attrs: { label: "logo", prop: "icon" } },
+                [
+                  _c(
+                    "el-upload",
+                    {
+                      staticClass: "avatar-uploader",
+                      attrs: {
+                        data: _vm.uploadImg.data,
+                        name: "upload_file",
+                        action: "/upload/image",
+                        "show-file-list": false,
+                        "on-success": _vm.handleAvatarSuccess,
+                        "before-upload": _vm.beforeAvatarUpload
+                      }
+                    },
+                    [
+                      _vm.book.icon
+                        ? _c("img", {
+                            staticClass: "avatar",
+                            attrs: { src: _vm.book.icon }
+                          })
+                        : _c("i", {
+                            staticClass: "el-icon-plus avatar-uploader-icon"
+                          })
+                    ]
                   )
                 ],
                 1
@@ -86200,6 +86304,47 @@ if (false) {
     require("vue-hot-reload-api")      .rerender("data-v-78458288", { render: render, staticRenderFns: staticRenderFns })
   }
 }
+
+/***/ }),
+/* 293 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(294);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var add = __webpack_require__(7).default
+var update = add("0ab80b13", content, false, {});
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"optionsId\":\"0\",\"vue\":true,\"scoped\":false,\"sourceMap\":false}!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./book.vue", function() {
+     var newContent = require("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"optionsId\":\"0\",\"vue\":true,\"scoped\":false,\"sourceMap\":false}!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./book.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 294 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(2)(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n.avatar-uploader .el-upload {\n    border: 1px dashed #d9d9d9;\n    border-radius: 6px;\n    cursor: pointer;\n    position: relative;\n    overflow: hidden;\n}\n.avatar-uploader .el-upload:hover {\n    border-color: #409EFF;\n}\n.avatar-uploader-icon {\n    font-size: 28px;\n    color: #8c939d;\n    width: 100px;\n    height: 100px;\n    line-height: 100px;\n    text-align: center;\n}\n.avatar {\n    width: 100px;\n    height: 100px;\n    display: block;\n}\n", ""]);
+
+// exports
+
 
 /***/ })
 /******/ ]);

@@ -3,13 +3,16 @@
 namespace App\Http\Controllers\H5;
 
 use App\Http\Requests\ShareRequest;
+use App\Models\Book;
 use App\Models\Share;
 
 class ShareController extends ApiController
 {
     public function index()
     {
-        $data = Share::withCount('book')->get();
+        $data = Share::withCount(['book' => function($query) {
+            $query->where('status', Book::STATUS_RENTALING);
+        }])->get();
         return $this->success($data);
     }
 

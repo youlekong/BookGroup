@@ -21,7 +21,7 @@ class BookController extends ApiController
         $type = $params['type'];
         if ($type == 0) {      // 借书
             $model = Book::with(['user']);
-            $model->where('s_id', $params['sid']);
+            $model->where(['s_id'=> $params['sid'], 'status' => Book::STATUS_RENTALING]);
             $data = $model->get();
         } elseif ($type == 1) {    // 还书
             $uid = session()->get('login_h5');
@@ -30,13 +30,13 @@ class BookController extends ApiController
                 ->join('book', 'book.id', '=', 'rental.b_id')
                 ->where('rental.u_id', $uid)
                 ->where('book.s_id', $params['sid'])
-                ->select('book.*', 'rental.u_id')
+                ->select('book.*', 'rental.from_id')
                 ->get();
             $rental = json_decode($rental, true);
 
             $data = array();
             foreach ($rental as $k => $r) {
-                $r['user'] = User::where('id', $r['u_id'])->get();
+                $r['user'] = User::where('id', $r['from_id'])->first();
                 $data[$k] = $r;
             }
         }

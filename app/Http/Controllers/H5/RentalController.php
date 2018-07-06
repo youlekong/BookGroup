@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\H5;
 
+use App\Models\Book;
 use App\Models\Rental;
 use App\Http\Requests\RentalRequest;
 
@@ -21,6 +22,9 @@ class RentalController extends ApiController
 
         $result = Rental::create($rental);
         if ( !$result )
+            return $this->error('新增失败');
+
+        if (!Book::where(['id' => $params['b_id']])->update(['status' => Book::STATUS_RENTALED]) )
             return $this->error('新增失败');
 
         return $this->success('新建成功');

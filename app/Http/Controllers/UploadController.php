@@ -16,7 +16,7 @@ class UploadController extends Controller
     |
     |
     */
-    protected $folder = ['avatar', 'article', 'blog', 'page', 'website', 'slide', 'group', 'groupCate'];
+    protected $folder = ['avatar', 'article', 'blog', 'page', 'website', 'book', 'group', 'groupCate'];
 
 //    public function __construct()
 //    {

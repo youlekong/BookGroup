@@ -19,7 +19,7 @@ class UserController extends ApiController
             return $this->error('uid不存在');
         }
 
-        $books = Book::where('u_id', $u_id)->get();
+        $books = Book::where(['u_id'=> $u_id, 'status' => Book::STATUS_RENTALING])->get();
         $rental = Rental::where('u_id', $u_id)->get();
         $data = array('book' => $books, 'rental' => $rental);
 
