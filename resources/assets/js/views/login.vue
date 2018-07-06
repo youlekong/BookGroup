@@ -45,9 +45,11 @@
                         let uInfo = JSON.stringify(res.msg);
                         let username = localStorage.setItem('uInfo', uInfo);
                         self.$router.push({name: 'index'});
+                    } else {
+                        self.$message.error(res.msg);
                     }
                 }).catch( err => {
-                    console.log(err);
+                    self.$message.error('网络错误');
                 });
             },
             _validateForm() {
