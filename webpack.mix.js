@@ -1,5 +1,6 @@
 let mix = require('laravel-mix');
 const { env } = require('minimist')(process.argv.slice(2));
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 /*
  |--------------------------------------------------------------------------
@@ -22,6 +23,15 @@ if (env && env.admin) {
    		//.sass('resources/assets/sass/app.scss', 'public/css');
 
     mix.webpackConfig({
+        plugins: [
+            new BundleAnalyzerPlugin(),
+        ],
+        externals: {
+            'axios': 'axios',
+            'element-ui': 'ElementUI',
+            'vue': 'Vue',
+            // 'vue-router': 'VueRouter',
+        },
         resolve:{
             alias: {
                 'vue-router$': 'vue-router/dist/vue-router.common.js'
