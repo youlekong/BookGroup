@@ -24,6 +24,9 @@ Route::group(['middleware' => ['cross', 'h5Auth'], 'namespace' => 'H5'], functio
     Route::prefix('group')->group(function () {
         Route::get('/getGroups', 'GroupController@getGroups');
         Route::get('/getGroupCates', 'GroupController@getGroupCategories');
+        Route::get('/getGroupsByCateId', 'GroupController@getGroupsByCateId');
+        Route::get('/joinGroup', 'GroupController@joinGroup');
+        Route::get('/checkUserGroup', 'GroupController@checkUserGroup');
     });
 
     Route::prefix('user')->group(function () {

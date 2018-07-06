@@ -7,20 +7,16 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
 use Illuminate\Auth\Authenticatable;
 
-class User extends Model implements AuthenticatableContract
+class UserGroup extends Model implements AuthenticatableContract
 {
     use Authenticatable;
 
-    protected $table = 'user';
+    protected $table = 'user_group';
 
     public $timestamps = false;
 
     protected $fillable = [
-        'name', 'password',
+        'u_id', 'g_id',
     ];
-
-//    public function oweBooks() {
-//        return $this->belongsToMany('App\Models\Book', 'user_book', 'u_id', 'b_id');
-//    }
 
 }
