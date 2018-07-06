@@ -34,7 +34,8 @@ class SignController extends ApiController
         if (!$this->bHash->check($password, $user['password']))
             return $this->error('密码错误');
 
-        $this->userSession($user['id']);
+//        $this->userSession($user['id']);
+            $this->userCookie($user['id']);
 
         unset($user['password']);
         return $this->success($user);
@@ -63,7 +64,8 @@ class SignController extends ApiController
         }
 
         $user = User::where('name', $params['name'])->first();
-        $this->userSession($user['id']);
+//        $this->userSession($user['id']);
+        $this->userCookie($user['id']);
 
         return $this->success($user);
     }
@@ -76,6 +78,14 @@ class SignController extends ApiController
 
     private function getName() {
         return 'login_h5';
+    }
+
+    private function getCookieName() {
+        return 'laravel_bg_h5';
+    }
+
+    private function userCookie($uid) {
+        cookie($this->getCookieName(), $uid, 60 * 24 * 7);
     }
 
     private function userSession($uid) {

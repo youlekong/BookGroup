@@ -30,7 +30,7 @@
                 form: {
                     name: '',
                     password: '',
-                    remember: false
+                    remember: true
                 }
             }
         },

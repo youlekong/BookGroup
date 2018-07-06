@@ -15,7 +15,8 @@ class GroupController extends ApiController
         $type = $params['type'];
 
         if ( $type == 0) {
-            $uid = session()->get('login_h5');
+//            $uid = session()->get('login_h5');
+            $uid = cookie('laravel_bg_h5');
             $model = Group::with(['user', 'cate'])->where('u_id', $uid);
         } elseif ( $type == 1 ) {
             $model = Group::with(['user', 'cate'])->where('hot', '<>', 0);
