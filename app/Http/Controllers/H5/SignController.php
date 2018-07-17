@@ -35,10 +35,10 @@ class SignController extends ApiController
             return $this->error('密码错误');
 
 //        $this->userSession($user['id']);
-            $this->userCookie($user['id']);
+        $user_cookie = $this->userCookie($user['id']);
 
         unset($user['password']);
-        return $this->success($user);
+        return $this->success($user, $user_cookie);
     }
 
     public function signUp(UserRequest $request)
@@ -65,9 +65,9 @@ class SignController extends ApiController
 
         $user = User::where('name', $params['name'])->first();
 //        $this->userSession($user['id']);
-        $this->userCookie($user['id']);
+        $user_cookie = $this->userCookie($user['id']);
 
-        return $this->success($user);
+        return $this->success($user, $user_cookie);
     }
 
     public function captcha()
@@ -85,10 +85,10 @@ class SignController extends ApiController
     }
 
     private function userCookie($uid) {
-        cookie($this->getCookieName(), $uid, 60 * 24 * 7);
+        return cookie($this->getCookieName(), $uid, 60 * 24 * 7);
     }
 
-    private function userSession($uid) {
-        session()->put($this->getName(), $uid);
-    }
+//    private function userSession($uid) {
+//        session()->put($this->getName(), $uid);
+//    }
 }

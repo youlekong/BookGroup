@@ -8,9 +8,12 @@ class ApiController extends Controller
 {
     public $pageNum = 10;
 
-    public function success($data) {
+    public function success($data, $cookie = null) {
         $result = $this->resJson($data, 1);
-        return response()->json($result);
+        if ($cookie)
+            return response()->json($result)->withCookie($cookie);
+        else
+            return response()->json($result);
     }
 
     public function error($data) {

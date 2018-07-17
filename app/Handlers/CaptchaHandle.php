@@ -8,6 +8,8 @@ class CaptchaHandle
 {
     public static function generateCaptcha()
     {
+        ob_clean();
+
         $charset = 'abcdefghkmnprstuvwxyzABCDEFGHKMNPRSTUVWXYZ23456789';
         $code = ''; //验证码
         $codelen = 4; //验证码长度
@@ -42,7 +44,7 @@ class CaptchaHandle
             $fontcolor = imagecolorallocate($img, mt_rand(0, 156), mt_rand(0, 156), mt_rand(0, 156));
             imagettftext($img, $fontsize, mt_rand(-30, 30), $_x * $i + mt_rand(1, 5), $height / 1.4, $fontcolor, $font, $code[$i]);
         }
-//        ssetcookie('checkCode', authcode(strtolower($code), 1));
+
         session()->put('captcha', $code);
 
         ob_start();

@@ -13,10 +13,10 @@ class UserController extends ApiController
     public function userBookInfo(UserRequest $request)
     {
         $params = $request->all();
-        $u_id = $params['uid'];
-
         if ( !$request->has(['uid']) )
             return $this->error('uid不存在');
+
+        $u_id = $params['uid'];
 
         // 我分享的书
         $books = Book::where(['u_id'=> $u_id, 'status' => Book::STATUS_RENTALING])->get();
