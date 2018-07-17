@@ -24,9 +24,8 @@ class BookController extends ApiController
             $model->where(['s_id'=> $params['sid'], 'status' => Book::STATUS_RENTALING]);
             $data = $model->get();
         } elseif ($type == 1) {    // 还书
-//            $uid = session()->get('login_h5');
-            $uid = cookie('laravel_bg_h5');
-//            $model = User::find($uid)->oweBooks()->with(['user']);
+            $uid = $request->cookie('laravel_bg_h5');
+
             $rental = DB::table('rental')
                 ->join('book', 'book.id', '=', 'rental.b_id')
                 ->where('rental.u_id', $uid)

@@ -17,8 +17,8 @@ class H5Auth
      */
     public function handle($request, Closure $next)
     {
-//        if( !session()->get('login_h5') ) {
-        if ( !cookie('laravel_bg_h5') ) {
+        $uid = $request->cookie('laravel_bg_h5');
+        if ( !$uid ) {
             throw new AuthenticationException('Unauthenticated.');
         }
 
