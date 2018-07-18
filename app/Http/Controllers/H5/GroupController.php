@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\H5;
 
+use App\Models\Activity;
 use App\Models\Group;
 use App\Models\GroupCate;
 use App\Models\UserGroup;
@@ -43,9 +44,16 @@ class GroupController extends ApiController
         return $this->success($data);
     }
 
-    public function getGroupActivities()
+    public function getGroupActivities(GroupRequest $request)
     {
+        $params = $request->all();
+        if ( !$request->has('gid') )
+            return $this->error('gid不存在');
 
+        $gid = $params['gid'];
+        $data = Activity::with(['user', 'group'])->where(['g_id' => $gid])->select()->get();
+
+        return $this->success($data);
     }
 
     public function joinGroup(GroupRequest $request)

@@ -16,8 +16,8 @@
                 </el-table-column>
                 <el-table-column prop="id" label="id" width="50"></el-table-column>
                 <el-table-column prop="name" label="活动名"></el-table-column>
-                <el-table-column prop="user.name" label="组织者"></el-table-column>
-                <!--<el-table-column prop="desc" label="活动描述" width="250"></el-table-column>-->
+                <el-table-column prop="user.name" label="组织者" width="100"></el-table-column>
+                <el-table-column prop="group.name" label="书圈"></el-table-column>
                 <el-table-column prop="start_time" label="开始时间"></el-table-column>
                 <el-table-column prop="end_time" label="结束时间"></el-table-column>
                 <el-table-column label="操作">

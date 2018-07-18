@@ -11,7 +11,7 @@ class ActivityController extends ApiController
     {
         $params = request()->all();
 
-        $model = Activity::with('user');
+        $model = Activity::with(['user', 'group']);
         // filter
 //        if (!empty($params['keyword'])) {
 //            $kw = $params['keyword'];

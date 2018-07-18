@@ -18,4 +18,8 @@ class Activity extends Model
         return $this->belongsTo('App\Models\User', 'u_id');
     }
 
+    public function group() {
+        return $this->belongsTo('App\Models\Group', 'g_id');
+    }
+
 }
