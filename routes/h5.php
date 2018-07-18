@@ -30,6 +30,11 @@ Route::group(['middleware' => ['cross', 'h5Auth'], 'namespace' => 'H5'], functio
         Route::get('/getGroupActivities', 'GroupController@getGroupActivities');
     });
 
+    Route::prefix('activity')->group(function() {
+        Route::get('/joinActivity', 'ActivityController@joinActivity');
+        Route::get('/checkUserActivity', 'ActivityController@checkUserActivity');
+    });
+
     Route::prefix('user')->group(function () {
         Route::get('/userBookInfo', 'UserController@userBookInfo');
     });
