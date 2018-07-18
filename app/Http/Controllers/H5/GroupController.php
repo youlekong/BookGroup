@@ -83,7 +83,7 @@ class GroupController extends ApiController
 
         $condition = array('u_id' => $params['u_id'], 'g_id' => $params['g_id']);
         if ( !UserGroup::where($condition)->first() )
-            return $this->error(true);
+            return $this->error(false);
 
         return $this->success(true);
     }

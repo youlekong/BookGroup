@@ -49,6 +49,10 @@
                             end-placeholder="结束日期">
                     </el-date-picker>
                 </el-form-item>
+                <el-form-item label="书圈" prop="g_name">
+                    <el-input v-model.trim="form.g_name" placeholder="请输入组织者"
+                              auto-complete="off"></el-input>
+                </el-form-item>
                 <el-form-item label="组织者" prop="u_name">
                     <el-input v-model.trim="form.u_name" placeholder="请输入组织者"
                               auto-complete="off"></el-input>
@@ -91,6 +95,7 @@
                     'name': '',
                     'desc': '',
                     'u_name': '',
+                    'g_name': '',
                     'c_id': '',
                     'start_time': '',
                     'end_time': ''
@@ -109,7 +114,8 @@
                     {type: 'name', name: '活动名'},
                     {type: 'desc', name: '活动描述'},
                     {type: 'u_name', name: '组织者'}
-                ]
+                ],
+                cates: []
             }
         },
         watch: {
@@ -150,6 +156,7 @@
                     'name': '',
                     'desc': '',
                     'u_name': '',
+                    'g_name': '',
                     'start_time': '',
                     'end_time': ''
                 };
@@ -161,6 +168,7 @@
             handleEdit(index, row) {
                 this.form = Object.assign({}, row);
                 this.form.u_name = row.user.name;
+                this.form.g_name = row.group.name;
                 this.id = row.id;
 
                 this.type = 1;
@@ -205,6 +213,7 @@
                         'name': this.form.name,
                         'desc': this.form.desc,
                         'u_name': this.form.u_name,
+                        'g_name': this.form.g_name,
                         'start_time': this.form.start_time,
                         'end_time': this.form.end_time
                     };

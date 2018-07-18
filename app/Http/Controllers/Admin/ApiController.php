@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\User;
+use App\Models\Group;
 
 class ApiController extends Controller
 {
@@ -30,6 +31,12 @@ class ApiController extends Controller
     public function getUser($name)
     {
         $model = User::where('name', $name)->select('id')->first();
+        return $model ? $model->toArray() : null;
+    }
+
+    public function getGroup($name) 
+    {
+        $model = Group::where('name', $name)->select('id')->first();
         return $model ? $model->toArray() : null;
     }
 }

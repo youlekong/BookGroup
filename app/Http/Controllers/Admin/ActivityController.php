@@ -50,15 +50,20 @@ class ActivityController extends ApiController
         $uName = $params['u_name'];
         unset($params['u_name']);
         $user = $this->getUser($uName);
-        if ( !$user ) {
+        if ( !$user ) 
             return $this->error('用户名不存在');
-        }
+
+        $gName = $params['g_name'];
+        unset($params['g_name']);
+        $group = $this->getGroup($gName);
+        if (!$group)
+            return $this->error('书圈不存在');
 
         $params['u_id'] = $user['id'];
+        $params['g_id'] = $group['id'];
         $result = Activity::create($params);
-        if (!$result ) {
+        if (!$result ) 
             return $this->error('新增失败');
-        }
 
         return $this->success('新建成功');
     }
@@ -72,11 +77,17 @@ class ActivityController extends ApiController
         $uName = $params['u_name'];
         unset($params['u_name']);
         $user = $this->getUser($uName);
-        if ( !$user ) {
+        if ( !$user ) 
             return $this->error('用户名不存在');
-        }
+        
+        $gName = $params['g_name'];
+        unset($params['g_name']);
+        $group = $this->getGroup($gName);
+        if (!$group)
+            return $this->error('书圈不存在');
 
         $params['u_id'] = $user['id'];
+        $params['g_id'] = $group['id'];
         $result = $book->where(['id' => $id])->update($params);
         if (!$result ) {
             return $this->error('更新失败');

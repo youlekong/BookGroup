@@ -38,7 +38,7 @@ class ActivityController extends ApiController
 
         $condition = array('u_id' => $params['u_id'], 'a_id' => $params['a_id']);
         if ( !UserActivity::where($condition)->first() )
-            return $this->error(true);
+            return $this->error(false);
 
         return $this->success(true);
     }
