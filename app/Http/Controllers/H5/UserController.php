@@ -5,8 +5,10 @@ namespace App\Http\Controllers\H5;
 use App\Models\Group;
 use App\Models\Book;
 use App\Models\Rental;
+use App\Models\User;
 use App\Http\Requests\UserRequest;
 use App\Models\UserGroup;
+use Illuminate\Support\Facades\DB;
 
 class UserController extends ApiController
 {
@@ -31,6 +33,32 @@ class UserController extends ApiController
 
         $data = array('book' => $books, 'rental' => $rental,
             'fRental' => $f_rental, 'sponsorGroup' => $sponsorGroup, 'joinGroup' => $joinGroup);
+        return $this->success($data);
+    }
+
+    public function recommends() 
+    {
+        $book = Db::select('select bc.b_id from book_group.book_comment as bc group by b_id order by b_id desc limit 5;');
+        $user = Db::select('select bg.u_id from book_group.bookGroup as bg group by u_id order by u_id desc limit 5;');
+        $group = Db::select('select ug.g_id from book_group.user_group as ug group by g_id order by g_id desc limit 5;');
+
+
+        $bookData = array();
+        foreach($book as $key => $val) {
+            $bookData[$key] = Book::where('id', $val->b_id)->first();
+        }
+
+        $userData = array();
+        foreach($user as $key => $val) {
+            $userData[$key] = User::where('id', $val->u_id)->first();
+        }
+
+        $groupData = array();
+        foreach($group as $key => $val) {
+            $groupData[$key] = Group::where('id', $val->g_id)->first();
+        }
+
+        $data = array('book' => $bookData, 'user' => $userData, 'group' => $groupData);
         return $this->success($data);
     }
 

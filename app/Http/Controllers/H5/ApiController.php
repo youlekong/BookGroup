@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\H5;
 
 use App\Http\Controllers\Controller;
+use App\Models\Book;
 
 class ApiController extends Controller
 {
@@ -28,4 +29,6 @@ class ApiController extends Controller
         ];
         return $result;
     }
+    
+
 }
