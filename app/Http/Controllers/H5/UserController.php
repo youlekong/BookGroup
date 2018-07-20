@@ -36,11 +36,18 @@ class UserController extends ApiController
         return $this->success($data);
     }
 
-    public function recommends() 
+    public function recommends(UserRequest $request) 
     {
-        $book = Db::select('select bc.b_id from book_group.book_comment as bc group by b_id order by b_id desc limit 5;');
-        $user = Db::select('select bg.u_id from book_group.bookGroup as bg group by u_id order by u_id desc limit 5;');
-        $group = Db::select('select ug.g_id from book_group.user_group as ug group by g_id order by g_id desc limit 5;');
+
+        $uid = $request->cookie('laravel_bg_h5');
+        $books = $this->myRentalBooks($uid);
+        $b_ids = array_column($books, 'b_id');
+
+        $sql = 'select bc.b_id from book_group.book_comment as bc where b_id not in (' . implode(',', $b_ids) . ') group by b_id order by b_id desc limit 5;';
+        $book = Db::select($sql);
+        $sql = 'select bg.u_id from book_group.bookGroup as bg group by u_id order by u_id desc limit 5;';
+        $user = Db::select($sql);
+        $group = Db::select('select ug.g_id from book_group.user_group as ug where u_id <> ' . $uid  .  ' group by g_id order by g_id desc limit 5;');
 
 
         $bookData = array();
@@ -62,5 +69,9 @@ class UserController extends ApiController
         return $this->success($data);
     }
 
+    private function myRentalBooks($uid) 
+    {
+        return Rental::where('u_id', $uid)->select('id', 'b_id')->get()->toArray();
+    }
 
 }
