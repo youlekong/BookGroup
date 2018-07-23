@@ -14,6 +14,10 @@ class Rental extends Model
         'from_id', 'u_id', 'mark', 'b_id', 'start_time', 'end_time'
     ];
 
+
+    const RENTAL_RENTALED = '1';
+    const RENTAL_REPAY = '2';
+
     public function fromUser() {
         return $this->belongsTo('App\Models\User', 'from_id');
     }

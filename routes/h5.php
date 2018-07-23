@@ -43,5 +43,6 @@ Route::group(['middleware' => ['cross', 'h5Auth'], 'namespace' => 'H5'], functio
 
     Route::prefix('rental')->group(function () {
         Route::post('/index', 'RentalController@index');
+        Route::get('/repay', 'RentalController@repay');
     });
 });

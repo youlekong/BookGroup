@@ -4,6 +4,7 @@ namespace App\Http\Controllers\H5;
 
 use App\Models\User;
 use App\Models\Book;
+use App\Models\Rental;
 use App\Http\Requests\BookRequest;
 use Illuminate\Support\Facades\DB;
 
@@ -28,7 +29,7 @@ class BookController extends ApiController
 
             $rental = DB::table('rental')
                 ->join('book', 'book.id', '=', 'rental.b_id')
-                ->where('rental.u_id', $uid)
+                ->where(['rental.u_id' => $uid, 'rental.status' => Rental::RENTAL_RENTALED])
                 ->where('book.s_id', $params['sid'])
                 ->select('book.*', 'rental.from_id')
                 ->get();

@@ -7,6 +7,7 @@ use App\Models\Book;
 use App\Models\Rental;
 use App\Models\User;
 use App\Models\UserInfo;
+use App\Models\Share;
 use App\Http\Requests\UserRequest;
 use App\Models\UserGroup;
 use Illuminate\Support\Facades\DB;
@@ -32,20 +33,28 @@ class UserController extends ApiController
         if ( !$request->has(['uid']) )
             return $this->error('uid不存在');
 
-        $u_id = $params['uid'];
+        $a_rental = [];
+        if ( $request->has(['sid']) ) {
+            // 可借书籍
+            $s_id = $params['sid'];
+            $a_rental = Share::where('id', $s_id)->withCount(['book' => function($query) {
+                $query->where('status', Book::STATUS_RENTALING);
+            }])->get();
+        }
 
+        $u_id = $params['uid'];
         // 我分享的书
         $books = Book::where(['u_id'=> $u_id, 'status' => Book::STATUS_RENTALING])->get();
         // 我借的书
-        $rental = Rental::where('u_id', $u_id)->get();
+        $rental = Rental::where(['u_id' => $u_id, 'status' => Rental::RENTAL_RENTALED])->get();
         // 我借出的书
-        $f_rental = Rental::where('from_id', $u_id)->get();
+        $f_rental = Rental::where(['from_id' => $u_id, 'status' => Rental::RENTAL_RENTALED])->get();
         // 我发起的圈子
         $sponsorGroup = Group::where('u_id', $u_id)->get();
         // 我参加的圈子
         $joinGroup = UserGroup::where('u_id', $u_id)->get();
 
-        $data = array('book' => $books, 'rental' => $rental,
+        $data = array('book' => $books, 'rental' => $rental, 'a_rental' => $a_rental,
             'fRental' => $f_rental, 'sponsorGroup' => $sponsorGroup, 'joinGroup' => $joinGroup);
         return $this->success($data);
     }
@@ -85,7 +94,7 @@ class UserController extends ApiController
 
     private function myRentalBooks($uid) 
     {
-        return Rental::where('u_id', $uid)->select('id', 'b_id')->get()->toArray();
+        return Rental::where(['u_id'=> $uid, 'status' => Rental::RENTAL_RENTALED])->select('id', 'b_id')->get()->toArray();
     }
 
 
