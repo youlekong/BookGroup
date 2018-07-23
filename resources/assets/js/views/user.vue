@@ -3,11 +3,12 @@
         <el-main>
             <table-filter @addRecord="handleAdd"
                           @filter="filter"
-                          layout="input, add, search"></table-filter>
+                          layout="input, search"></table-filter>
 
             <el-table :data="list" stripe style="width: 100%">
                 <el-table-column prop="id" label="id" width="180"></el-table-column>
                 <el-table-column prop="name" label="姓名" width="180"></el-table-column>
+                <el-table-column prop="info.integral" label="积分" width="180"></el-table-column>
                 <el-table-column prop="c_time" label="日期" width="180"></el-table-column>
                 <el-table-column label="操作">
                     <template slot-scope="scope">

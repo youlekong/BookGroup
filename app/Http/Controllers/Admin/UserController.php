@@ -26,7 +26,8 @@ class UserController extends ApiController
                 ->orWhere('name', 'like', "%{$kw}%");
         }
 
-        $userList = $user->select()->paginate($this->pageNum);
+        $userList = User::with(['info'])->select('id', 'name', 'c_time')->paginate($this->pageNum);
+        //$user->select('id', 'name')->paginate($this->pageNum);
         return $this->success($userList);
     }
 

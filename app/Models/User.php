@@ -29,4 +29,8 @@ class User extends Model implements AuthenticatableContract
 //        return $this->belongsToMany('App\Models\Book', 'user_book', 'u_id', 'b_id');
 //    }
 
+    public function info() {
+        return $this->hasOne('App\Models\UserInfo', 'u_id', 'id');//->withPivot('integral');
+    }
+
 }
