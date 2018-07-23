@@ -5,6 +5,9 @@ namespace App\Providers;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\View;
 
+use App\Models\User;
+use App\Observers\UserObserver;
+
 class AppServiceProvider extends ServiceProvider
 {
     /**
@@ -16,6 +19,9 @@ class AppServiceProvider extends ServiceProvider
     {
         //
         View::share('key', 'value');
+
+        // 为 User 模型注册观察者
+        User::observe(UserObserver::class);
     }
 
     /**

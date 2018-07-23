@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\H5;
 
 use App\Models\User;
+use App\Models\UserInfo;
 use App\Http\Requests\UserRequest;
 use App\Handlers\CaptchaHandle;
 use App;
@@ -34,8 +35,10 @@ class SignController extends ApiController
         if (!$this->bHash->check($password, $user['password']))
             return $this->error('密码错误');
 
-//        $this->userSession($user['id']);
         $user_cookie = $this->userCookie($user['id']);
+
+        $integral = UserInfo::updateIntegralByUidAndType($user->id, UserInfo::SIGNIN_INTEGRAL);
+        // $user->integral = $integral;
 
         unset($user['password']);
         return $this->success($user, $user_cookie);
@@ -64,7 +67,6 @@ class SignController extends ApiController
         }
 
         $user = User::where('name', $params['name'])->first();
-//        $this->userSession($user['id']);
         $user_cookie = $this->userCookie($user['id']);
 
         return $this->success($user, $user_cookie);
@@ -88,7 +90,5 @@ class SignController extends ApiController
         return cookie($this->getCookieName(), $uid, 60 * 24 * 7);
     }
 
-//    private function userSession($uid) {
-//        session()->put($this->getName(), $uid);
-//    }
+
 }

@@ -6,12 +6,26 @@ use App\Models\Group;
 use App\Models\Book;
 use App\Models\Rental;
 use App\Models\User;
+use App\Models\UserInfo;
 use App\Http\Requests\UserRequest;
 use App\Models\UserGroup;
 use Illuminate\Support\Facades\DB;
 
 class UserController extends ApiController
 {
+
+    public function userInfo(UserRequest $request) 
+    {
+        $params = $request->all();
+        if ( !$request->has(['uid']) )
+            return $this->error('uid不存在');
+
+        $u_id = $params['uid'];
+        $info = UserInfo::where('u_id', $u_id)->first();
+        
+        return $this->success($info);
+    }
+
     public function userBookInfo(UserRequest $request)
     {
         $params = $request->all();
@@ -73,5 +87,6 @@ class UserController extends ApiController
     {
         return Rental::where('u_id', $uid)->select('id', 'b_id')->get()->toArray();
     }
+
 
 }
