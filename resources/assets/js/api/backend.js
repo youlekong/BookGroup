@@ -49,6 +49,13 @@ export function apiLogout() {
     })
 }
 
+// 检测
+export function apiCheckStatus() {
+    return axios.get(endpoint.checkStatus).then(function(res) {
+        return res.data;
+    })
+}
+
 // index
 export function apiGetSysInfo() {
     return axios.get(endpoint.getSysInfo).then(function (res) {

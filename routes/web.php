@@ -17,6 +17,8 @@ Route::get('/', function () {
 
 Route::post('admin/login', 'Admin\LoginController@login');
 Route::get('admin/logout', 'Admin\LoginController@logout');
+Route::get('admin/checkStatus', 'Admin\LoginController@checkStatus');
+
 
 // 文件上传相关路由
 Route::post('upload/image', 'UploadController@image');

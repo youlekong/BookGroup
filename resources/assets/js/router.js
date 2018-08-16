@@ -2,6 +2,8 @@
 let Vue =  require('vue');
 let VueRouter = require('vue-router');
 
+const backend = require('./api/backend.js');
+
 Vue.use(VueRouter);
 
 const main = require('./views/main.vue').default;
@@ -50,13 +52,20 @@ const router = new VueRouter({
 router.beforeEach( (to, from, next) => {
 
     if (to.name === 'login') {
-        let user = cookie('user');
-        if (user.length > 0) {
-            next({path: '/'});
-        }
-    }
+        backend.apiCheckStatus().then(res => {
+            if (res.msg.status) {
+                next({name: 'index'});
+                return
+            }
 
-    next();
+            next();
+        }).catch(err => {
+            next({name: 'login'});
+        })
+    } else {
+        next();
+    }
+    
 });
 
 module.exports = router;
