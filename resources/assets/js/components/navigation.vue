@@ -1,23 +1,23 @@
 <template>
     <div style="overflow: hidden;">
         <div class="brand" @click="collapsed">书圈管理系统</div>
-        <!--<el-menu style="float:right;" :default-active="activeIndex" class="el-menu-demo" mode="horizontal" @select="handleSelect">-->
-        <!--<el-menu-item index="1">处理中心</el-menu-item>-->
-        <!--<el-submenu index="2">-->
-        <!--<template slot="title">我的工作台</template>-->
-        <!--<el-menu-item index="2-1">退出</el-menu-item>-->
-        <!--<el-menu-item index="2-2">选项2</el-menu-item>-->
-        <!--<el-menu-item index="2-3">选项3</el-menu-item>-->
-        <!--<el-submenu index="2-4">-->
-        <!--<template slot="title">选项4</template>-->
-        <!--<el-menu-item index="2-4-1">选项1</el-menu-item>-->
-        <!--<el-menu-item index="2-4-2">选项2</el-menu-item>-->
-        <!--<el-menu-item index="2-4-3">选项3</el-menu-item>-->
-        <!--</el-submenu>-->
-        <!--</el-submenu>-->
-        <!--<el-menu-item index="3" disabled>消息中心</el-menu-item>-->
-        <!--<el-menu-item index="4"><a href="https://www.ele.me" target="_blank">订单管理</a></el-menu-item>-->
-        <!--</el-menu>-->
+        <el-menu style="float:right;" :default-active="activeIndex" class="el-menu-demo" mode="horizontal" @select="handleSelect">
+        <el-menu-item index="fullScreen">{{fullScreenText}}</el-menu-item>
+        <!-- <el-submenu index="2">
+        <template slot="title">我的工作台</template>
+        <el-menu-item index="2-1">退出</el-menu-item>
+        <el-menu-item index="2-2">选项2</el-menu-item>
+        <el-menu-item index="2-3">选项3</el-menu-item>
+        <el-submenu index="2-4">
+        <template slot="title">选项4</template>
+        <el-menu-item index="2-4-1">选项1</el-menu-item>
+        <el-menu-item index="2-4-2">选项2</el-menu-item>
+        <el-menu-item index="2-4-3">选项3</el-menu-item>
+        </el-submenu>
+        </el-submenu>
+        <el-menu-item index="3" disabled>消息中心</el-menu-item>
+        <el-menu-item index="4"><a href="https://www.ele.me" target="_blank">订单管理</a></el-menu-item> -->
+        </el-menu>
         <div class="user-info">
             <el-dropdown @command="handleCommand">
                 <span class="el-dropdown-link">
@@ -38,6 +38,8 @@
         data() {
             return {
                 isCollapse: false,
+                activeIndex: '1',
+                fullScreenText: '全屏显示',
             };
         },
         computed: {
@@ -57,7 +59,15 @@
         },
         methods: {
             handleSelect(key, keyPath) {
-                console.log(key, keyPath);
+                if (key == "fullScreen") {
+                    if (!this.isFullscreen()) {
+                        this.fullScreenText = '退出全屏';
+                        this.setFullscreen();
+                    } else {
+                        this.fullScreenText = '全屏显示';
+                        this.exitFullscreen();
+                    }
+                }
             },
             collapsed() {
                 this.isCollapse = !this.isCollapse;
@@ -73,6 +83,41 @@
                     });
                 }
             },
+            // 进入全屏
+            setFullscreen(element) {
+                var el = element instanceof HTMLElement ? element : document.documentElement;
+                var rfs = el.requestFullscreen       || 
+                        el.webkitRequestFullscreen || 
+                        el.mozRequestFullScreen    || 
+                        el.msRequestFullscreen;
+                if (rfs) {
+                    rfs.call(el);
+                } else if (window.ActiveXObject) {
+                    var ws = new ActiveXObject("WScript.Shell");
+                    ws && ws.SendKeys("{F11}");
+                }
+            },
+            // 退出全屏
+            exitFullscreen() {
+                var efs = document.exitFullscreen       || 
+                        document.webkitExitFullscreen || 
+                        document.mozCancelFullScreen  || 
+                        document.msExitFullscreen;
+                if (efs) {
+                    efs.call(document);
+                } else if (window.ActiveXObject) {
+                    var ws = new ActiveXObject("WScript.Shell");
+                    ws && ws.SendKeys("{F11}");
+                }
+            },
+            // 判断浏览器是否全屏
+            isFullscreen() {
+                return document.fullscreenElement    ||
+                    document.msFullscreenElement  ||
+                    document.mozFullScreenElement ||
+                    document.webkitFullscreenElement || false;
+            },
+
         }
     }
 </script>
